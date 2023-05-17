@@ -1,8 +1,8 @@
 import React from 'react'
-import './Sobre.css'
 import { Grid, Typography } from '@material-ui/core'
+import './Sobre.css'
 
-function Contato() {
+function Sobre() {
 
     return (
         <>
@@ -17,4 +17,4 @@ function Contato() {
     )
 }
 
-export default Contato
+export default Sobre
