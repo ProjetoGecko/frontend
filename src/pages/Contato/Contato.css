@@ -1,0 +1,27 @@
+#contato {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10vh 0;
+}
+
+.contato-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contato-cards {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+}
+
+.contato-cards > img {
+    width: 65%;
+    border-radius: 50%;
+}
