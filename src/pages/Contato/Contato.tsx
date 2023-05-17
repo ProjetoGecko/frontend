@@ -12,7 +12,7 @@ function Contato() {
                 <Grid item container xs={12}>
                     <Grid item xs={3}>
                         <Box>
-                            <img src="" alt="Foto" />
+                            <img src="https://avatars.githubusercontent.com/u/111209237?v=4" alt="Foto" />
                             <Typography>LinkedIn</Typography>
                             <Typography>GitHub</Typography>
                         </Box>
