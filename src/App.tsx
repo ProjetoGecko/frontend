@@ -6,8 +6,8 @@ import Footer from './components/static/Footer/Footer'
 import Sobre from './pages/Sobre/Sobre'
 import Contato from './pages/Contato/Contato'
 import Login from './pages/Login/Login'
-import './App.css'
 import Cadastrar from './pages/Cadastrar/Cadastrar'
+import './App.css'
 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
           <Route path='/sobre' element={<Sobre />} />
           <Route path='/contato' element={<Contato />} />
           <Route path='/Login' element={<Login />} />
-          <Route path='/Login' element={<Cadastrar />} />
+          <Route path='/Cadastrar' element={<Cadastrar />} />
         </Routes>
         <Footer />
       </BrowserRouter>
