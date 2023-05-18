@@ -1,0 +1,23 @@
+:root {
+    /* Paleta de Cores */
+    --cor1: #F6F4EB;
+    --cor2: #F4F8D4;
+    --cor3: #F3F368;
+    --cor4: #88BB29;
+    --cor5: #55A630;
+    --cor6: #25812D;
+    --cor7: #456747;
+    --cor8: #283E30;
+
+    --background: var(--cor1);
+    --icone: var(--cor6);
+    --fonte-escura: var(--cor8);
+    --fonte-clara: var(--cor1);
+    --fonte-titulo: var(--cor6);
+}
+
+.sobre-nos{
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--fonte-titulo);
+}
