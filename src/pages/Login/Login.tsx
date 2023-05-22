@@ -50,6 +50,8 @@ export default function Login() {
       ...userLogin,
       [e.target.name]: e.target.value
     })
+    
+    console.log(userLogin)
   }
 
   useEffect(() => {
@@ -104,26 +106,25 @@ export default function Login() {
             <Typography component="h1" variant="h5">
               Login
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                id="email"
+                id="usuario"
                 label="Email"
-                name="email"
-                autoComplete="email"
-                autoFocus
+                name="usuario"
+                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               />
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                name="password"
+                name="senha"
                 label="Senha"
                 type="password"
-                id="password"
-                autoComplete="current-password"
+                id="senha"
+                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               />
 
               <Button
