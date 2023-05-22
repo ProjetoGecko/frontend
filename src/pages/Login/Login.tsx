@@ -1,4 +1,8 @@
-﻿import * as React from 'react';
+﻿import React, { ChangeEvent, useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import useLocalStorage from "react-use-localstorage"
+import { login } from "../../services/Service"
+import UserLogin from "../../models/UserLogin"
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -28,14 +32,45 @@ function Copyright(props: any) {
 const defaultTheme = createTheme();
 
 export default function Login() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+  let navigate = useNavigate()
+
+  const [token, setToken] = useLocalStorage('token')
+
+  const [userLogin, setUserLogin] = useState<UserLogin>(
+    {
+      id: 0,
+      usuario: '',
+      senha: '',
+      token: ''
+    }
+  )
+
+  function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+    setUserLogin({
+      ...userLogin,
+      [e.target.name]: e.target.value
+    })
+    
+    console.log(userLogin)
+  }
+
+  useEffect(() => {
+    if (token != '') {
+      navigate('/')
+    }
+  }, [token])
+
+  async function handleSubmit(e: ChangeEvent<HTMLFormElement>) {
+    e.preventDefault()
+
+    try {
+      await login(`/usuarios/logar`, userLogin, setToken)
+
+      alert('Usuário logado com sucesso!')
+    } catch (error) {
+      alert('Dados do usuário inválido. Erro ao logar!')
+    }
+  }
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -71,26 +106,25 @@ export default function Login() {
             <Typography component="h1" variant="h5">
               Login
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                id="email"
+                id="usuario"
                 label="Email"
-                name="email"
-                autoComplete="email"
-                autoFocus
+                name="usuario"
+                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               />
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                name="password"
+                name="senha"
                 label="Senha"
                 type="password"
-                id="password"
-                autoComplete="current-password"
+                id="senha"
+                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               />
 
               <Button
@@ -108,7 +142,7 @@ export default function Login() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/cadastrar" variant="body2">
                     {"Não tem conta? cadastre-se"}
                   </Link>
                 </Grid>

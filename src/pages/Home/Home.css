@@ -1,0 +1,19 @@
+
+.caixahome{
+    background-color: #7ae979;
+}
+
+.titulohome{
+    color: white  !important;
+    font-weight: bold !important;
+}
+
+.botaodohome{
+    border-color: white !important;
+    background-color: #15be4d !important;
+     color: black !important ;
+}
+
+.produtos{
+    background-color: white; 
+}
