@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+:root {
+    --color-branco-0: #faf9f9;
+    --color-neutral-10: #171717;
+    --color-roxo:  #43c937;
+   
+
+}
+
+
+* {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.footer_content {
+
+    display: grid;
+    padding: 3rem 3.5rem;
+    
+}
+
+
+.footer_social_media{
+
+    
+    gap: 2rem;
+    margin-top: 1.5rem;
+
+}
+
+
+.footer_social_media .redes:hover {   
+    opacity: 0.8;
+}
+
+
+
+.input_group {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-branco-0);
+    border-radius: 4px;
+}
+
+.footer_subscribe {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+}
+
+.input_group button {
+    background-color:var(--color-roxo);
+    border: none;
+    
+    padding: 0px 1.25rem;
+    font-size: 1.125rem;
+    height: 100%;
+    border-radius: 0px 4px 4px 0px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.input_group button:hover {
+    opacity: 0.8;
+}
+
+.input_group input {
+    all: unset;
+    padding: 0.75rem;
+    width: 100%;
+}
+
+.copy {
+
+    display: flex;
+    justify-content: center;
+    font-size: 0.9rem;
+    padding: 1.5rem;
+    font-weight: 100;
+}
