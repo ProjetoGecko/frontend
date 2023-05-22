@@ -1,46 +1,70 @@
-import * as React from 'react';
+import React , {useState, useEffect, ChangeEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
+import User from '../../models/User';
+import { cadastroUsuario } from '../../services/Service';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-function Copyright(props: any) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Generation
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
 
 export default function SignUp() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+  const navigate = useNavigate();
+  const [confirmarSenha,setConfirmarSenha] = useState<string>("")
+  const [user, setUser] = useState<User>(
+      {
+          id: 0,
+          nome: '',
+          usuario: '',
+          senha: ''
+      })
+
+  const [userResult, setUserResult] = useState<User>(
+      {
+          id: 0,
+          nome: '',
+          usuario: '',
+          senha: ''
+      })
+
+  useEffect(() => {
+      if (userResult.id != 0) {
+          navigate("/login")
+      }
+  }, [userResult])
+
+
+  function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>){
+      setConfirmarSenha(e.target.value)
+  }
+
+
+  function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+
+      setUser({
+          ...user,
+          [e.target.name]: e.target.value
+      })
+
+  }
+  async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+      e.preventDefault()
+      if(confirmarSenha == user.senha){
+      cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+      alert('Usuario cadastrado com sucesso')
+      }else{
+          alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+      }
+  }
 
   return (
-    <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -51,53 +75,72 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: '#88bb29' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Cadastrar
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+
+          <Box component="form" noValidate onSubmit={onSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  value={user.nome}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                   autoComplete="given-name"
-                  name="firstName"
+                  name="nome"
                   required
                   fullWidth
-                  id="firstName"
+                  id="nome"
                   label="Nome"
                   autoFocus
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  required
                   fullWidth
-                  id="lastName"
-                  label="Sobrenome"
-                  name="lastName"
+                  id="foto"
+                  label="Foto"
+                  name="foto"
                   autoComplete="family-name"
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  value={user.usuario} 
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                   required
                   fullWidth
-                  id="email"
+                  id="usuario"
                   label="Email"
-                  name="email"
+                  name="usuario"
                   autoComplete="email"
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  value={user.senha}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                   required
                   fullWidth
-                  name="password"
+                  name="senha"
                   label="Senha"
                   type="password"
-                  id="password"
+                  id="senha"
+                  autoComplete="new-password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+              <TextField
+                  value={confirmarSenha}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
+                  required
+                  fullWidth
+                  name="senha"
+                  label="Confirmar Senha"
+                  type="password"
+                  id="senha"
                   autoComplete="new-password"
                 />
               </Grid>
@@ -112,21 +155,20 @@ export default function SignUp() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, bgcolor: '#88bb29' }}
+              
             >
               Cadastrar
             </Button>
-            <Grid container justifyContent="flex-end">
+            <Grid p={6} container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link to='/login' className='text-decorator-none'>
                   Já possui uma conta? Faça o login
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
-    </ThemeProvider>
   );
 }
