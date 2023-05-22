@@ -11,21 +11,29 @@ function Footer() {
 
     return (
         <>
-            <Grid container style={{ backgroundColor: "#283E30" }} className="footer_content">
-                <Grid item xs={4} className="footer_contacts" style={{ color: "white" }}>
-                    <img src={Logo} alt="Logo" width="90px" margin-bottom="50px"/>
+            <Grid container className="footer_conteudo">
+                <Grid item xs={3} className="footer_contacts" >
+                    <img src={Logo} alt="Logo" width="90px" margin-bottom="50px" />
                     <p className="Slogan">Na Gecko, cada compra é um passo eckológico que permite que você deixe a sua pegada verde no mundo.</p>
 
-                    <Box display="flex" alignItems="center" justifyContent="left" className="footer_social_media">
-                        <InstagramIcon className="redes" style={{ fontSize: 60, color: "White", height: "45px" }} />
-                        <GitHubIcon className="redes" style={{ fontSize: 60, color: "white", height: "45px" }} />
-                        <LinkedInIcon className="redes" style={{ fontSize: 60, color: "white", height: "45px" }} />
+                    <Box display="flex" alignItems="center" justifyContent="left" className="footer_social_midia">
+                        <InstagramIcon className="redes" />
+                        <GitHubIcon className="redes" />
+                        <LinkedInIcon className="redes" />
                     </Box>
                 </Grid>
-                <Grid item xs={6} className="footer_subscribe" style={{ color: "white" }} >
+                <Grid>
+
+                    <ul>
+                        <li>Endereço</li>
+                        <li>Telefone</li>
+                        <li>Email</li>
+                    </ul>
+                </Grid>
+                <Grid item xs={4} className="footer_Inscrevase" >
                     <h3>Fique por dentro de tudo!</h3>
                     <p>VOCÊ PODE AJUDAR A SALVAR O MUNDO.</p>
-                    <Box className="input_group">
+                    <Box className="caixa_inputs_footer">
                         <input type="email" className="caixaemail" />
                         <button>
                             <i>Inscreva-se</i>
@@ -33,7 +41,7 @@ function Footer() {
                     </Box>
                 </Grid>
             </Grid>
-            <Grid style={{ backgroundColor: "#213428" }} className="copy">
+            <Grid className="direitos">
                 <a href="">
                     <Typography variant="subtitle2" gutterBottom style={{ color: "white" }} align="center">https://brazil.generation.org/</Typography>
                 </a>
