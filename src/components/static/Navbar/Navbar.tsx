@@ -20,7 +20,7 @@ function Navbar() {
                         <Box>
                             <Link to="/">
                                 <Typography className='menunav'>
-                                    Inicio
+                                    Início
                                 </Typography>
                             </Link>
                         </Box>
