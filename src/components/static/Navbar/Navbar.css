@@ -1,13 +1,17 @@
-
-body{
-    background-color: F4F8D4;
-    font-family: cursive;
+.navbar{
+    background-color: var(--cor4)!important;
 }
 
-h5, h6{
+.menunav{
+    color: white;
+    font-weight: bold !important;
+    text-decoration: none !important;
     font-family: 'Montserrat', sans-serif !important;
 }
 
-h6{
-    font-size: 13px !important;
+.logonav{
+    color: white;
+    font-size: 29px !important;
+    font-weight: bolder !important;
+    font-family: 'Montserrat', sans-serif !important;
 }

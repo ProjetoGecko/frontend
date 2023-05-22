@@ -2,44 +2,75 @@ import React from 'react';
 import { AppBar, Toolbar, Typography } from '@material-ui/core'
 import { Box } from '@mui/material'
 import './Navbar.css'
+import { Link } from 'react-router-dom';
 
 
 function Navbar() {
     return (
         <>
-            <AppBar position="static">
-                <Toolbar variant="dense">
-                    <Box className='logo'>
-                        <Typography variant="h5">
+            <AppBar className='navbar' position="static">
+                <Toolbar>
+                    <Box mx={4}>
+                        <Typography className='logonav'>
                             Gecko
                         </Typography>
                     </Box>
 
                     <Box display="flex" justifyContent="start">
-                        <Box mx={1} className='nav'>
-                            <Typography variant="h6">
-                                Inicio
+                        <Box>
+                            <Link to="home">
+                                <Typography className='menunav'>
+                                    Inicio
+                                </Typography>
+                            </Link>
+                        </Box>
+                        <Box mx={1}>
+                            <Typography className='menunav'>
+                                /
                             </Typography>
                         </Box>
-                        <Box mx={1} className='nav'>
-                            <Typography variant="h6">
-                                Sobre
+                        <Box>
+                            <Link to="sobre">
+                                <Typography className='menunav'>
+                                    Sobre
+                                </Typography>
+                            </Link>
+                        </Box>
+                        <Box mx={1}>
+                            <Typography className='menunav'>
+                                /
                             </Typography>
                         </Box>
-                        <Box mx={1} className='nav'>
-                            <Typography variant="h6">
-                                Produtos
+                        <Box>
+                            <Link to="produtos">
+                                <Typography className='menunav'>
+                                    Produtos
+                                </Typography>
+                            </Link>
+                        </Box>
+                        <Box mx={1}>
+                            <Typography className='menunav'>
+                                /
                             </Typography>
                         </Box>
-                        <Box mx={1} className='nav'>
-                            <Typography variant="h6">
-                                Contato
+                        <Box>
+                            <Link to="contato">
+                                <Typography className='menunav'>
+                                    Contato
+                                </Typography>
+                            </Link>
+                        </Box>
+                        <Box mx={1}>
+                            <Typography className='menunav'>
+                                /
                             </Typography>
                         </Box>
-                        <Box mx={1} className='nav'>
-                            <Typography variant="h6">
-                                Meu Carrinho
-                            </Typography>
+                        <Box>
+                            <Link to="carrinho">
+                                <Typography className='menunav'>
+                                    Meu Carrinho
+                                </Typography>
+                            </Link>
                         </Box>
                     </Box>
 
