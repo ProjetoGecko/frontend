@@ -18,7 +18,7 @@ function Navbar() {
 
                     <Box display="flex" justifyContent="start">
                         <Box>
-                            <Link to="home">
+                            <Link to="/">
                                 <Typography className='menunav'>
                                     Inicio
                                 </Typography>
