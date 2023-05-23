@@ -14,7 +14,7 @@ function Footer() {
             <Grid container className="footer_conteudo">
                 <Grid item xs={3} className="footer_contacts" >
                     <img src={Logo} alt="Logo" width="90px" margin-bottom="50px" />
-                    <p className="Slogan">Na Gecko, cada compra é um passo eckológico que permite que você deixe a sua pegada verde no mundo.</p>
+                    <p className="Slogan">Na Gecko, cada compra é um passo eckológico com o qual você deixa a sua pegada verde no mundo.</p>
 
                     <Box display="flex" alignItems="center" justifyContent="left" className="footer_social_midia">
                         <InstagramIcon className="redes" />
@@ -24,16 +24,16 @@ function Footer() {
                 </Grid>
                 <Grid>
 
-                    <ul>
+                    <ul className="lista_footer">
                         <li>Endereço</li>
                         <li>Telefone</li>
-                        <li>Email</li>
+                        <li>E-mail</li>
                     </ul>
                 </Grid>
                 <Grid item xs={4} className="footer_Inscrevase" >
                     <h3>Fique por dentro de tudo!</h3>
                     <p>VOCÊ PODE AJUDAR A SALVAR O MUNDO.</p>
-                    <Box className="caixa_inputs_footer">
+                    <Box className="caixa_imputs_footer" mb={5}>
                         <input type="email" className="caixaemail" />
                         <button>
                             <i>Inscreva-se</i>
