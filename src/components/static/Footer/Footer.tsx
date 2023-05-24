@@ -6,6 +6,9 @@ import { Typography, Grid } from '@material-ui/core';
 import { Box } from '@mui/material';
 import './Footer.css'
 import Logo from '../../../images/GeckoLogo.png';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
+import EmailIcon from '@mui/icons-material/Email';
 
 function Footer() {
 
@@ -25,16 +28,17 @@ function Footer() {
                 <Grid>
 
                     <ul className="lista_footer">
-                        <li>Endereço</li>
-                        <li>Telefone</li>
-                        <li>E-mail</li>
+                    <li><EmailIcon className="icones"/>:E-mail</li>
+                    <li><LocalPhoneIcon className="icones"/>:Telefone</li>
+                    <li><QuestionAnswerIcon className="icones"/>:Formulário de contato</li>
+                    
                     </ul>
                 </Grid>
                 <Grid item xs={4} className="footer_Inscrevase" >
                     <h3>Fique por dentro de tudo!</h3>
                     <p>VOCÊ PODE AJUDAR A SALVAR O MUNDO.</p>
                     <Box className="caixa_imputs_footer" mb={5}>
-                        <input type="email" className="caixaemail" />
+                        <input type="email" className="caixaemail"  placeholder="insira seu e-mail"/>
                         <button>
                             <i>Inscreva-se</i>
                         </button>

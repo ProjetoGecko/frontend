@@ -117,5 +117,26 @@
 .lista_footer {
     list-style-type: none;
     color: #F6F4EB;
+    display: flex;
+    flex-direction: column;
   }
+  
+  .lista_footer li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px; /* Espaçamento vertical entre os ícones e o texto */
+    
+  }
+  
+  .lista_footer li svg {
+    margin-right: 2px; /* Espaçamento horizontal entre o ícone e o texto */
+  }
+  
+  
+
+.icones{
+    font-size: 30px !important;
+    color: White !important;
+
+}
   
