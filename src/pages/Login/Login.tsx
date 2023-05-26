@@ -12,61 +12,9 @@ import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
-import { makeStyles } from "@material-ui/core/styles"
 import './Login.css'
-import { ClassNames } from "@emotion/react"
 
 export default function Login() {
-  const useStyles = makeStyles({
-    root: {
-      // input label when focused
-      "& label.Mui-focused": {
-        color: "#25812D"
-      },
-      // focused color for input with variant='outlined'
-      "& .MuiOutlinedInput-root": {
-        "&.Mui-focused fieldset": {
-          borderColor: "#25812D"
-        },
-        "&:hover fieldset": {
-          borderColor: "#25812D"
-        }
-      },
-      "&.MuiButton-root": {
-        backgroundColor: '#25812D',
-        "&.MuiButton-contained": {
-          color: "#F6F4EB"
-        },
-        "&:active": {
-          backgroundColor: '#1f6d26'
-        },
-        "&:hover": {
-          backgroundColor: '#1f6d26'
-        }
-      },
-      "&.MuiLink-root": {
-        textDecoration: 'none',
-        "&:link": {
-          color: '#1f6d26'
-        },
-        "&:visited": {
-          color: '#1f6d26'
-        },
-        "&:hover": {
-          color: '#283E30'
-        },
-        "&:active": {
-          color: '#283E30'
-        }
-      },
-      "&.MuiTypography-root": {
-        color: '#1f6d26'
-      }
-    }
-  })
-
-  const classes = useStyles()
-
   let navigate = useNavigate()
 
   const [token, setToken] = useLocalStorage('token')
@@ -122,8 +70,7 @@ export default function Login() {
         }}
       />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square
-        sx={{ 
-          backgroundColor: '#F4F8D4',
+        sx={{
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center'
@@ -140,12 +87,11 @@ export default function Login() {
           <Avatar sx={{ m: 1, bgcolor: '#25812D' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5" className={classes.root}>
+          <Typography component="h1" variant="h5">
             Login
           </Typography>
           <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
             <TextField
-               className={classes.root}
               margin="normal"
               required
               fullWidth
@@ -155,7 +101,6 @@ export default function Login() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
             />
             <TextField
-               className={classes.root}
               margin="normal"
               required
               fullWidth
@@ -167,7 +112,6 @@ export default function Login() {
             />
 
             <Button
-               className={classes.root}
               type="submit"
               fullWidth
               variant="contained"
@@ -177,19 +121,19 @@ export default function Login() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2" className={classes.root}>
+                <Link href="#" variant="body2">
                   Esqueceu sua senha?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/cadastrar" variant="body2" className={classes.root}>
+                <Link href="/cadastrar" variant="body2">
                   Não tem conta? Cadastre-se
                 </Link>
               </Grid>
             </Grid>
-            <Typography variant="body2" align="center" sx={{ mt: 5 }} className={classes.root}>
+            <Typography variant="body2" align="center" sx={{ mt: 5 }}>
               {'Copyright © '}
-              <Link href="https://www.generation.org/" className={classes.root}>
+              <Link href="https://www.generation.org/">
                 Generation
               </Link>{' '}
               {new Date().getFullYear()}

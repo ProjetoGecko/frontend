@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormControlLabel, FormLabel, FormHelperText, Radio, RadioGroup, Box } from "@material-ui/core";
+import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormControlLabel, FormLabel, FormHelperText, Radio, RadioGroup, Box } from "@mui/material";
 import Produto from '../../../models/Produto'
 import Categoria from '../../../models/Categoria'
 import { busca, cadastro } from '../../../services/Service';
@@ -108,10 +108,10 @@ function CadastrarProduto() {
             <Container maxWidth="sm" className="principal">
                 <form onSubmit={onSubmit}>
                     <Typography variant="h4" color="textSecondary" component="h1" align="center" >Formulário de cadastro Produto</Typography>
-                    <TextField className="input1" value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="nome do produto" variant="outlined" name="nome" margin="normal" fullWidth />
-                    <TextField className="input1" value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
-                    <TextField className="input1" value={produto.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="preco" variant="outlined" name="preco" margin="normal" fullWidth />
-                    <TextField className="input1" value={produto.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="foto" variant="outlined" name="foto" margin="normal" fullWidth />
+                    <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="nome do produto" variant="outlined" name="nome" margin="normal" fullWidth />
+                    <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
+                    <TextField value={produto.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="preco" variant="outlined" name="preco" margin="normal" fullWidth />
+                    <TextField value={produto.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="foto" variant="outlined" name="foto" margin="normal" fullWidth />
                     <FormControl>
                         <FormLabel id="demo-row-radio-buttons-group-label">Estado</FormLabel>
                         <RadioGroup

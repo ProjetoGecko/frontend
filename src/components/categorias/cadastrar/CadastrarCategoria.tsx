@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
-import { Container, Typography, TextField, Button } from "@material-ui/core"
+import { Container, Typography, TextField, Button } from "@mui/material"
 import { useNavigate, useParams } from 'react-router-dom'
 import Categoria from '../../../models/Categoria'
 import { busca, cadastro} from '../../../services/Service'
