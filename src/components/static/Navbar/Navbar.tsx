@@ -30,7 +30,7 @@ function Navbar() {
                             </Typography>
                         </Box>
                         <Box>
-                            <Link to="sobre">
+                            <Link to="/sobre">
                                 <Typography className='menunav'>
                                     Sobre
                                 </Typography>
@@ -42,7 +42,7 @@ function Navbar() {
                             </Typography>
                         </Box>
                         <Box>
-                            <Link to="produtos">
+                            <Link to="/listar_produtos">
                                 <Typography className='menunav'>
                                     Produtos
                                 </Typography>
@@ -54,7 +54,7 @@ function Navbar() {
                             </Typography>
                         </Box>
                         <Box>
-                            <Link to="contato">
+                            <Link to="/contato">
                                 <Typography className='menunav'>
                                     Contato
                                 </Typography>
@@ -66,7 +66,7 @@ function Navbar() {
                             </Typography>
                         </Box>
                         <Box>
-                            <Link to="carrinho">
+                            <Link to="#">
                                 <Typography className='menunav'>
                                     Meu Carrinho
                                 </Typography>

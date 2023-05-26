@@ -76,12 +76,10 @@ function CadastrarProduto() {
             [e.target.name]: e.target.value,
             categoria: categoria
         })
-        console.log("Produto:", produto)
     }
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        console.log('produto' + JSON.stringify(produto))
 
         if (id !== undefined) {
             // await put(`/produtos`, produto, setProduto, {
@@ -89,7 +87,7 @@ function CadastrarProduto() {
             //         'Authorization': token
             //     }
             // })
-            alert('Produto atualizado com sucesso')
+            // alert('Produto atualizado com sucesso')
         } else {
             await cadastro(`/produtos`, produto, setProduto, {
                 headers: {
@@ -105,7 +103,6 @@ function CadastrarProduto() {
         navigate('/home')
     }
 
-
     return (
         <>
             <Container maxWidth="sm" className="principal">
@@ -118,7 +115,10 @@ function CadastrarProduto() {
                     <FormControl>
                         <FormLabel id="demo-row-radio-buttons-group-label">Estado</FormLabel>
                         <RadioGroup
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)}
+                            onChange={(e) => setProduto({
+                                ...produto,
+                                estado: +e.target.value
+                            })}
                             id="estado"
                             row
                             aria-labelledby="demo-row-radio-buttons-group-label"
@@ -132,7 +132,10 @@ function CadastrarProduto() {
                         <FormControl>
                             <FormLabel id="demo-row-radio-buttons-group-label">Reciclavél</FormLabel>
                             <RadioGroup
-                                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)}
+                                onChange={(e) => setProduto({
+                                    ...produto,
+                                    reciclavel: +e.target.value
+                                })}
                                 id="reciclavel"
                                 row
                                 aria-labelledby="demo-row-radio-buttons-group-label"
