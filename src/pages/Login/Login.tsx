@@ -13,6 +13,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { makeStyles } from "@material-ui/core/styles"
+import './Login.css'
 
 export default function Login() {
   const useStyles = makeStyles({
@@ -133,6 +134,7 @@ export default function Login() {
             flexDirection: 'column',
             alignItems: 'center'
           }}
+          className="main-login"
         >
           <Avatar sx={{ m: 1, bgcolor: '#25812D' }}>
             <LockOutlinedIcon />

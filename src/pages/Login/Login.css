@@ -15,3 +15,8 @@
     --fonte-clara: var(--cor1);
     --fonte-titulo: var(--cor6);
 }
+
+.main-login{
+    padding: 1em !important;
+    margin: 1em !important;
+}
