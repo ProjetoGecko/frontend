@@ -7,6 +7,10 @@ import Sobre from './pages/Sobre/Sobre'
 import Contato from './pages/Contato/Contato'
 import Login from './pages/Login/Login'
 import Cadastrar from './pages/Cadastrar/Cadastrar'
+import CadastrarProduto from './components/produtos/cadastrar/CadastrarProduto'
+import CadastrarCategoria from './components/categorias/cadastrar/CadastrarCategoria'
+import ListarProdutos from './components/produtos/listar/ListarProdutos'
+import ListarCategorias from './components/categorias/listar/ListarCategorias'
 import './App.css'
 
 
@@ -21,6 +25,10 @@ function App() {
           <Route path='/sobre' element={<><Sobre /><Contato /></>} />
           <Route path='/Login' element={<Login />} />
           <Route path='/Cadastrar' element={<Cadastrar />} />
+          <Route path='/Cadastrar_produto' element={<CadastrarProduto />} />
+          <Route path='/Cadastrar_Categoria' element={<CadastrarCategoria />} />
+          <Route path='/Listar_produtos' element={<ListarProdutos />} />
+          <Route path='/Listar_Categorias' element={<ListarCategorias />} />
         </Routes>
         <Footer />
       </BrowserRouter>
