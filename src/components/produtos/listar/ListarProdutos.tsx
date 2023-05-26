@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react"
 import Produto from '../../../models/Produto'
 import useLocalStorage from "react-use-localstorage"
-import { Card, CardHeader, CardMedia, CardContent, Typography, Divider, Grid, Button } from "@mui/material"
+import { Card, CardHeader, CardMedia, CardContent, Typography, Divider, Grid, Button, Box } from "@mui/material"
 import { busca } from "../../../services/Service"
 import { Link } from "react-router-dom"
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 function ListarProdutos() {
     const [produtos, setProdutos] = useState<Produto[]>([])
@@ -26,6 +27,13 @@ function ListarProdutos() {
         getProdutos()
     }, [produtos.length])
 
+    function truncateString(str: string, num: number) {
+        if (str.length <= num) {
+            return str
+        }
+        return str.slice(0, num) + '...'
+    }
+
     return (
         <>
             <Link to="/cadastrar_produto">
@@ -36,26 +44,34 @@ function ListarProdutos() {
                 {
                     produtos.map(produto => (
                         <Grid item xs={12} sm={6} md={4} lg={3} xl={2.4} display='flex' justifyContent='center' alignItems='center' marginBottom={8}>
-                            <Card sx={{ width: 300, height: 550 }}>
+                            <Card sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: 300, height: 550 }}>
                                 <CardHeader
-                                    title={produto.nome}
+                                    title={truncateString(produto.nome, 20)}
                                     subheader={produto.usuario?.nome + " - " + produto.categoria?.nome}
                                 />
                                 <CardMedia
                                     component="img"
-                                    height="194"
+                                    height="200"
                                     image={produto.foto}
-                                    alt="Paella dish"
                                 />
                                 <CardContent>
-                                    <Typography variant="body2" color="text.secondary">
-                                        {produto.descricao}
+                                    <Box display='flex' justifyContent='space-between' alignItems='center'>
+                                        <Typography variant="h6" color="text.secondary">{"R$" + produto.preco.toFixed(2)}</Typography>
+                                        <Box  display='flex' alignItems='center' gap='10%'>
+                                            {produto.curtidas !== null ? produto.curtidas : "0"}
+                                            <FavoriteIcon />
+                                        </Box>
+                                    </Box>
+                                    <br />
+                                    <Typography variant="body2" color="text.secondary" height='10vh'>
+                                        {truncateString(produto.descricao, 150)}
                                     </Typography>
-                                    <Divider />
-                                    <Typography variant="body2" color="text.secondary">{"R$" + produto.preco.toFixed(2)}</Typography>
-                                    <Typography variant="body2" color="text.secondary">{"Estado: " + (+produto.estado == 1 ? "Novo" : "Usado")}</Typography>
-                                    <Typography variant="body2" color="text.secondary">{"Reciclável: " + (+produto.reciclavel == 1 ? "Sim" : "Não")}</Typography>
-                                    <Typography variant="body2" color="text.secondary">{"Curtidas: " + produto.curtidas}</Typography>
+                                    <br />
+                                    <Box display='flex' justifyContent='space-around' alignItems='center' width='100%'>
+                                        <Typography variant="body2" color="text.secondary">{+produto.estado == 1 ? "Novo" : "Usado"}</Typography>
+                                        <hr />
+                                        <Typography variant="body2" color="text.secondary">{+produto.reciclavel == 1 ? "Reciclável" : "Não reciclável"}</Typography>
+                                    </Box>
                                 </CardContent>
                             </Card>
                         </Grid>
