@@ -39,9 +39,6 @@ function ListarProdutos() {
             <Link to="/cadastrar_produto">
                 <Button variant="contained">Cadastrar Produto</Button>
             </Link>
-            <Link to="/cadastrar_categoria">
-                <Button variant="contained">Cadastrar Categoria</Button>
-            </Link>
 
             <Grid container display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                 {
