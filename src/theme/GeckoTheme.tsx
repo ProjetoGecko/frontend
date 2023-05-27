@@ -17,9 +17,10 @@ export const geckoTheme = createTheme({
         },
         text: {
             primary: '#283E30',
+            secondary: '#F6F4EB',
         },
     },
     typography: {
-        fontFamily: 'Inter',
+        fontFamily: 'Poppins',
     },
 })

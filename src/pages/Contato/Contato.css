@@ -22,11 +22,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10vh 20vw;
-}
-
-.contato-titulo {
-
+    padding-bottom: 10vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    gap: 10vh;
 }
 
 .contato-container {
@@ -45,6 +44,8 @@
 }
 
 .contato-icon {
+    font-size: 40px !important;
+    color: #356f3a;
 }
 
 .contato-cards > img {

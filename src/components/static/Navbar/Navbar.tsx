@@ -15,7 +15,6 @@ function Navbar() {
                             Gecko
                         </Typography>
                     </Box>
-
                     <Box display="flex" justifyContent="start">
                         <Box>
                             <Link to="/">
@@ -73,10 +72,8 @@ function Navbar() {
                             </Link>
                         </Box>
                     </Box>
-
                 </Toolbar>
             </AppBar>
-
         </>
     )
 }
