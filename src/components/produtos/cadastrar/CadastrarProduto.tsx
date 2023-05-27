@@ -34,7 +34,7 @@ function CadastrarProduto() {
         descricao: "",
         preco: 0,
         estado: 0,
-        reciclavel: 0,
+        reciclavel: 1,
         foto: "",
         curtidas: 0,
         categoria: null
@@ -49,7 +49,7 @@ function CadastrarProduto() {
 
     useEffect(() => {
         getCategorias()
-        
+
         if (id != undefined) {
             findByIdProduto(id)
         }
@@ -113,13 +113,13 @@ function CadastrarProduto() {
 
     return (
         <>
-            <Grid container display='flex' justifyContent='center' alignItems='center' margin={5} spacing={6}>
-                <Grid item xs={6}>
+            <Grid container display='flex' justifyContent='space-evenly' alignItems='center' marginY={10}>
+                <Grid item xs={4}>
                     <form onSubmit={onSubmit}>
-                        <Typography variant="h4" color="textSecondary" component="h1" align="center" mb={2}>Novo anúncio</Typography>
+                        <Typography variant="h4" color="secondary" component="h1" align="center" mb={2}>Novo anúncio</Typography>
                         <TextField onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="Nome do produto" variant="outlined" name="nome" margin="normal" fullWidth />
                         <TextField onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="Descrição" variant="outlined" name="descricao" margin="normal" fullWidth />
-                        <TextField onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="Preço" variant="outlined" name="preco" margin="normal" fullWidth />
+                        <TextField onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="Preço" variant="outlined" name="preco" margin="normal" fullWidth type='number' />
                         <TextField onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="Link para a foto" variant="outlined" name="foto" margin="normal" fullWidth />
                         <Box display='flex' justifyContent='space-evenly' paddingTop='5%'>
                             <FormControl>
@@ -185,43 +185,49 @@ function CadastrarProduto() {
                         </Button>
                     </form>
                 </Grid>
-                <Grid item xs={6} display='flex' justifyContent='center'>
-                    <Card sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: 300, height: 550 }}>
-                        <CardHeader
-                            title={
-                                produto.nome !== '' ? truncateString(produto.nome, 20) : "Nome"
-                            }
-                            subheader={produto.usuario?.nome + " - " + (produto.categoria?.nome !== '' ? produto.categoria?.nome : "Categoria")}
-                        />
-                        <CardMedia
-                            component="img"
-                            height="200"
-                            image={produto.foto}
-                        />
-                        <CardContent>
-                            <Box display='flex' justifyContent='space-between' alignItems='center'>
-                                <Typography variant="h6" color="text.secondary">{
-                                    produto.preco !== 0 ? ("R$ " + (+produto.preco).toFixed(2).toString().replace('.', ',')) : "R$ 0.00"
-                                }</Typography>
-                                <Box display='flex' alignItems='center' gap='10%'>
-                                    {produto.curtidas !== null ? produto.curtidas : "0"}
-                                    <FavoriteIcon />
-                                </Box>
+                <Grid item xs={5} display='flex' justifyContent='center' sx={{
+                    width: '100%',
+                    backgroundImage: 'url(https://img.lovepik.com/58pic/32/52/01/158PIC258PICCck69k6b7992d_PIC2018.png)',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: '100%',
+                    backgroundPosition: '0.5vw',
+                }}>
+                <Card sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: 300, height: 550 }}>
+                    <CardHeader
+                        title={
+                            produto.nome !== '' ? truncateString(produto.nome, 20) : "Nome"
+                        }
+                        subheader={produto.usuario?.nome + " - " + (produto.categoria?.nome !== '' ? produto.categoria?.nome : "Categoria")}
+                    />
+                    <CardMedia
+                        component="img"
+                        height="200"
+                        image={produto.foto}
+                    />
+                    <CardContent>
+                        <Box display='flex' justifyContent='space-between' alignItems='center'>
+                            <Typography variant="h6" color="text.secondary">{
+                                produto.preco !== 0 ? ("R$ " + (+produto.preco).toFixed(2).toString().replace('.', ',')) : "R$ 0.00"
+                            }</Typography>
+                            <Box display='flex' alignItems='center' gap='10%'>
+                                {produto.curtidas !== null ? produto.curtidas : "0"}
+                                <FavoriteIcon />
                             </Box>
-                            <br />
-                            <Typography variant="body2" color="text.secondary" height='10vh'>
-                                {produto.descricao !== '' ? truncateString(produto.descricao, 150) : "Descrição"}
-                            </Typography>
-                            <br />
-                            <Box display='flex' justifyContent='space-around' alignItems='center' width='100%'>
-                                <Typography variant="body2" color="text.secondary">{+produto.estado == 1 ? "Novo" : "Usado"}</Typography>
-                                <hr />
-                                <Typography variant="body2" color="text.secondary">{+produto.reciclavel == 1 ? "Reciclável" : "Não reciclável"}</Typography>
-                            </Box>
-                        </CardContent>
-                    </Card>
-                </Grid>
+                        </Box>
+                        <br />
+                        <Typography variant="body2" color="text.secondary" height='10vh'>
+                            {produto.descricao !== '' ? truncateString(produto.descricao, 150) : "Descrição"}
+                        </Typography>
+                        <br />
+                        <Box display='flex' justifyContent='space-around' alignItems='center' width='100%'>
+                            <Typography variant="body2" color="text.secondary">{+produto.estado == 1 ? "Novo" : "Usado"}</Typography>
+                            <hr />
+                            <Typography variant="body2" color="text.secondary">{+produto.reciclavel == 1 ? "Reciclável" : "Não reciclável"}</Typography>
+                        </Box>
+                    </CardContent>
+                </Card>
             </Grid>
+        </Grid >
         </>
     )
 }

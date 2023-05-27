@@ -1,8 +1,8 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
-import { Container, Typography, TextField, Button } from "@mui/material"
+import { Container, Typography, TextField, Button, Grid } from "@mui/material"
 import { useNavigate, useParams } from 'react-router-dom'
 import Categoria from '../../../models/Categoria'
-import { busca, cadastro} from '../../../services/Service'
+import { busca, cadastro } from '../../../services/Service'
 import useLocalStorage from 'react-use-localstorage'
 
 function CadastroCategoria() {
@@ -82,16 +82,19 @@ function CadastroCategoria() {
     }
 
     return (
-        <Container maxWidth="sm" className="topo">
-            <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Cadastrar Categoria</Typography>
-                <TextField value={categoria.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="nome" label="Nome" variant="outlined" name="nome" margin="normal" fullWidth />
-                <TextField value={categoria.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="descricao" label="Descrição" variant="outlined" name="descricao" margin="normal" fullWidth />
-                <Button type="submit" variant="contained" color="primary">
-                    Finalizar
-                </Button>
-            </form>
-        </Container>
+        <Grid container minHeight='60vh' display='flex' justifyContent='center' alignItems='center'>
+            <Grid item xs={4}>
+                <form onSubmit={onSubmit}>
+                    <Typography gutterBottom variant="h3" color="textSecondary" component="h1" align="center" >Cadastrar Categoria</Typography>
+                    <TextField value={categoria.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="nome" label="Nome" variant="outlined" name="nome" margin="normal" fullWidth />
+                    <TextField value={categoria.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="descricao" label="Descrição" variant="outlined" name="descricao" margin="normal" fullWidth />
+                    <Button sx={{ marginTop: '16px' }} type="submit" variant="contained" color="primary" fullWidth>
+                        Cadastrar
+                    </Button>
+                </form>
+            </Grid>
+        </Grid>
+
     )
 }
 

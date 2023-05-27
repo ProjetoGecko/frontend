@@ -25,6 +25,7 @@ function ListarProdutos() {
 
     useEffect(() => {
         getProdutos()
+        
     }, [produtos.length])
 
     function truncateString(str: string, num: number) {
@@ -44,14 +45,14 @@ function ListarProdutos() {
                 {
                     produtos.map(produto => (
                         <Grid item xs={12} sm={6} md={4} lg={3} xl={2.4} display='flex' justifyContent='center' alignItems='center' marginBottom={8}>
-                            <Card sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: 300, height: 550 }}>
+                            <Card sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: 300, height: 600 }}>
                                 <CardHeader
                                     title={truncateString(produto.nome, 20)}
                                     subheader={produto.usuario?.nome + " - " + produto.categoria?.nome}
                                 />
                                 <CardMedia
                                     component="img"
-                                    height="200"
+                                    sx={{ width: 270, margin: 'auto', borderRadius: '10px' }}
                                     image={produto.foto}
                                 />
                                 <CardContent>
@@ -64,7 +65,7 @@ function ListarProdutos() {
                                     </Box>
                                     <br />
                                     <Typography variant="body2" color="text.secondary" height='10vh'>
-                                        {truncateString(produto.descricao, 150)}
+                                        {truncateString(produto.descricao, 160)}
                                     </Typography>
                                     <br />
                                     <Box display='flex' justifyContent='space-around' alignItems='center' width='100%'>

@@ -15,7 +15,7 @@ function Home() {
             <Typography variant="body1" gutterBottom align="justify" color="secondary">Somos uma e-commerce sustentável na qual usuários podem comprar e vender produtos novos, usados e recicláveis. Este projeto foi idealizado a partir do 12º Objetivo de Desenvolvimento Sustentável da ONU, que aborda o consumo e a produção responsáveis. Escolhemos o lagarto Gecko como representante deste tema devido ao fato do réptil conseguir sobreviver em locais inóspitos, apesar de estar ameaçado de extinção. Com isso, esperamos realizar um trabalho de conscientização e incentivar práticas comerciais que contribuem para um crescimento ecológico, a fim de preservar o nosso Planeta Terra.</Typography>
           </Box>
           <Box display="flex" justifyContent="center" paddingTop={2}>
-            <Link to='/produtos'>
+            <Link to='/listar_produtos'>
               <Button variant="outlined" className="botaodohome">Ver Produtos</Button>
             </Link>
           </Box>
