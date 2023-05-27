@@ -5,7 +5,7 @@
     --cor3: #F3F368;
     --cor4: #88BB29;
     --cor5: #55A630;
-    --cor6: #25812D;
+    --cor6: #356f3a;
     --cor7: #456747;
     --cor8: #283E30;
 
@@ -26,18 +26,13 @@
 }
 
 .contato-titulo {
-    font-size: 4rem;
-    font-weight: 700;
-    color: var(--fonte-titulo);
+
 }
 
 .contato-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    font-size: 1.5rem;
-    color: var(--fonte-escura);
 }
 
 .contato-cards {
@@ -50,7 +45,6 @@
 }
 
 .contato-icon {
-    color: var(--icone);
 }
 
 .contato-cards > img {
