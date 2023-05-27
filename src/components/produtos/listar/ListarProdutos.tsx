@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import Produto from '../../../models/Produto'
 import useLocalStorage from "react-use-localstorage"
-import { Card, CardHeader, CardMedia, CardContent, Typography,  Grid, Button, Box } from "@mui/material"
+import { Card, CardHeader, CardMedia, CardContent, Typography, Grid, Button, Box } from "@mui/material"
 import { busca } from "../../../services/Service"
 import { Link } from "react-router-dom"
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -25,8 +25,9 @@ function ListarProdutos() {
 
     useEffect(() => {
         getProdutos()
-        
     }, [produtos.length])
+
+    produtos.sort((a,b) => b.id - a.id)
 
     function truncateString(str: string, num: number) {
         if (str.length <= num) {
@@ -58,7 +59,7 @@ function ListarProdutos() {
                                 <CardContent>
                                     <Box display='flex' justifyContent='space-between' alignItems='center'>
                                         <Typography variant="h6" color="text.secondary">{"R$ " + produto.preco.toFixed(2).toString().replace('.', ',')}</Typography>
-                                        <Box  display='flex' alignItems='center' gap='10%'>
+                                        <Box display='flex' alignItems='center' gap='10%'>
                                             {produto.curtidas !== null ? produto.curtidas : "0"}
                                             <FavoriteIcon />
                                         </Box>
