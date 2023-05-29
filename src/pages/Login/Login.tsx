@@ -12,16 +12,15 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import "./Login.css";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { addId, addToken } from '../../store/token/Actions'
 import User from "../../models/User";
-
 
 export default function Login() {
   let navigate = useNavigate();
 
   const dispatch = useDispatch();
-  
+
   const [userLogin, setUserLogin] = useState<UserLogin>({
     usuario: "",
     senha: "",
@@ -36,18 +35,15 @@ export default function Login() {
     token: ''
   });
 
-
   function updatedModel(e: ChangeEvent<HTMLInputElement>) {
     setUserLogin({
       ...userLogin,
       [e.target.name]: e.target.value,
     });
-
-    console.log(userLogin);
   }
 
   useEffect(() => {
-    if ( user.token != "") {
+    if (user.token != "") {
       dispatch(addToken(user.token))
       dispatch(addId(user.id.toString()))
       navigate("/");

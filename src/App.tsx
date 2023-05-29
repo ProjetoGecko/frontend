@@ -14,26 +14,30 @@ import ListarProdutos from './components/produtos/listar/ListarProdutos'
 import ListarCategorias from './components/categorias/listar/ListarCategorias'
 import { geckoTheme } from './theme/GeckoTheme'
 import './App.css'
+import { Provider } from 'react-redux'
+import store from './store/Store'
 
 function App() {
   return (
     <>
-      <ThemeProvider theme={geckoTheme}>
-        <BrowserRouter>
-          <Navbar />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/sobre' element={<><Sobre /><Contato /></>} />
-            <Route path='/Login' element={<Login />} />
-            <Route path='/Cadastrar' element={<Cadastrar />} />
-            <Route path='/Cadastrar_produto' element={<CadastrarProduto />} />
-            <Route path='/Cadastrar_Categoria' element={<CadastrarCategoria />} />
-            <Route path='/Listar_produtos' element={<ListarProdutos />} />
-            <Route path='/Listar_Categorias' element={<ListarCategorias />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={geckoTheme}>
+          <BrowserRouter>
+            <Navbar />
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/sobre' element={<><Sobre /><Contato /></>} />
+              <Route path='/Login' element={<Login />} />
+              <Route path='/Cadastrar' element={<Cadastrar />} />
+              <Route path='/Cadastrar_produto' element={<CadastrarProduto />} />
+              <Route path='/Cadastrar_Categoria' element={<CadastrarCategoria />} />
+              <Route path='/Listar_produtos' element={<ListarProdutos />} />
+              <Route path='/Listar_Categorias' element={<ListarCategorias />} />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        </ThemeProvider>
+      </Provider>
     </>
   )
 }
