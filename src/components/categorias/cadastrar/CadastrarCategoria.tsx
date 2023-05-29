@@ -3,14 +3,17 @@ import { Container, Typography, TextField, Button, Grid } from "@mui/material"
 import { useNavigate, useParams } from 'react-router-dom'
 import Categoria from '../../../models/Categoria'
 import { busca, cadastro } from '../../../services/Service'
-import useLocalStorage from 'react-use-localstorage'
+import { useSelector } from 'react-redux'
+import { UserState } from '../../../store/token/Reducer'
 
 function CadastroCategoria() {
     let navigate = useNavigate()
 
     const { id } = useParams<{ id: string }>()
 
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<UserState, UserState['tokens']>(
+        (state) => state.tokens
+    )
 
     const [categoria, setCategoria] = useState<Categoria>({
         id: 0,

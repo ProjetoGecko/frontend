@@ -1,90 +1,108 @@
-﻿import React, { ChangeEvent, useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
-import useLocalStorage from "react-use-localstorage"
-import { login } from "../../services/Service"
-import UserLogin from "../../models/UserLogin"
-import Avatar from '@mui/material/Avatar'
-import Button from '@mui/material/Button'
-import TextField from '@mui/material/TextField'
-import Link from '@mui/material/Link'
-import Paper from '@mui/material/Paper'
-import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
-import Typography from '@mui/material/Typography'
-import './Login.css'
+﻿import React, { ChangeEvent, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { login } from "../../services/Service";
+import UserLogin from "../../models/UserLogin";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Link from "@mui/material/Link";
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import "./Login.css";
+import { useDispatch} from "react-redux";
+import { addId, addToken } from '../../store/token/Actions'
+import User from "../../models/User";
+
 
 export default function Login() {
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
-  const [token, setToken] = useLocalStorage('token')
+  const dispatch = useDispatch();
+  
+  const [userLogin, setUserLogin] = useState<UserLogin>({
+    usuario: "",
+    senha: "",
+  });
 
-  const [userLogin, setUserLogin] = useState<UserLogin>(
-    {
-      id: 0,
-      usuario: '',
-      senha: '',
-      token: ''
-    }
-  )
+  const [user, setUser] = useState<User>({
+    id: 0,
+    nome: '',
+    usuario: '',
+    foto: '',
+    senha: '',
+    token: ''
+  });
+
 
   function updatedModel(e: ChangeEvent<HTMLInputElement>) {
     setUserLogin({
       ...userLogin,
-      [e.target.name]: e.target.value
-    })
+      [e.target.name]: e.target.value,
+    });
 
-    console.log(userLogin)
+    console.log(userLogin);
   }
 
   useEffect(() => {
-    if (token != '') {
-      navigate('/')
+    if ( user.token != "") {
+      dispatch(addToken(user.token))
+      dispatch(addId(user.id.toString()))
+      navigate("/");
     }
-  }, [token])
+  }, [user.token]);
 
   async function handleSubmit(e: ChangeEvent<HTMLFormElement>) {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-      await login(`/usuarios/logar`, userLogin, setToken)
+      await login(`/usuarios/logar`, userLogin, setUser);
 
-      alert('Usuário logado com sucesso!')
+      alert("Usuário logado com sucesso!");
     } catch (error) {
-      alert('Dados do usuário inválido. Erro ao logar!')
+      alert("Dados do usuário inválido. Erro ao logar!");
     }
   }
 
   return (
-    <Grid container component="main" sx={{ height: '100vh' }}>
+    <Grid container component="main" sx={{ height: "100vh" }}>
       <Grid
         item
         xs={false}
         sm={4}
         md={7}
         sx={{
-          backgroundImage: 'url(https://i.ibb.co/dmTDd6d/gecko-login.jpg)',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: '80% center',
+          backgroundImage: "url(https://i.ibb.co/dmTDd6d/gecko-login.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "80% center",
         }}
       />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        md={5}
+        component={Paper}
+        elevation={6}
+        square
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center'
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
         }}
       >
         <Box
           sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center'
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
           className="main-login"
         >
-          <Avatar sx={{ m: 1, bgcolor: '#25812D' }}>
+          <Avatar sx={{ m: 1, bgcolor: "#25812D" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -132,16 +150,14 @@ export default function Login() {
               </Grid>
             </Grid>
             <Typography variant="body2" align="center" sx={{ mt: 5 }}>
-              {'Copyright © '}
-              <Link href="https://www.generation.org/">
-                Generation
-              </Link>{' '}
+              {"Copyright © "}
+              <Link href="https://www.generation.org/">Generation</Link>{" "}
               {new Date().getFullYear()}
-              {'.'}
+              {"."}
             </Typography>
           </Box>
         </Box>
       </Grid>
     </Grid>
-  )
+  );
 }

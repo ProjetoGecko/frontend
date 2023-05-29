@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react"
-import useLocalStorage from "react-use-localstorage"
 import { Card, CardHeader, CardContent, Typography, Grid } from "@mui/material"
 import { busca } from "../../../services/Service"
 import Categoria from "../../../models/Categoria"
+import { useSelector } from "react-redux"
+import { UserState } from "../../../store/token/Reducer"
 
 function ListarCategorias() {
     const [categorias, setCategorias] = useState<Categoria[]>([])
 
-    const [token, setToken] = useLocalStorage('token')
+    const token = useSelector<UserState, UserState['tokens']>(
+        (state) => state.tokens
+    )
 
     async function getCategorias() {
         try {

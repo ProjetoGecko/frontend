@@ -23,7 +23,9 @@ export default function SignUp() {
           id: 0,
           nome: '',
           usuario: '',
-          senha: ''
+          foto: '',
+          senha: '',
+          token: ''
       })
 
   const [userResult, setUserResult] = useState<User>(
@@ -31,7 +33,9 @@ export default function SignUp() {
           id: 0,
           nome: '',
           usuario: '',
-          senha: ''
+          foto: '',
+          senha: '',
+          token: ''
       })
 
   useEffect(() => {

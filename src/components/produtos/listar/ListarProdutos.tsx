@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react"
 import Produto from '../../../models/Produto'
-import useLocalStorage from "react-use-localstorage"
 import { Card, CardHeader, CardMedia, CardContent, Typography, Grid, Button, Box } from "@mui/material"
 import { busca } from "../../../services/Service"
 import { Link } from "react-router-dom"
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useSelector } from "react-redux"
+import { UserState } from "../../../store/token/Reducer"
 
 function ListarProdutos() {
     const [produtos, setProdutos] = useState<Produto[]>([])
 
-    const [token, setToken] = useLocalStorage('token')
+    const token = useSelector<UserState, UserState['tokens']>(
+        (state) => state.tokens
+    )
 
     async function getProdutos() {
         try {
