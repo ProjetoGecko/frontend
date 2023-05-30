@@ -12,6 +12,7 @@ import { UserState } from '../../../store/token/Reducer';
 function CadastrarProduto() {
     const navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
+    const [estado, setEstado] = useState(0);
     const [categorias, setCategorias] = useState<Categoria[]>([])
     const token = useSelector<UserState, UserState['tokens']>(
         (state) => state.tokens
@@ -21,7 +22,6 @@ function CadastrarProduto() {
         if (token == "") {
             alert("Você precisa estar logado")
             navigate("/login")
-
         }
     }, [token])
 
@@ -55,6 +55,7 @@ function CadastrarProduto() {
 
         if (id != undefined) {
             findByIdProduto(id)
+            setEstado(produto.estado)
         }
     }, [id])
 
@@ -64,8 +65,8 @@ function CadastrarProduto() {
                 'Authorization': token
             }
         })
-        console.log("get categoria: ", categorias)
     }
+
     async function findByIdProduto(id: string) {
         await busca(`produtos/${id}`, setProduto, {
             headers: {
@@ -86,19 +87,27 @@ function CadastrarProduto() {
         e.preventDefault()
 
         if (id !== undefined) {
-            await atualizar(`/produtos`, produto, setProduto, {
-                headers: {
-                    'Authorization': token
-                }
-            })
-            alert('Produto atualizado com sucesso')
+            try {
+                await atualizar(`/produtos`, produto, setProduto, {
+                    headers: {
+                        'Authorization': token
+                    }
+                })
+                alert('Produto atualizado com sucesso')
+            } catch (e) {
+                alert(e)
+            }
         } else {
-            await cadastro(`/produtos`, produto, setProduto, {
-                headers: {
-                    'Authorization': token
-                }
-            })
-            alert('Produto cadastrado com sucesso')
+            try {
+                await cadastro(`/produtos`, produto, setProduto, {
+                    headers: {
+                        'Authorization': token
+                    }
+                })
+                alert('Produto cadastrado com sucesso')
+            } catch (e) {
+                alert(e)
+            }
         }
         back()
     }
@@ -114,20 +123,35 @@ function CadastrarProduto() {
         return str.slice(0, num) + '...'
     }
 
+    console.log(id !== undefined ? +produto.estado : 0)
+
     return (
         <>
             <Grid container display='flex' justifyContent='space-evenly' alignItems='center' marginY={10}>
                 <Grid item xs={4}>
                     <form onSubmit={onSubmit}>
-                        <Typography variant="h4" color="primary" component="h1" align="center" mb={2}>Novo anúncio</Typography>
-                        <TextField onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="Nome do produto" variant="outlined" name="nome" margin="normal" fullWidth />
-                        <TextField onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="Descrição" variant="outlined" name="descricao" margin="normal" fullWidth />
-                        <TextField onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="Preço" variant="outlined" name="preco" margin="normal" fullWidth type='number' />
-                        <TextField onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="Link para a foto" variant="outlined" name="foto" margin="normal" fullWidth />
+                        <Typography variant="h4" color="primary" component="h1" align="center" mb={2}>{ id !== undefined ? 'Atualizar anúncio' : 'Novo anúncio'}</Typography>
+                        <TextField
+                            value={
+                                id !== undefined ? produto.nome : ''
+                            } onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="Nome do produto" variant="outlined" name="nome" margin="normal" fullWidth />
+                        <TextField
+                            value={
+                                id !== undefined ? produto.descricao : ''
+                            } onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="Descrição" variant="outlined" name="descricao" margin="normal" fullWidth />
+                        <TextField
+                            value={
+                                id !== undefined ? produto.preco : ''
+                            } onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="Preço" variant="outlined" name="preco" margin="normal" fullWidth />
+                        <TextField
+                            value={
+                                id !== undefined ? produto.foto : ''
+                            } onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="Link para a foto" variant="outlined" name="foto" margin="normal" fullWidth />
                         <Box display='flex' justifyContent='space-evenly' paddingTop='5%'>
                             <FormControl>
                                 <FormLabel id="demo-row-radio-buttons-group-label">Estado</FormLabel>
                                 <RadioGroup
+                                    defaultValue={0}
                                     onChange={(e) => setProduto({
                                         ...produto,
                                         estado: +e.target.value
@@ -136,7 +160,6 @@ function CadastrarProduto() {
                                     row
                                     aria-labelledby="demo-row-radio-buttons-group-label"
                                     name="row-radio-buttons-group"
-                                    defaultValue="0"
                                 >
                                     <FormControlLabel name="estado" value="1" control={<Radio />} label="Novo" />
                                     <FormControlLabel name="estado" value="0" control={<Radio />} label="Usado" />
@@ -145,6 +168,7 @@ function CadastrarProduto() {
                             <FormControl>
                                 <FormLabel id="demo-row-radio-buttons-group-label">Reciclável</FormLabel>
                                 <RadioGroup
+                                    defaultValue={0}
                                     onChange={(e) => setProduto({
                                         ...produto,
                                         reciclavel: +e.target.value
@@ -153,10 +177,9 @@ function CadastrarProduto() {
                                     row
                                     aria-labelledby="demo-row-radio-buttons-group-label"
                                     name="row-radio-buttons-group"
-                                    defaultValue="1"
                                 >
-                                    <FormControlLabel name='reciclavel' value="1" control={<Radio />} label="Sim" />
-                                    <FormControlLabel name='reciclavel' value="0" control={<Radio />} label="Não" />
+                                    <FormControlLabel name='reciclavel' value='1' control={<Radio />} label="Sim" />
+                                    <FormControlLabel name='reciclavel' value='0' control={<Radio />} label="Não" />
                                 </RadioGroup>
                             </FormControl>
                         </Box>
@@ -164,6 +187,7 @@ function CadastrarProduto() {
                             <FormControl >
                                 <InputLabel id="demo-simple-select-helper-label">Categoria</InputLabel>
                                 <Select
+                                    displayEmpty
                                     sx={{ width: '15vw' }}
                                     labelId="demo-simple-select-helper-label"
                                     id="demo-simple-select-helper"
@@ -188,7 +212,7 @@ function CadastrarProduto() {
                                 Cancelar
                             </Button>
                             <Button type="submit" variant="contained" fullWidth>
-                                Cadastrar
+                                { id !== undefined ? 'Atualizar' : 'Cadastrar'}
                             </Button>
                         </Box>
                     </form>
@@ -200,7 +224,7 @@ function CadastrarProduto() {
                     backgroundSize: '100%',
                     backgroundPosition: '0.5vw',
                 }}>
-                    <Card sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: 300, height: 550 }}>
+                    <Card sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: 300, height: 650 }}>
                         <CardHeader
                             title={
                                 produto.nome !== '' ? truncateString(produto.nome, 20) : "Nome"
