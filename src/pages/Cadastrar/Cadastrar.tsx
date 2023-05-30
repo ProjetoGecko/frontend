@@ -14,6 +14,7 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { Paper } from '@mui/material';
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -73,110 +74,140 @@ export default function SignUp() {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <Box
+    <Grid container component="main" sx={{ height: "100vh" }}>
+      <Grid
+        item
+        xs={false}
+        sm={4}
+        md={7}
         sx={{
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
+          backgroundImage: "url(https://i.ibb.co/dmTDd6d/gecko-login.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "80% center",
+        }}
+      />
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        md={5}
+        component={Paper}
+        elevation={6}
+        square
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: 'center'
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: '#88bb29' }}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Cadastre-se
-        </Typography>
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '25vw'
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: '#25812D' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography color='primary' component="h1" variant="h5">
+            Cadastre-se
+          </Typography>
 
-        <Box component="form" noValidate onSubmit={onSubmit} sx={{ mt: 3 }}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                value={user.nome}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                autoComplete="given-name"
-                name="nome"
-                required
-                fullWidth
-                id="nome"
-                label="Nome"
-                autoFocus
-              />
+          <Box component="form" noValidate onSubmit={onSubmit} sx={{ mt: 3 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  value={user.nome}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                  autoComplete="given-name"
+                  name="nome"
+                  required
+                  fullWidth
+                  id="nome"
+                  label="Nome"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  fullWidth
+                  id="foto"
+                  label="Foto"
+                  name="foto"
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  value={user.usuario}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                  required
+                  fullWidth
+                  id="usuario"
+                  label="Email"
+                  name="usuario"
+                  autoComplete="email"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  value={user.senha}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                  required
+                  fullWidth
+                  name="senha"
+                  label="Senha"
+                  type="password"
+                  id="senha"
+                  autoComplete="new-password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  value={confirmarSenha}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
+                  required
+                  fullWidth
+                  name="senha"
+                  label="Confirmar Senha"
+                  type="password"
+                  id="senha"
+                  autoComplete="new-password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControlLabel
+                  control={<Checkbox value="allowExtraEmails" color="primary" />}
+                  label="Receber as nossas promoções por email."
+                />
+              </Grid>
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                id="foto"
-                label="Foto"
-                name="foto"
-                autoComplete="family-name"
-              />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Cadastrar
+            </Button>
+            <Grid container justifyContent="center">
+              <Grid item>
+                <Link to='/login'>
+                  <Typography color='primary'>
+                    Já possui uma conta? Faça o login
+                  </Typography>
+                </Link>
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                value={user.usuario}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                required
-                fullWidth
-                id="usuario"
-                label="Email"
-                name="usuario"
-                autoComplete="email"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                value={user.senha}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                required
-                fullWidth
-                name="senha"
-                label="Senha"
-                type="password"
-                id="senha"
-                autoComplete="new-password"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                value={confirmarSenha}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
-                required
-                fullWidth
-                name="senha"
-                label="Confirmar Senha"
-                type="password"
-                id="senha"
-                autoComplete="new-password"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="Receber as nossas promoções por email."
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2, bgcolor: '#88bb29' }}
-
-          >
-            Cadastrar
-          </Button>
-          <Grid p={6} container justifyContent="flex-end">
-            <Grid item>
-              <Link to='/login'>
-                Já possui uma conta? Faça o login
-              </Link>
-            </Grid>
-          </Grid>
+          </Box>
         </Box>
-      </Box>
-    </Container>
+      </Grid>
+    </Grid>
   );
 }
