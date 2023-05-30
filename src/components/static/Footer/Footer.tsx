@@ -10,19 +10,9 @@ import EmailIcon from '@mui/icons-material/Email';
 import { Link } from "react-router-dom";
 import MailIcon from '@mui/icons-material/Mail';
 import './Footer.css'
-import { useSelector } from "react-redux";
-import { UserState } from "../../../store/token/Reducer";
 
 function Footer() {
-    const token = useSelector<UserState, UserState['tokens']>(
-        (state) => state.tokens
-    )
-
-    var footerComponent
-    if (token !== '') {
-        footerComponent=
-
-   
+    return (
         <>
             <Grid container className="footer_conteudo">
                 <Grid item xs={4} className="footer_contacts">
@@ -51,7 +41,7 @@ function Footer() {
                     <Typography color='textSecondary'>Fique por dentro de tudo!</Typography>
                     <Typography color='textSecondary'>VOCÊ PODE AJUDAR A SALVAR O MUNDO.</Typography>
                     <Box className="caixa_imputs_footer">
-                        <TextField color='primary' placeholder="Insira seu E-mail" InputProps={{endAdornment: <MailIcon />}} />
+                        <TextField color='primary' placeholder="Insira seu E-mail" InputProps={{ endAdornment: <MailIcon /> }} />
                     </Box>
                 </Grid>
             </Grid>
@@ -61,12 +51,7 @@ function Footer() {
                 </Link>
             </Grid>
         </>
-    }
-         return (
-            <>
-               {footerComponent}
-            </>
-         )
+    )
 }
 
 export default Footer

@@ -20,62 +20,59 @@ function Navbar() {
         navigate('/login');
     }
 
-    let navbarComponent;
-    if (token !== '') {
-        navbarComponent = (
-            <AppBar className='navbar' position='static'>
-                <Toolbar>
-                    <Box mx={4}>
-                        <Typography className='logonav'>Gecko</Typography>
-                    </Box>
-                    <Box display='flex' justifyContent='start'>
-                        <Box>
-                            <Link to='/'>
-                                <Typography className='menunav'>Início</Typography>
-                            </Link>
-                        </Box>
-                        <Box mx={1}>
-                            <Typography className='menunav'>/</Typography>
-                        </Box>
-                        <Box>
-                            <Link to='/sobre'>
-                                <Typography className='menunav'>Sobre</Typography>
-                            </Link>
-                        </Box>
-                        <Box mx={1}>
-                            <Typography className='menunav'>/</Typography>
-                        </Box>
-                        <Box>
-                            <Link to='/listar_produtos'>
-                                <Typography className='menunav'>Produtos</Typography>
-                            </Link>
-                        </Box>
-                        <Box mx={1}>
-                            <Typography className='menunav'>/</Typography>
-                        </Box>
-                        <Box>
-                            <Link to='/contato'>
-                                <Typography className='menunav'>Contato</Typography>
-                            </Link>
-                        </Box>
-                        <Box mx={1}>
-                            <Typography className='menunav'>/</Typography>
-                        </Box>
-                        <Box>
-                            <Link to='#'>
-                                <Typography className='menunav'>Meu Carrinho</Typography>
-                            </Link>
-                        </Box>
-                    </Box>
-                </Toolbar>
-            </AppBar>
-        );
-    }
-
     return (
-        <>
-            {navbarComponent}
-        </>
+        <AppBar className='navbar' position='static'>
+            <Toolbar>
+                <Box mx={4}>
+                    <Typography className='logonav'>Gecko</Typography>
+                </Box>
+                <Box display='flex' justifyContent='start'>
+                    <Box>
+                        <Link to='/'>
+                            <Typography className='menunav'>Início</Typography>
+                        </Link>
+                    </Box>
+                    <Box mx={1}>
+                        <Typography className='menunav'>/</Typography>
+                    </Box>
+                    <Box>
+                        <Link to='/sobre'>
+                            <Typography className='menunav'>Sobre</Typography>
+                        </Link>
+                    </Box>
+                    <Box mx={1}>
+                        <Typography className='menunav'>/</Typography>
+                    </Box>
+                    <Box>
+                        <Link to='/listar_produtos'>
+                            <Typography className='menunav'>Produtos</Typography>
+                        </Link>
+                    </Box>
+                    <Box mx={1}>
+                        <Typography className='menunav'>/</Typography>
+                    </Box>
+                    <Box>
+                        <Link to='/contato'>
+                            <Typography className='menunav'>Contato</Typography>
+                        </Link>
+                    </Box>
+                    <Box mx={1}>
+                        <Typography className='menunav'>/</Typography>
+                    </Box>
+                    <Box>
+                        <Link to='#'>
+                            <Typography className='menunav'>Meu Carrinho</Typography>
+                        </Link>
+                    </Box>
+                    <Box mx={1}>
+                        <Typography className='menunav'>/</Typography>
+                    </Box>
+                    <Box onClick={goLogout}>
+                        <Typography className='menunav'>Deslogar</Typography>
+                    </Box>
+                </Box>
+            </Toolbar>
+        </AppBar>
     );
 }
 
