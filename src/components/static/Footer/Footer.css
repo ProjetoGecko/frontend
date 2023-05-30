@@ -20,7 +20,10 @@
 }
 
 .footer_contacts {
+    display: flex;
+    justify-content: start;
     color: #F6F4EB;
+
 }
 
 .footer-redes {
@@ -30,8 +33,13 @@
 
 .redes {
     font-size: 40px !important;
+    color: var(--cor4);
 }
 
+.textofooter{
+    text-align: justify;
+    padding: 30px;
+}
 
 .footer_social_midia {
     gap: 20px;
@@ -40,6 +48,7 @@
 /*  Quando passar o mouse, tem uma animação.   */
 .footer_social_midia .redes:hover {
     opacity: 0.8;
+    cursor: pointer;
 }
 
 .caixa_imputs_footer {
@@ -49,7 +58,9 @@
     background-color: #F6F4EB;
 }
 
-.footer-inscrevase {}
+.footer-inscrevase {
+    color: var(--cor1);
+}
 
 .caixa_imputs_footer button {
     background-color: var(--cor5);
@@ -67,7 +78,9 @@
     opacity: 0.8;
 }
 
-.caixa_imputs_footer input {}
+.caixa_imputs_footer input {
+    
+}
 
 .direitos {
     display: flex;
@@ -79,8 +92,8 @@
 }
 
 .Slogan {
-    margin-top: 20px;
-    margin-bottom: 20px;
+
+    color: var(--cor1);
 }
 
 .lista_footer {
@@ -102,6 +115,15 @@
 }
 
 .icones {
-    font-size: 30px !important;
-    color: #F6F4EB !important;
+    font-size: 20px !important;
+    color: var(--cor4);
+}
+
+.textoicones{
+    color: var(--cor1);
+}
+
+.fraseicone{
+    color: var(--cor1);
+    flex-direction: column;
 }

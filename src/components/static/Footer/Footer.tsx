@@ -16,37 +16,45 @@ function Footer() {
         <>
             <Grid container className="footer_conteudo">
                 <Grid item xs={4} className="footer_contacts">
-                    <img src={Logo} alt="Logo" width="90px" />
-                    <Typography gutterBottom color='textSecondary' className="Slogan">Na Gecko, cada compra é um passo eckológico com o qual você deixa a sua pegada verde no mundo.</Typography>
-                    <Box display="flex" alignItems="center" justifyContent="left" className="footer_social_midia">
-                        <InstagramIcon className="redes" />
-                        <GitHubIcon className="redes" />
-                        <LinkedInIcon className="redes" />
-                    </Box>
+                    <img src={Logo} alt="Logo" width="70px" />
+                    <Grid sx={{ m: 1 }}>
+                        <Typography className="Slogan">Na Gecko, cada compra é um passo eckológico com o qual você deixa a sua pegada verde no mundo.</Typography>
+                    </Grid>
                 </Grid>
                 <Grid item xs={4} className="footer-redes">
                     <ul className="lista_footer">
-                        <li><EmailIcon className="icones" />
-                            <Typography color='textSecondary'>E-mail</Typography>
+                        <li className="textoicones" >
+                            <EmailIcon className="icones" />
+                            <Typography>E-mail</Typography>
                         </li>
-                        <li><LocalPhoneIcon className="icones" />
-                            <Typography color='textSecondary'>Telefone</Typography>
+                        <li className="textoicones">
+                            <LocalPhoneIcon className="icones" />
+                            <Typography>Telefone</Typography>
                         </li>
-                        <li><QuestionAnswerIcon className="icones" />
-                            <Typography color='textSecondary'>Chat</Typography>
+                        <li className="textoicones">
+                            <QuestionAnswerIcon className="icones" />
+                            <Typography>Chat</Typography>
                         </li>
                     </ul>
+
                 </Grid>
                 <Grid item xs={4} className="footer-inscrevase" display='flex' flexDirection='column' justifyContent='center' alignItems='center' >
-                    <Typography color='textSecondary'>Fique por dentro de tudo!</Typography>
-                    <Typography color='textSecondary'>VOCÊ PODE AJUDAR A SALVAR O MUNDO.</Typography>
+                    <Grid>
+                        <Box display="flex" alignItems="stretch" justifyContent="star" className="footer_social_midia">
+                            <InstagramIcon className="redes" />
+                            <GitHubIcon className="redes" />
+                            <LinkedInIcon className="redes" />
+                        </Box>
+                    </Grid>
+                    <Typography>Fique por dentro de tudo!</Typography>
                     <Box className="caixa_imputs_footer">
                         <TextField color='primary' placeholder="Insira seu E-mail" InputProps={{ endAdornment: <MailIcon /> }} />
                     </Box>
+                    <Typography>VOCÊ PODE AJUDAR A SALVAR O MUNDO.</Typography>
                 </Grid>
             </Grid>
             <Grid className="direitos">
-                <Link to="https://brazil.generation.org/">
+                <Link to="https://brazil.generation.org/" target="_blank">
                     <Typography color='textSecondary' variant="subtitle2" gutterBottom align="center">https://brazil.generation.org/</Typography>
                 </Link>
             </Grid>
