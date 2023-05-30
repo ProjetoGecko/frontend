@@ -16,6 +16,7 @@ import { geckoTheme } from './theme/GeckoTheme'
 import './App.css'
 import { Provider } from 'react-redux'
 import store from './store/Store'
+import DeletarProduto from './components/produtos/deletar/DeletarProduto'
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
               <Route path='/Cadastrar_Categoria' element={<CadastrarCategoria />} />
               <Route path='/Listar_produtos' element={<ListarProdutos />} />
               <Route path='/Listar_Categorias' element={<ListarCategorias />} />
+              <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
+              <Route path='/Cadastrar_produto/:id' element={<CadastrarProduto />} />
             </Routes>
             <Footer />
           </BrowserRouter>
