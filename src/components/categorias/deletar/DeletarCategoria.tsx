@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import {Typography, Button, Card, CardActions, CardContent } from "@material-ui/core";
-import {Box} from '@mui/material';
+import { Typography, Button, Card, CardActions, CardContent } from "@material-ui/core";
+import { Box } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import { busca, deleteId } from '../../../services/Service';
 import { useSelector } from 'react-redux';
@@ -10,66 +10,66 @@ import Categoria from '../../../models/Categoria';
 
 
 function DeletarCategoria() {
-    let navigate = useNavigate();
-    const { id } = useParams<{id: string}>();
-    const token = useSelector<TokenState, TokenState["tokens"]>(
-      (state) => state.tokens
-    );
-    const [categoria, setCategoria] = useState<Categoria>()
+  let navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
+  const [categoria, setCategoria] = useState<Categoria>()
 
-    useEffect(() => {
-        if (token == "") {
-          toast.error('Você precisa estar logado', {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: false,
-            theme: "colored",
-            progress: undefined,
-        });
-        navigate("/login")
-    
-        }
-    }, [token])
+  useEffect(() => {
+    if (token == "") {
+      toast.error('Você precisa estar logado', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
+      navigate("/login")
 
-    useEffect(() =>{
-        if(id !== undefined){
-            findById(id)
-        }
-    }, [id])
+    }
+  }, [token])
 
-    async function findById(id: string) {
-        busca(`/categorias/${id}`, setCategoria, {
-            headers: {
-              'Authorization': token
-            }
-          })
-        }
+  useEffect(() => {
+    if (id !== undefined) {
+      findById(id)
+    }
+  }, [id])
 
-        function sim() {
-          navigate('/listar_categorias')
-            deleteId(`/categorias/${id}`, {
-              headers: {
-                'Authorization': token
-              }
-            });
-            toast.success('produto deletado com sucesso', {
-              position: "top-right",
-              autoClose: 2000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: false,
-              draggable: false,
-              theme: "colored",
-              progress: undefined,
-          });
-          }
-        
-          function nao() {
-            navigate('/listar_categorias')
-          }
+  async function findById(id: string) {
+    busca(`/categorias/${id}`, setCategoria, {
+      headers: {
+        'Authorization': token
+      }
+    })
+  }
+
+  function sim() {
+    navigate('/listar_categorias')
+    deleteId(`/categorias/${id}`, {
+      headers: {
+        'Authorization': token
+      }
+    });
+    toast.success('produto deletado com sucesso', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      theme: "colored",
+      progress: undefined,
+    });
+  }
+
+  function nao() {
+    navigate('/listar_categorias')
+  }
   return (
     <>
       <Box m={2}>
@@ -80,22 +80,22 @@ function DeletarCategoria() {
                 Deseja deletar a categoria:
               </Typography>
               <Typography color="textSecondary" >
-              {categoria?.nome}
+                {categoria?.nome}
               </Typography>
             </Box>
 
           </CardContent>
           <CardActions>
             <Box display="flex" justifyContent="start" ml={1.0} mb={2} >
-              <Box mx={2}>
-              <Button onClick={sim} variant="contained" className="marginLeft" size='large'  style={{ backgroundColor: '#215f20', color: 'white' }}>
-                Sim
-              </Button>
-              </Box>
               <Box className="marginLeft">
-              <Button  onClick={nao} variant="contained" size='large' style={{ backgroundColor: '#973838', color: 'white' }}>
-                Não
-              </Button>
+                <Button onClick={nao} variant="contained" size='large' style={{ backgroundColor: '#973838', color: 'white' }}>
+                  Não
+                </Button>
+              </Box>
+              <Box mx={2}>
+                <Button onClick={sim} variant="contained" className="marginLeft" size='large' style={{ backgroundColor: '#215f20', color: 'white' }}>
+                  Sim
+                </Button>
               </Box>
             </Box>
           </CardActions>
