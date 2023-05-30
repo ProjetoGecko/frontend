@@ -71,6 +71,18 @@ function Navbar() {
                                 </Typography>
                             </Link>
                         </Box>
+                        <Box mx={1}>
+                            <Typography className='menunav'>
+                                /
+                            </Typography>
+                        </Box>
+                        <Box>
+                            <Link to="/login">
+                                <Typography className='menunav'>
+                                    Login
+                                </Typography>
+                            </Link>
+                        </Box>
                     </Box>
                 </Toolbar>
             </AppBar>
