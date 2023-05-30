@@ -35,67 +35,53 @@ function Navbar() {
                     <Box mx={1}>
                         <Typography className='menunav'>/</Typography>
                     </Box>
-                    <Box display="flex" justifyContent="start">
-                        <Box>
-                            <Link to="/">
-                                <Typography className='menunav'>
-                                    Início
-                                </Typography>
-                            </Link>
-                        </Box>
-                        <Box mx={1}>
-                            <Typography className='menunav'>
-                                /
-                            </Typography>
-                        </Box>
-                        <Box>
-                            <Link to="/sobre">
-                                <Typography className='menunav'>
-                                    Sobre
-                                </Typography>
-                            </Link>
-                        </Box>
-                        <Box mx={1}>
-                            <Typography className='menunav'>
-                                /
-                            </Typography>
-                        </Box>
-                        <Box>
-                            <Link to="/listar_produtos">
-                                <Typography className='menunav'>
-                                    Produtos
-                                </Typography>
-                            </Link>
-                        </Box>
-                        <Box mx={1}>
-                            <Typography className='menunav'>
-                                /
-                            </Typography>
-                        </Box>
-                        <Box>
-                            <Link to="/contato">
-                                <Typography className='menunav'>
-                                    Contato
-                                </Typography>
-                            </Link>
-                        </Box>
-                        <Box mx={1}>
-                            <Typography className='menunav'>
-                                /
-                            </Typography>
-                        </Box>
-                        <Box>
-                            <Link to="#">
-                                <Typography className='menunav'>
-                                    Meu Carrinho
-                                </Typography>
-                            </Link>
-                        </Box>
+                    <Box>
+                        <Link to='/sobre'>
+                            <Typography className='menunav'>Sobre</Typography>
+                        </Link>
                     </Box>
-                </Toolbar>
-            </AppBar>
-        </>
-    )
+                    <Box mx={1}>
+                        <Typography className='menunav'>/</Typography>
+                    </Box>
+                    <Box>
+                        <Link to='/listar_produtos'>
+                            <Typography className='menunav'>Produtos</Typography>
+                        </Link>
+                    </Box>
+                    <Box mx={1}>
+                        <Typography className='menunav'>/</Typography>
+                    </Box>
+                    <Box>
+                        <Link to='/contato'>
+                            <Typography className='menunav'>Contato</Typography>
+                        </Link>
+                    </Box>
+                    <Box mx={1}>
+                        <Typography className='menunav'>/</Typography>
+                    </Box>
+                    <Box>
+                        <Link to='#'>
+                            <Typography className='menunav'>Meu Carrinho</Typography>
+                        </Link>
+                    </Box>
+                    <Box mx={1}>
+                        <Typography className='menunav'>/</Typography>
+                    </Box>
+                    <Box>
+                      <Link to ='/Listar_Categorias'>  
+                        <Typography className='menunav'>Categorias</Typography>
+                     </Link>  
+                    </Box>
+                    <Box mx={1}>
+                        <Typography className='menunav'>/</Typography>
+                    </Box>
+                    <Box onClick={goLogout}>
+                        <Typography className='menunav'>Deslogar</Typography>
+                    </Box>
+                </Box>
+            </Toolbar>
+        </AppBar>
+    );
 }
 
 export default Navbar;
