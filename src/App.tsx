@@ -17,6 +17,7 @@ import './App.css'
 import { Provider } from 'react-redux'
 import store from './store/Store'
 import DeletarProduto from './components/produtos/deletar/DeletarProduto'
+import DeletarCategoria from './components/categorias/deletar/DeletarCategoria'
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
               <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
               <Route path='/Cadastrar_produto/:id' element={<CadastrarProduto />} />
               <Route path='/Cadastrar_categoria/:id' element={<CadastrarCategoria />} />
+              <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
             </Routes>
             <Footer />
           </BrowserRouter>
