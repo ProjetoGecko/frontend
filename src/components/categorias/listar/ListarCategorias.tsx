@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react"
-import { Card, CardHeader, CardContent, Typography, Grid } from "@mui/material"
+import { Card, CardHeader, CardContent, Typography, Grid, Box, Button } from "@mui/material"
 import { busca } from "../../../services/Service"
 import Categoria from "../../../models/Categoria"
 import { useSelector } from "react-redux"
 import { UserState } from "../../../store/token/Reducer"
+import { Link } from "react-router-dom";
 
 function ListarCategorias() {
     const [categorias, setCategorias] = useState<Categoria[]>([])
@@ -51,6 +52,22 @@ function ListarCategorias() {
                                     <Typography variant="body2" color="text.secondary" height='5vh'>
                                         {truncateString(categorias.descricao, 150)}
                                     </Typography>
+                                    <Box display='flex' justifyContent='space-between' alignItems='center' width='100%' style={{ marginTop: '1em' }}>
+                                        <Link to={`/cadastrar_categoria/${categorias.id}`} className="text-decorator-none" >
+                                            <Box mx={1}>
+                                                <Button variant="contained" className="marginLeft" size='small' style={{ backgroundColor: '#bb872c', color: 'white' }} >
+                                                    atualizar
+                                                </Button>
+                                            </Box>
+                                        </Link>
+                                        <Link to={`/deletarCategoria/${categorias.id}`} className="text-decorator-none">
+                                            <Box className="input4" mx={1}>
+                                                <Button variant="contained" size='small' style={{ backgroundColor: '#973838', color: 'white' }}>
+                                                    deletar
+                                                </Button>
+                                            </Box>
+                                        </Link>
+                                    </Box>
                                 </CardContent>
                             </Card>
                         </Grid>

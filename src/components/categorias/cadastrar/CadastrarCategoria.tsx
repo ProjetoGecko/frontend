@@ -2,7 +2,7 @@ import React, { useState, useEffect, ChangeEvent } from 'react'
 import { Container, Typography, TextField, Button, Grid, Box } from "@mui/material"
 import { useNavigate, useParams } from 'react-router-dom'
 import Categoria from '../../../models/Categoria'
-import { busca, cadastro } from '../../../services/Service'
+import { atualizar, busca, cadastro } from '../../../services/Service'
 import { useSelector } from 'react-redux'
 import { UserState } from '../../../store/token/Reducer'
 
@@ -23,7 +23,7 @@ function CadastroCategoria() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            alert("Você precisa estar logado.")
 
             navigate("/login")
         }
@@ -55,16 +55,16 @@ function CadastroCategoria() {
         e.preventDefault()
 
         if (id !== undefined) {
-            // try {
-            //     await put(`/categorias`, categoria, setCategoria, {
-            //         headers: {
-            //             'Authorization': token
-            //         }
-            //     })
-            //     alert('Categoria atualizado com sucesso')
-            // } catch (e) {
-            //     alert(e)
-            // }
+            try {
+                await atualizar(`/categorias`, categoria, setCategoria, {
+                    headers: {
+                        'Authorization': token
+                    }
+                })
+                alert('Categoria atualizada com sucesso')
+            } catch (e) {
+                alert(e)
+            }
         } else {
             try {
                 await cadastro(`/categorias`, categoria, setCategoria, {
@@ -72,7 +72,7 @@ function CadastroCategoria() {
                         'Authorization': token
                     }
                 })
-                alert('Categoria cadastrado com sucesso')
+                alert('Categoria cadastrada com sucesso.')
             } catch (e) {
                 alert(e)
             }
@@ -81,7 +81,7 @@ function CadastroCategoria() {
     }
 
     function back() {
-        navigate('/home')
+        navigate('/Listar_Categorias')
     }
 
     return (
