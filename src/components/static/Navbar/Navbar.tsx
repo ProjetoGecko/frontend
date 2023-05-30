@@ -67,6 +67,14 @@ function Navbar() {
                     <Box mx={1}>
                         <Typography className='menunav'>/</Typography>
                     </Box>
+                    <Box>
+                      <Link to ='/Listar_Categorias'>  
+                        <Typography className='menunav'>Categorias</Typography>
+                     </Link>  
+                    </Box>
+                    <Box mx={1}>
+                        <Typography className='menunav'>/</Typography>
+                    </Box>
                     <Box onClick={goLogout}>
                         <Link to={token? '#' : '/login'}>
                             <Typography className='menunav'>{token? 'Deslogar' : 'Logar'}</Typography>

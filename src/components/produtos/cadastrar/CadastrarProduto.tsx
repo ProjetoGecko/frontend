@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormControlLabel, FormLabel, FormHelperText, Radio, RadioGroup, Box, Grid, Card, CardHeader, CardContent, CardMedia } from "@mui/material";
 import Produto from '../../../models/Produto'
 import Categoria from '../../../models/Categoria'
-import { busca, cadastro } from '../../../services/Service';
+import { busca, cadastro, atualizar } from '../../../services/Service';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import './CadastrarProduto.css'
 import { useSelector } from 'react-redux';
@@ -86,12 +86,12 @@ function CadastrarProduto() {
         e.preventDefault()
 
         if (id !== undefined) {
-            // await put(`/produtos`, produto, setProduto, {
-            //     headers: {
-            //         'Authorization': token
-            //     }
-            // })
-            // alert('Produto atualizado com sucesso')
+            await atualizar(`/produtos`, produto, setProduto, {
+                headers: {
+                    'Authorization': token
+                }
+            })
+            alert('Produto atualizado com sucesso')
         } else {
             await cadastro(`/produtos`, produto, setProduto, {
                 headers: {
@@ -104,7 +104,7 @@ function CadastrarProduto() {
     }
 
     function back() {
-        navigate('/home')
+        navigate('/')
     }
 
     function truncateString(str: string, num: number) {

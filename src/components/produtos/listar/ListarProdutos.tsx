@@ -79,6 +79,22 @@ function ListarProdutos() {
                                         <hr />
                                         <Typography variant="body2" color="text.secondary">{+produto.reciclavel == 1 ? "Reciclável" : "Não reciclável"}</Typography>
                                     </Box>
+                                    <Box display='flex' justifyContent='space-between' alignItems='center' width='100%' style={{marginTop: '1em'}}>
+                                        <Link to={`/cadastrar_produto/${produto.id}`} className="text-decorator-none" >
+                                            <Box mx={1}>
+                                                <Button variant="contained" className="marginLeft" size='small' style={{ backgroundColor: '#bb872c', color: 'white' }} >
+                                                    atualizar
+                                                </Button>
+                                            </Box>
+                                        </Link>
+                                        <Link to={`/deletarProduto/${produto.id}`} className="text-decorator-none">
+                                            <Box className="input4" mx={1}>
+                                                <Button variant="contained" size='small' style={{ backgroundColor: '#973838', color: 'white' }}>
+                                                    deletar
+                                                </Button>
+                                            </Box>
+                                        </Link>
+                                    </Box>
                                 </CardContent>
                             </Card>
                         </Grid>
