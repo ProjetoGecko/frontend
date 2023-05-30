@@ -87,6 +87,7 @@ export default function Login() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
+          alignItems: 'center'
         }}
       >
         <Box
@@ -94,6 +95,7 @@ export default function Login() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            width: '25vw'
           }}
           className="main-login"
         >
