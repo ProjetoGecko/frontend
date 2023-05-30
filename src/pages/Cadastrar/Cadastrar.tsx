@@ -1,4 +1,4 @@
-import React , {useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import User from '../../models/User';
 import { cadastroUsuario } from '../../services/Service';
@@ -14,76 +14,109 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { Paper } from '@mui/material';
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const [confirmarSenha,setConfirmarSenha] = useState<string>("")
+  const [confirmarSenha, setConfirmarSenha] = useState<string>("")
   const [user, setUser] = useState<User>(
-      {
-          id: 0,
-          nome: '',
-          usuario: '',
-          foto: '',
-          senha: '',
-          token: ''
-      })
+    {
+      id: 0,
+      nome: '',
+      usuario: '',
+      foto: '',
+      senha: '',
+      token: ''
+    })
 
   const [userResult, setUserResult] = useState<User>(
-      {
-          id: 0,
-          nome: '',
-          usuario: '',
-          foto: '',
-          senha: '',
-          token: ''
-      })
+    {
+      id: 0,
+      nome: '',
+      usuario: '',
+      foto: '',
+      senha: '',
+      token: ''
+    })
 
   useEffect(() => {
-      if (userResult.id != 0) {
-          navigate("/login")
-      }
+    if (userResult.id != 0) {
+      navigate("/login")
+    }
   }, [userResult])
 
 
-  function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>){
-      setConfirmarSenha(e.target.value)
+  function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>) {
+    setConfirmarSenha(e.target.value)
   }
 
 
   function updatedModel(e: ChangeEvent<HTMLInputElement>) {
 
-      setUser({
-          ...user,
-          [e.target.name]: e.target.value
-      })
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    })
 
   }
   async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
-      e.preventDefault()
-      if(confirmarSenha == user.senha){
-      cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-      alert('Usuario cadastrado com sucesso')
-      }else{
-          alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+    e.preventDefault()
+    if (confirmarSenha == user.senha) {
+      try {
+        cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+        alert('Usuario cadastrado com sucesso')
+      } catch (e) {
+        alert(e)
       }
+    } else {
+      alert('As senhas não são iguais!')
+    }
   }
 
   return (
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
+    <Grid container component="main" sx={{ height: "100vh" }}>
+      <Grid
+        item
+        xs={false}
+        sm={4}
+        md={7}
+        sx={{
+          backgroundImage: "url(https://i.ibb.co/dmTDd6d/gecko-login.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "80% center",
+        }}
+      />
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        md={5}
+        component={Paper}
+        elevation={6}
+        square
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: 'center'
+        }}
+      >
         <Box
           sx={{
             marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
+            justifyContent: 'center',
             alignItems: 'center',
+            width: '25vw'
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: '#88bb29' }}>
+          <Avatar sx={{ m: 1, bgcolor: '#25812D' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
-            Cadastrar
+          <Typography color='primary' component="h1" variant="h5">
+            Cadastre-se
           </Typography>
 
           <Box component="form" noValidate onSubmit={onSubmit} sx={{ mt: 3 }}>
@@ -112,7 +145,7 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  value={user.usuario} 
+                  value={user.usuario}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                   required
                   fullWidth
@@ -136,7 +169,7 @@ export default function SignUp() {
                 />
               </Grid>
               <Grid item xs={12}>
-              <TextField
+                <TextField
                   value={confirmarSenha}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
                   required
@@ -159,20 +192,22 @@ export default function SignUp() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2, bgcolor: '#88bb29' }}
-              
+              sx={{ mt: 3, mb: 2 }}
             >
               Cadastrar
             </Button>
-            <Grid p={6} container justifyContent="flex-end">
+            <Grid container justifyContent="center">
               <Grid item>
-                <Link to='/login' className='text-decorator-none'>
-                  Já possui uma conta? Faça o login
+                <Link to='/login'>
+                  <Typography color='primary'>
+                    Já possui uma conta? Faça o login
+                  </Typography>
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-      </Container>
+      </Grid>
+    </Grid>
   );
 }

@@ -30,7 +30,7 @@ function ListarProdutos() {
         getProdutos()
     }, [produtos.length])
 
-    produtos.sort((a,b) => b.id - a.id)
+    produtos.sort((a, b) => b.id - a.id)
 
     function truncateString(str: string, num: number) {
         if (str.length <= num) {
@@ -63,13 +63,15 @@ function ListarProdutos() {
                                     <Box display='flex' justifyContent='space-between' alignItems='center'>
                                         <Typography variant="h6" color="text.secondary">{"R$ " + produto.preco.toFixed(2).toString().replace('.', ',')}</Typography>
                                         <Box display='flex' alignItems='center' gap='10%'>
-                                            {produto.curtidas !== null ? produto.curtidas : "0"}
+                                            <Typography>
+                                                {produto.curtidas !== null ? produto.curtidas : "0"}
+                                            </Typography>
                                             <FavoriteIcon />
                                         </Box>
                                     </Box>
                                     <br />
-                                    <Typography variant="body2" color="text.secondary" height='10vh'>
-                                        {truncateString(produto.descricao, 160)}
+                                    <Typography variant="body2" color="text.secondary" height='10vh' sx={{ overflow: 'hidden', wordWrap: 'break-word' }}>
+                                        {truncateString(produto.descricao, 100)}
                                     </Typography>
                                     <br />
                                     <Box display='flex' justifyContent='space-around' alignItems='center' width='100%'>

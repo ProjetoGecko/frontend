@@ -41,7 +41,7 @@ function Footer() {
                     <Typography color='textSecondary'>Fique por dentro de tudo!</Typography>
                     <Typography color='textSecondary'>VOCÊ PODE AJUDAR A SALVAR O MUNDO.</Typography>
                     <Box className="caixa_imputs_footer">
-                        <TextField color='primary' placeholder="Insira seu E-mail" InputProps={{endAdornment: <MailIcon />}} />
+                        <TextField color='primary' placeholder="Insira seu E-mail" InputProps={{ endAdornment: <MailIcon /> }} />
                     </Box>
                 </Grid>
             </Grid>

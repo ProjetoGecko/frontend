@@ -1,11 +1,10 @@
 ﻿import React, { ChangeEvent, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../services/Service";
 import UserLogin from "../../models/UserLogin";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -30,8 +29,8 @@ export default function Login() {
     id: 0,
     nome: '',
     usuario: '',
-    foto: '',
     senha: '',
+    foto: '',
     token: ''
   });
 
@@ -88,6 +87,7 @@ export default function Login() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
+          alignItems: 'center'
         }}
       >
         <Box
@@ -95,13 +95,14 @@ export default function Login() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            width: '25vw'
           }}
           className="main-login"
         >
           <Avatar sx={{ m: 1, bgcolor: "#25812D" }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" color='secondary'>
             Login
           </Typography>
           <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
@@ -135,19 +136,25 @@ export default function Login() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                  Esqueceu sua senha?
+                <Link to="#">
+                  <Typography color='primary'>
+                    Esqueceu sua senha?
+                  </Typography>
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/cadastrar" variant="body2">
-                  Não tem conta? Cadastre-se
+                <Link to="/cadastrar">
+                  <Typography color='primary'>
+                    Não tem conta? Cadastre-se
+                  </Typography>
                 </Link>
               </Grid>
             </Grid>
-            <Typography variant="body2" align="center" sx={{ mt: 5 }}>
+            <Typography color='secondary' variant="body2" align="center" sx={{ mt: 5 }}>
               {"Copyright © "}
-              <Link href="https://www.generation.org/">Generation</Link>{" "}
+              <Link to="https://www.generation.org/" style={{ color: '#55A630' }}>
+                Generation
+              </Link>{" "}
               {new Date().getFullYear()}
               {"."}
             </Typography>

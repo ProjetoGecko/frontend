@@ -11,7 +11,7 @@ export const cadastroUsuario = async(url: any, dados: any, setDado: any) => {
 
 export const login = async(url: any, dados: any, setDado: any) => {
     const resposta = await api.post(url, dados)
-    setDado(resposta.data.token)
+    setDado(resposta.data)
 }
 
 export const busca = async(url: any, setDado: any, header: any) => {
@@ -22,4 +22,13 @@ export const busca = async(url: any, setDado: any, header: any) => {
 export const cadastro = async(url: any, dados: any, setDado: any, header: any) => {
     const resposta = await api.post(url, dados, header)
     setDado(resposta.data)
+}
+
+export const atualizar = async(url: any, dados: any, setDado: any, header: any) => { 
+    const resposta = await api.put(url,dados,header)
+    setDado(resposta.data)
+}
+
+export const deleteId = async(url: any,header: any) => { 
+    await api.delete(url,header)
 }
