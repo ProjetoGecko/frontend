@@ -16,7 +16,7 @@ function Navbar() {
 
     function goLogout() {
         dispatch(addToken(''));
-        alert('Usuario Deslogado com sucesso!');
+        if(token)alert('Usuario Deslogado com sucesso!');
         navigate('/login');
     }
 
@@ -68,12 +68,15 @@ function Navbar() {
                         <Typography className='menunav'>/</Typography>
                     </Box>
                     <Box onClick={goLogout}>
-                        <Typography className='menunav'>Deslogar</Typography>
+                        <Link to={token? '#' : '/login'}>
+                            <Typography className='menunav'>{token? 'Deslogar' : 'Logar'}</Typography>
+                        </Link>
                     </Box>
                 </Box>
             </Toolbar>
         </AppBar>
     );
 }
+
 
 export default Navbar;
