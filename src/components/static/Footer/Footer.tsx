@@ -14,10 +14,10 @@ import './Footer.css'
 function Footer() {
     return (
         <>
-            <Grid container className="footer_conteudo">
+            <Grid container xs={12} className="footer_conteudo">
                 <Grid item xs={4} className="footer_contacts">
-                    <img src={Logo} alt="Logo" width="70px" />
-                    <Grid >
+                    <img src={Logo} alt="Logo" width="80px" height="80px"/>
+                    <Grid className="footer_contacts">
                         <Typography className="Slogan">Na Gecko, cada compra é um passo eckológico com o qual você deixa a sua pegada verde no mundo.</Typography>
                     </Grid>
                 </Grid>
