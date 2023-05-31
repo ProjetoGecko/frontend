@@ -18,6 +18,7 @@ import { Provider } from 'react-redux'
 import store from './store/Store'
 import DeletarProduto from './components/produtos/deletar/DeletarProduto'
 import DeletarCategoria from './components/categorias/deletar/DeletarCategoria'
+import ContatoForm from './components/contato/ContatoForm'
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
               <Route path='/Cadastrar_produto/:id' element={<CadastrarProduto />} />
               <Route path='/Cadastrar_categoria/:id' element={<CadastrarCategoria />} />
               <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
+              <Route path="/contato" element={<ContatoForm />} />
             </Routes>
             <Footer />
           </BrowserRouter>
