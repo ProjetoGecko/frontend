@@ -17,7 +17,16 @@ function Navbar() {
 
     function goLogout() {
         dispatch(addToken(''));
-        if(token)alert('Usuario Deslogado com sucesso!');
+        if(token)toast.success('Usuário deslogado com sucesso!', {
+            position: 'top-right',
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: 'colored',
+            progress: undefined,
+        });;
         navigate('/login');
     }
 

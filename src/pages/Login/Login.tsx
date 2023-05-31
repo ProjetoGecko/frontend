@@ -14,6 +14,7 @@ import "./Login.css";
 import { useDispatch } from "react-redux";
 import { addId, addToken } from '../../store/token/Actions'
 import User from "../../models/User";
+import { toast } from "react-toastify";
 
 export default function Login() {
   let navigate = useNavigate();
@@ -55,9 +56,27 @@ export default function Login() {
     try {
       await login(`/usuarios/logar`, userLogin, setUser);
 
-      alert("Usuário logado com sucesso!");
+      toast.success('Login efetuado com sucesso!', {
+        position: 'top-right',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: 'colored',
+        progress: undefined,
+    });
     } catch (error) {
-      alert("Dados do usuário inválido. Erro ao logar!");
+      toast.error('Erro ao efetuar login! Verifique os dados do usuário!', {
+        position: 'top-right',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: 'colored',
+        progress: undefined,
+    });
     }
   }
 

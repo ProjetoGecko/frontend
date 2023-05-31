@@ -7,6 +7,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useSelector } from "react-redux"
 import { UserState } from "../../../store/token/Reducer"
 import './ListarProdutos.css';
+import BarraPesquisa from "../../barraPesquisa/BarraPesquisa"
+import BarraFiltro from "../../barraFiltro/BarraFiltro"
 
 function ListarProdutos() {
     const [produtos, setProdutos] = useState<Produto[]>([])
@@ -14,7 +16,7 @@ function ListarProdutos() {
     const token = useSelector<UserState, UserState['tokens']>(
         (state) => state.tokens
     )
-    
+
     const idUser = useSelector<UserState, UserState['id']>(
         (state) => state.id
     )
@@ -46,67 +48,69 @@ function ListarProdutos() {
 
     return (
         <>
-            <Link to="/cadastrar_produto">
-                <Button variant="contained">Cadastrar Produto</Button>
-            </Link>
-
-            <Grid container display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
-                {
-                    produtos.map(produto => (
-                        <Grid item xs={12} sm={6} md={4} lg={3} xl={2.4} display='flex' justifyContent='center' alignItems='center' marginBottom={8}>
-                            <Card className="card" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: 300, height: 650 }}>
-                                <CardHeader
-                                    title={truncateString(produto.nome, 20)}
-                                    subheader={produto.usuario?.nome + " - " + produto.categoria?.nome}
-                                />
-                                <CardMedia
-                                    component="img"
-                                    height="200"
-                                    image={produto.foto}
-                                />
-                                <CardContent>
-                                    <Box display='flex' justifyContent='space-between' alignItems='center'>
-                                        <Typography variant="h6" color="text.secondary">{"R$ " + produto.preco.toFixed(2).toString().replace('.', ',')}</Typography>
-                                        <Box display='flex' alignItems='center' gap='10%'>
-                                            <Typography>
-                                                {produto.curtidas !== null ? produto.curtidas : "0"}
-                                            </Typography>
-                                            <FavoriteIcon />
+            <BarraPesquisa />
+            <Grid container>
+                <Grid item xs={2} py={8}>
+                    <BarraFiltro />
+                </Grid>
+                <Grid container item xs={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
+                    {
+                        produtos.map(produto => (
+                            <Grid item xs={12} sm={6} md={4} lg={3} display='flex' justifyContent='center' alignItems='center' marginBottom={8}>
+                                <Card elevation={4} className="card" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: 300, height: 650 }}>
+                                    <CardHeader
+                                        title={truncateString(produto.nome, 15)}
+                                        subheader={produto.usuario?.nome + " - " + produto.categoria?.nome}
+                                    />
+                                    <CardMedia
+                                        component="img"
+                                        height="200"
+                                        image={produto.foto}
+                                    />
+                                    <CardContent>
+                                        <Box display='flex' justifyContent='space-between' alignItems='center'>
+                                            <Typography variant="h6" color="text.secondary">{"R$ " + produto.preco.toFixed(2).toString().replace('.', ',')}</Typography>
+                                            <Box display='flex' alignItems='center' gap='10%'>
+                                                <Typography>
+                                                    {produto.curtidas !== null ? produto.curtidas : "0"}
+                                                </Typography>
+                                                <FavoriteIcon />
+                                            </Box>
                                         </Box>
-                                    </Box>
-                                    <br />
-                                    <Typography variant="body2" color="text.secondary" height='10vh' sx={{ overflow: 'hidden', wordWrap: 'break-word' }}>
-                                        {truncateString(produto.descricao, 100)}
-                                    </Typography>
-                                    <br />
-                                    <Box display='flex' justifyContent='space-around' alignItems='center' width='100%'>
-                                        <Typography variant="body2" color="text.secondary">{+produto.estado == 1 ? "Novo" : "Usado"}</Typography>
-                                        <hr />
-                                        <Typography variant="body2" color="text.secondary">{+produto.reciclavel == 1 ? "Reciclável" : "Não reciclável"}</Typography>
-                                    </Box>
-                                    <Box visibility={+idUser !== produto.usuario?.id ? 'hidden' : 'visible'} display='flex' justifyContent='space-between' alignItems='center' width='100%' style={{marginTop: '1em'}}>
-                                        <Link to={`/deletarProduto/${produto.id}`} className="text-decorator-none">
-                                            <Box className="input4" mx={1}>
-                                                <Button variant="contained" size='small' style={{ backgroundColor: '#973838', color: 'white' }}>
-                                                    Deletar
-                                                </Button>
-                                            </Box>
-                                        </Link>
-                                        <Link to={`/cadastrar_produto/${produto.id}`} className="text-decorator-none" >
-                                            <Box mx={1}>
-                                                <Button variant="contained" className="marginLeft" size='small' style={{ backgroundColor: '#bb872c', color: 'white' }} >
-                                                    Atualizar
-                                                </Button>
-                                            </Box>
-                                        </Link>
-                                    </Box>
-                                </CardContent>
-                                <Button variant="contained" className="botaocompra"  style={{ backgroundColor: '#bb872c', color: 'white' }}>Comprar</Button>
-                            </Card>
-                            
-                        </Grid>
-                    ))
-                }
+                                        <br />
+                                        <Typography variant="body2" color="text.secondary" height='10vh' sx={{ overflow: 'hidden', wordWrap: 'break-word' }}>
+                                            {truncateString(produto.descricao, 100)}
+                                        </Typography>
+                                        <br />
+                                        <Box display='flex' justifyContent='space-around' alignItems='center' width='100%'>
+                                            <Typography variant="body2" color="text.secondary">{+produto.estado == 1 ? "Novo" : "Usado"}</Typography>
+                                            <hr />
+                                            <Typography variant="body2" color="text.secondary">{+produto.reciclavel == 1 ? "Reciclável" : "Não reciclável"}</Typography>
+                                        </Box>
+                                        <Box visibility={+idUser !== produto.usuario?.id ? 'hidden' : 'visible'} display='flex' justifyContent='space-between' alignItems='center' width='100%' style={{ marginTop: '1em' }}>
+                                            <Link to={`/deletarProduto/${produto.id}`} className="text-decorator-none">
+                                                <Box className="input4" mx={1}>
+                                                    <Button variant="contained" size='small' style={{ backgroundColor: '#973838', color: 'white' }}>
+                                                        Deletar
+                                                    </Button>
+                                                </Box>
+                                            </Link>
+                                            <Link to={`/cadastrar_produto/${produto.id}`} className="text-decorator-none" >
+                                                <Box mx={1}>
+                                                    <Button variant="contained" className="marginLeft" size='small' style={{ backgroundColor: '#bb872c', color: 'white' }} >
+                                                        Atualizar
+                                                    </Button>
+                                                </Box>
+                                            </Link>
+                                        </Box>
+                                    </CardContent>
+                                    <Button variant="contained" className="botaocompra" style={{ backgroundColor: '#bb872c', color: 'white' }}>Comprar</Button>
+                                </Card>
+
+                            </Grid>
+                        ))
+                    }
+                </Grid>
             </Grid>
         </>
     )
