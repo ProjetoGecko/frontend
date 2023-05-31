@@ -1,14 +1,18 @@
 import React from 'react'
-import { Box, FormControl, FormControlLabel, FormGroup, FormLabel, Paper, Radio, RadioGroup, Switch, Typography } from '@mui/material'
+import { Box, Button, FormControl, FormControlLabel, FormGroup, FormLabel, Paper, Radio, RadioGroup, Switch, Typography } from '@mui/material'
 import './BarraFiltro.css'
+import { Link } from 'react-router-dom'
 
 function BarraFiltro() {
     return (
         <>
-            <Box component={Paper} width='300px' height='auto' elevation={4} py={5} pl={6} display='flex' flexDirection='column' justifyContent='center' alignItems='start' gap={4}>
+            <Box component={Paper} elevation={-1} py={5} pl={6} height='100%' display='flex' flexDirection='column' justifyContent='start' alignItems='start' gap={4}>
+                <Link to="/cadastrar_produto">
+                    <Button variant="contained">Cadastrar Produto</Button>
+                </Link>
                 <Typography variant='h3' color='textPrimary'>Filtros</Typography>
                 <FormControl component="fieldset" variant="standard">
-                    <FormLabel color='secondary' component="legend" sx={{paddingBottom: '10px'}}>Produtos</FormLabel>
+                    <FormLabel color='secondary' component="legend" sx={{ paddingBottom: '10px' }}>Produtos</FormLabel>
                     <FormGroup>
                         <FormControlLabel
                             color='secondary'
@@ -33,7 +37,7 @@ function BarraFiltro() {
                     </FormGroup>
                 </FormControl>
                 <FormControl>
-                    <FormLabel id="demo-radio-buttons-group-label" sx={{paddingBottom: '10px'}}>Preço</FormLabel>
+                    <FormLabel id="demo-radio-buttons-group-label" sx={{ paddingBottom: '10px' }}>Preço</FormLabel>
                     <RadioGroup
                         aria-labelledby="demo-radio-buttons-group-label"
                         defaultValue="female"

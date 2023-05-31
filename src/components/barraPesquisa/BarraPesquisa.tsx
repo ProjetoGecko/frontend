@@ -42,7 +42,7 @@ function BarraPesquisa() {
 
     return (
         <>
-            <Box height={150} component={Paper} elevation={4}>
+            <Box height={175} component={Paper} elevation={4}>
                 <Box height={100} display='flex' justifyContent='center' alignItems='center'>
                     <FormControl variant="outlined">
                         <InputLabel htmlFor="outlined-adornment-password">Pesquise aqui</InputLabel>
@@ -59,7 +59,7 @@ function BarraPesquisa() {
                         />
                     </FormControl>
                 </Box>
-                <Box height={50} display='flex' justifyContent='center' alignItems='center' gap='50px'>
+                <Box height={75} display='flex' justifyContent='center' alignItems='center' gap='50px'>
                     {
                         categorias.map(categoria => (
                             <Button variant='contained'>{categoria.nome}</Button>
