@@ -42,7 +42,7 @@ function BarraPesquisa() {
 
     return (
         <>
-            <Box height={175} component={Paper} elevation={4}>
+            <Box height={175} component={Paper} elevation={4} square>
                 <Box height={100} display='flex' justifyContent='center' alignItems='center'>
                     <FormControl variant="outlined">
                         <InputLabel htmlFor="outlined-adornment-password">Pesquise aqui</InputLabel>

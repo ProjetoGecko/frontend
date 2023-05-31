@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function BarraFiltro() {
     return (
         <>
-            <Box component={Paper} elevation={-1} py={5} pl={6} height='100%' display='flex' flexDirection='column' justifyContent='start' alignItems='start' gap={4}>
+            <Box component={Paper} elevation={4} py={5} pl={6} height='100%' display='flex' flexDirection='column' justifyContent='start' alignItems='start' gap={4} square>
                 <Link to="/cadastrar_produto">
                     <Button variant="contained">Cadastrar Produto</Button>
                 </Link>

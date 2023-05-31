@@ -50,16 +50,16 @@ function ListarProdutos() {
         <>
             <BarraPesquisa />
             <Grid container>
-                <Grid item xs={2} py={0}>
+                <Grid item xs={2} py={8}>
                     <BarraFiltro />
                 </Grid>
                 <Grid container item xs={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
                         produtos.map(produto => (
                             <Grid item xs={12} sm={6} md={4} lg={3} display='flex' justifyContent='center' alignItems='center' marginBottom={8}>
-                                <Card className="card" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: 300, height: 650 }}>
+                                <Card elevation={4} className="card" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: 300, height: 650 }}>
                                     <CardHeader
-                                        title={truncateString(produto.nome, 20)}
+                                        title={truncateString(produto.nome, 15)}
                                         subheader={produto.usuario?.nome + " - " + produto.categoria?.nome}
                                     />
                                     <CardMedia
