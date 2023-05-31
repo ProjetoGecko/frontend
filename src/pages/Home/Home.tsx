@@ -9,7 +9,12 @@ import Carousel from '../../components/carousel/Carousel';
 function Home() {
   return (
     <>
+<<<<<<< HEAD
       <Grid container direction="row" justifyContent="center" alignItems="center" className="caixahome" minHeight="100vh" component={Paper}>
+=======
+      <Carousel></Carousel>
+      <Grid container direction="row" justifyContent="center" alignItems="center" className="caixahome" minHeight="100vh" >
+>>>>>>> 40d701e6254698a84c1025ff4b0ece8ae1c0d030
         <Grid alignItems="center" item xs={6} paddingLeft={9}>
           <Box>
             <Typography className="TituloHome" variant="h3" gutterBottom align="center" color="primary">Seja bem vinde!</Typography>
