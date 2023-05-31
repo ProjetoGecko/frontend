@@ -10,7 +10,7 @@ function Home() {
   return (
     <>
       <Carousel></Carousel>
-      <Grid container direction="row" justifyContent="center" alignItems="center" className="caixahome" minHeight="100vh" component={Paper}>
+      <Grid container direction="row" justifyContent="center" alignItems="center" className="caixahome" minHeight="100vh" >
         <Grid alignItems="center" item xs={6} paddingLeft={9}>
           <Box>
             <Typography className="TituloHome" variant="h3" gutterBottom align="center" color="primary">Seja bem vinde!</Typography>

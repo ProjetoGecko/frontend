@@ -13,7 +13,7 @@ export const geckoTheme = createTheme({
         },
         background: {
             default: '#F6F4EB',
-            paper: '#F4F8D4',
+            paper: '#FFFFFF',
         },
         text: {
             primary: '#283E30',
