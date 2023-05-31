@@ -15,6 +15,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 function Carrossel() {
     return (
         <>
+            <h2>Produtos Gecko</h2>
             <Swiper
                 slidesPerView={2}
                 spaceBetween={50}
@@ -23,7 +24,7 @@ function Carrossel() {
                     clickable: true,
                 }}
                 autoplay={{
-                    delay: 5000,
+                    delay: 1800,
                     disableOnInteraction: false,
                   }}
                 navigation={true}
@@ -32,19 +33,19 @@ function Carrossel() {
             >
 
                 <SwiperSlide>
-                    <img src="src\images\banner1.png" alt="Imagem" />
+                    <img className="carroImg" src="src\images\banner1.png" alt="Imagem" />
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <img src="src\images\banner2.png" alt="Imagem" />
+                    <img className="carroImg" src="src\images\banner2.png" alt="Imagem" />
                 </SwiperSlide>
                 
                 <SwiperSlide>
-                    <img src="src\images\banner3.png" alt="Imagem" />
+                    <img className="carroImg" src="src\images\banner3.png" alt="Imagem" />
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <img src="src\images\banner4.png" alt="Imagem" />
+                    <img className="carroImg" src="src\images\banner4.png" alt="Imagem" />
                 </SwiperSlide>
 
             </Swiper>
