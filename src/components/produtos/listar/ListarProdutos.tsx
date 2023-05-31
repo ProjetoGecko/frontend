@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useSelector } from "react-redux"
 import { UserState } from "../../../store/token/Reducer"
+import './ListarProdutos.css';
 
 function ListarProdutos() {
     const [produtos, setProdutos] = useState<Produto[]>([])
@@ -100,7 +101,9 @@ function ListarProdutos() {
                                         </Link>
                                     </Box>
                                 </CardContent>
+                                <Button variant="contained" className="botaocompra"  style={{ backgroundColor: '#bb872c', color: 'white' }}>Comprar</Button>
                             </Card>
+                            
                         </Grid>
                     ))
                 }
