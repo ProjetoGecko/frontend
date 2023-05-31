@@ -218,7 +218,8 @@ function CadastrarProduto() {
                                         headers: {
                                             'Authorization': token
                                         }
-                                    })}>
+                                    })}
+                                    label='Categoria'>
                                     {
                                         categorias.map(categoria => (
                                             <MenuItem value={categoria.id}>{categoria.nome}</MenuItem>
