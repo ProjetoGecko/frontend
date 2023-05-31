@@ -2,12 +2,14 @@ import React from "react";
 import { Grid, Box, Typography, Button, Paper } from "@mui/material";
 import { Link } from "react-router-dom";
 import './Home.css';
+import Carousel from '../../components/carousel/Carousel';
 
 
 
 function Home() {
   return (
     <>
+      <Carousel></Carousel>
       <Grid container direction="row" justifyContent="center" alignItems="center" className="caixahome" minHeight="100vh" component={Paper}>
         <Grid alignItems="center" item xs={6} paddingLeft={9}>
           <Box>
