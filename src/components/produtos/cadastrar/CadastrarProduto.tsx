@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { UserState } from '../../../store/token/Reducer';
 import User from '../../../models/User';
 import './CadastrarProduto.css'
+import { toast } from 'react-toastify';
 
 function CadastrarProduto() {
     const navigate = useNavigate();
@@ -129,7 +130,16 @@ function CadastrarProduto() {
                         'Authorization': token
                     }
                 })
-                alert('Produto atualizado com sucesso')
+                toast.success('Produto atualizado com sucesso!', {
+                    position: 'top-right',
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: 'colored',
+                    progress: undefined,
+                });
             } catch (e) {
                 alert(e)
             }
@@ -140,7 +150,16 @@ function CadastrarProduto() {
                         'Authorization': token
                     }
                 })
-                alert('Produto cadastrado com sucesso')
+                toast.success('Produto Cadastrado com sucesso!', {
+                    position: 'top-right',
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: 'colored',
+                    progress: undefined,
+                });
             } catch (e) {
                 alert(e)
             }

@@ -5,6 +5,7 @@ import Categoria from '../../../models/Categoria'
 import { atualizar, busca, cadastro } from '../../../services/Service'
 import { useSelector } from 'react-redux'
 import { UserState } from '../../../store/token/Reducer'
+import { toast } from 'react-toastify'
 
 function CadastroCategoria() {
     let navigate = useNavigate()
@@ -23,7 +24,16 @@ function CadastroCategoria() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado.")
+            toast.error('Usuário não autenticado!', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: 'colored',
+                progress: undefined,
+            });
 
             navigate("/login")
         }
@@ -61,7 +71,16 @@ function CadastroCategoria() {
                         'Authorization': token
                     }
                 })
-                alert('Categoria atualizada com sucesso')
+                toast.success('Categoria atualizada com sucesso', {
+                    position: 'top-right',
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: 'colored',
+                    progress: undefined,
+                });
             } catch (e) {
                 alert(e)
             }
@@ -72,7 +91,16 @@ function CadastroCategoria() {
                         'Authorization': token
                     }
                 })
-                alert('Categoria cadastrada com sucesso.')
+                toast.success('Categoria cadastrada com sucesso.', {
+                    position: 'top-right',
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: 'colored',
+                    progress: undefined,
+                });
             } catch (e) {
                 alert(e)
             }

@@ -15,6 +15,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Paper } from '@mui/material';
+import { toast } from 'react-toastify';
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -64,12 +65,30 @@ export default function SignUp() {
     if (confirmarSenha == user.senha) {
       try {
         cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-        alert('Usuario cadastrado com sucesso')
+        toast.success('Usuário cadastrado com sucesso', {
+          position: 'top-right',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          theme: 'colored',
+          progress: undefined,
+        });
       } catch (e) {
         alert(e)
       }
     } else {
-      alert('As senhas não são iguais!')
+      toast.error('As senhas não são iguais!', {
+        position: 'top-right',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: 'colored',
+        progress: undefined,
+      });
     }
   }
 
