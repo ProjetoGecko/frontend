@@ -31,6 +31,7 @@
 .footer-redes {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .redes {
@@ -107,7 +108,7 @@
 
 .lista_footer li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 2px;
     /* Espaçamento vertical entre os ícones e o texto */
 }
