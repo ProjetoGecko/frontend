@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { UserState } from '../../../store/token/Reducer';
 import { addToken } from '../../../store/token/Actions';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function Navbar() {
     let navigate = useNavigate();
@@ -88,6 +89,9 @@ function Navbar() {
                         <Link to={token? '#' : '/login'}>
                             <Typography className='menunav'>{token? 'Deslogar' : 'Logar'}</Typography>
                         </Link>
+                    </Box>
+                    <Box>
+                        <ShoppingCartIcon />
                     </Box>
                 </Box>
             </Toolbar>
