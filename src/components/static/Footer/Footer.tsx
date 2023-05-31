@@ -17,7 +17,7 @@ function Footer() {
             <Grid container className="footer_conteudo">
                 <Grid item xs={4} className="footer_contacts">
                     <img src={Logo} alt="Logo" width="70px" />
-                    <Grid sx={{ m: 1 }}>
+                    <Grid >
                         <Typography className="Slogan">Na Gecko, cada compra é um passo eckológico com o qual você deixa a sua pegada verde no mundo.</Typography>
                     </Grid>
                 </Grid>
