@@ -19,11 +19,14 @@ import store from './store/Store'
 import DeletarProduto from './components/produtos/deletar/DeletarProduto'
 import DeletarCategoria from './components/categorias/deletar/DeletarCategoria'
 import ContatoForm from './components/contato/ContatoForm'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <>
       <Provider store={store}>
+        <ToastContainer />
         <ThemeProvider theme={geckoTheme}>
           <BrowserRouter>
             <Navbar />
