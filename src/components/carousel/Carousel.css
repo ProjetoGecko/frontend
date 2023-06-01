@@ -1,7 +1,7 @@
 .swiper {
     width: 50vw;
     height: 60vh;
-    margin-bottom: 50px !important;
+    margin-bottom: 20px !important;
   }
   
   .swiper-slide img {
@@ -17,3 +17,21 @@
     margin-left: auto;
     margin-right: auto;
   }
+  .mySwiper {
+  
+ 
+    background-color: transparent;
+    
+    }
+    .mySwiper .swiper-pagination-bullet {
+      background-color: #55A630; /* substitua #ff0000 pela cor desejada */
+      margin-bottom: -0.85rem !important;
+    }
+    .mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  color: #55A630; 
+}
+.mySwiper .swiper-slide img {
+  display: block;
+  margin: 0 auto;
+}

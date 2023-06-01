@@ -15,7 +15,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 function Carrossel() {
     return (
         <>
-            <h2>Produtos Gecko</h2>
+            
             <Swiper
                 slidesPerView={1}
                 spaceBetween={-55}
