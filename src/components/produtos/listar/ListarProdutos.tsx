@@ -56,7 +56,7 @@ function ListarProdutos() {
                 <Grid container item xs={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
                         produtos.map(produto => (
-                            <Grid item xs={12} sm={6} md={4} lg={3} display='flex' justifyContent='center' alignItems='center' marginBottom={8}>
+                            <Grid item xs={12} sm={6} md={5} lg={4} display='flex' justifyContent='center' alignItems='center' marginBottom={8}>
                                 <Card elevation={4} className="card" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: 300, height: 650 }}>
                                     <CardHeader
                                         title={truncateString(produto.nome, 15)}
