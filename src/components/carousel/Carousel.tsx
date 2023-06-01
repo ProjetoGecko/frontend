@@ -15,6 +15,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 function Carrossel() {
     return (
         <>
+            <h2>Produtos Gecko</h2>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={-55}
@@ -40,7 +41,7 @@ function Carrossel() {
                 </SwiperSlide>
                 
                 <SwiperSlide>
-                    <img src="src\images\escova.png" alt="Imagem" />
+                    <img  src="src\images\escova.png" alt="Imagem" />
                 </SwiperSlide>
 
                 <SwiperSlide>
