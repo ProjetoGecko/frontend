@@ -13,32 +13,31 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { Paper } from '@mui/material';
+import { FormHelperText, Paper } from '@mui/material';
 import { toast } from 'react-toastify';
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const [confirmarSenha, setConfirmarSenha] = useState<string>("")
-  const [user, setUser] = useState<User>(
-    {
-      id: 0,
-      nome: '',
-      usuario: '',
-      foto: '',
-      senha: '',
-      token: ''
-    })
 
-  const [userResult, setUserResult] = useState<User>(
-    {
-      id: 0,
-      nome: '',
-      usuario: '',
-      foto: '',
-      senha: '',
-      token: ''
-    })
+  const [confirmarSenha, setConfirmarSenha] = useState<string>("")
+
+  const [user, setUser] = useState<User>({
+    id: 0,
+    nome: '',
+    usuario: '',
+    foto: '',
+    senha: '',
+    token: ''
+  })
+
+  const [userResult, setUserResult] = useState<User>({
+    id: 0,
+    nome: '',
+    usuario: '',
+    foto: '',
+    senha: '',
+    token: ''
+  })
 
   useEffect(() => {
     if (userResult.id != 0) {
@@ -51,20 +50,43 @@ export default function SignUp() {
     setConfirmarSenha(e.target.value)
   }
 
-
   function updatedModel(e: ChangeEvent<HTMLInputElement>) {
-
     setUser({
       ...user,
       [e.target.name]: e.target.value
     })
-
   }
+
+  const expression: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+  let nome_valido = false
+  let email_valido = false
+  let senha_valido = false
+  let confirmarSenha_valido = false
+  let foto_valido = false
+
+  if (user.nome == '' || (user.nome.length > 0 && user.nome.length < 255)) {
+    nome_valido = true
+  }
+  if (user.usuario == '' || expression.test(user.usuario)) {
+    email_valido = true
+  }
+  if (user.senha == '' || user.senha.length >= 8) {
+    senha_valido = true
+  }
+  if (confirmarSenha == '' || confirmarSenha == user.senha) {
+    confirmarSenha_valido = true
+  }
+  if (user.foto == '' || (user.foto.length > 0 && user.foto.length < 500)) {
+    foto_valido = true
+  }
+
   async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault()
-    if (confirmarSenha == user.senha) {
+
+    if (nome_valido && email_valido && senha_valido && confirmarSenha_valido && foto_valido) {
       try {
-        cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+        await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+
         toast.success('Usuário cadastrado com sucesso', {
           position: 'top-right',
           autoClose: 2000,
@@ -76,10 +98,19 @@ export default function SignUp() {
           progress: undefined,
         });
       } catch (e) {
-        alert(e)
+        toast.error(e, {
+          position: 'top-right',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          theme: 'colored',
+          progress: undefined,
+        });
       }
     } else {
-      toast.error('As senhas não são iguais!', {
+      toast.error('Informações inválidas!', {
         position: 'top-right',
         autoClose: 2000,
         hideProgressBar: false,
@@ -138,7 +169,7 @@ export default function SignUp() {
             Cadastre-se
           </Typography>
 
-          <Box component="form" noValidate onSubmit={onSubmit} sx={{ mt: 3 }}>
+          <Box component="form" onSubmit={onSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -146,59 +177,64 @@ export default function SignUp() {
                   onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                   autoComplete="given-name"
                   name="nome"
-                  required
-                  fullWidth
                   id="nome"
                   label="Nome"
                   autoFocus
+                  fullWidth
+                  required
                 />
+                {nome_valido ? '' : <FormHelperText error>* Nome muito longo!</FormHelperText>}
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  fullWidth
                   id="foto"
                   label="Foto"
                   name="foto"
                   autoComplete="family-name"
+                  fullWidth
                 />
+                {foto_valido ? '' : <FormHelperText error>* Link da foto muito longo!</FormHelperText>}
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   value={user.usuario}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                  required
-                  fullWidth
                   id="usuario"
                   label="Email"
                   name="usuario"
                   autoComplete="email"
+                  fullWidth
+                  required
                 />
+                {email_valido ? '' : <FormHelperText error>* E-mail inválido!</FormHelperText>}
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   value={user.senha}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                  required
-                  fullWidth
                   name="senha"
                   label="Senha"
                   type="password"
                   id="senha"
                   autoComplete="new-password"
+                  fullWidth
+                  required
                 />
+                {senha_valido ? '' : <FormHelperText error>* Senha muito curta!</FormHelperText>}
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   value={confirmarSenha}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
-                  required
-                  fullWidth
                   name="senha"
                   label="Confirmar Senha"
                   type="password"
                   id="senha"
                   autoComplete="new-password"
+                  fullWidth
+                  required
                 />
+                {confirmarSenha_valido ? '' : <FormHelperText error>* As senhas não são iguais!</FormHelperText>}
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel

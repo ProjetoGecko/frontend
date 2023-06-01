@@ -1,29 +1,37 @@
 .swiper {
-    width: 99vw;
+    width: 50vw;
     height: 60vh;
+    margin-bottom: 75px !important;
   }
   
   .swiper-slide img {
-    display: block;
+    display: flex;
+    justify-content: center;
     width: auto;
     height: 100%;
     object-fit: cover;
-     
+     object-position: 50% 20%; 
   }
   
   .swiper {
     margin-left: auto;
     margin-right: auto;
   }
-
-  h2{
-    font-family: Poppins;
-    padding: 0.3em;
-    font-size: 2rem;
-    color: #55A630;
-  }
-  .carroImg
-  {
-    padding-left: 7rem;
-    padding-right: 7rem;
-  }
+  .mySwiper {
+  
+ 
+    background-color: transparent;
+    
+    }
+    .mySwiper .swiper-pagination-bullet {
+      background-color: #55A630; /* substitua #ff0000 pela cor desejada */
+      margin-bottom: -0.85rem !important;
+    }
+    .mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  color: #55A630; 
+}
+.mySwiper .swiper-slide img {
+  display: block;
+  margin: 0 auto;
+}

@@ -8,6 +8,8 @@ import { toast } from 'react-toastify';
 import { UserState } from '../../../store/token/Reducer';
 import { addToken } from '../../../store/token/Actions';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Logo from '../../../images/GeckoLogo.png';
+import ModalCarr from '../../carrinho/ModalCarr';
 
 function Navbar() {
     let navigate = useNavigate();
@@ -34,7 +36,7 @@ function Navbar() {
         <AppBar className='navbar' position='static'>
             <Toolbar>
                 <Box mx={4}>
-                    <Typography className='logonav'>Gecko</Typography>
+                    <Typography className='logonav'><img src={Logo} alt="Logo" width="45px" height="45px"/></Typography>
                 </Box>
                 <Box display='flex' justifyContent='start'>
                     <Box>
@@ -43,7 +45,7 @@ function Navbar() {
                         </Link>
                     </Box>
                     <Box mx={1}>
-                        <Typography className='menunav'>/</Typography>
+                        <Typography className='menunav'>   </Typography>
                     </Box>
                     <Box>
                         <Link to='/sobre'>
@@ -51,7 +53,7 @@ function Navbar() {
                         </Link>
                     </Box>
                     <Box mx={1}>
-                        <Typography className='menunav'>/</Typography>
+                        <Typography className='menunav'>   </Typography>
                     </Box>
                     <Box>
                         <Link to='/listar_produtos'>
@@ -59,7 +61,7 @@ function Navbar() {
                         </Link>
                     </Box>
                     <Box mx={1}>
-                        <Typography className='menunav'>/</Typography>
+                        <Typography className='menunav'>   </Typography>
                     </Box>
                     <Box>
                         <Link to='/contato'>
@@ -67,31 +69,22 @@ function Navbar() {
                         </Link>
                     </Box>
                     <Box mx={1}>
-                        <Typography className='menunav'>/</Typography>
-                    </Box>
-                    <Box>
-                        <Link to='#'>
-                            <Typography className='menunav'>Meu Carrinho</Typography>
-                        </Link>
-                    </Box>
-                    <Box mx={1}>
-                        <Typography className='menunav'>/</Typography>
+                        <Typography className='menunav'>   </Typography>
                     </Box>
                     <Box>
                       <Link to ='/Listar_Categorias'>  
                         <Typography className='menunav'>Categorias</Typography>
                      </Link>  
                     </Box>
-                    <Box mx={1}>
-                        <Typography className='menunav'>/</Typography>
-                    </Box>
-                    <Box onClick={goLogout}>
-                        <Link to={token? '#' : '/login'}>
-                            <Typography className='menunav'>{token? 'Deslogar' : 'Logar'}</Typography>
+                    <Box className='boxcarrinho' marginLeft={96}>
+                        <Link to='#'>
+                            <ModalCarr/>
                         </Link>
                     </Box>
-                    <Box>
-                        <ShoppingCartIcon />
+                    <Box className='boxlog' marginLeft={5} onClick={goLogout}>
+                        <Link to={token? '#' : '/login'}>
+                            <Typography className='login'>{token? 'Deslogar' : 'Logar'}</Typography>
+                        </Link>
                     </Box>
                 </Box>
             </Toolbar>
@@ -100,4 +93,4 @@ function Navbar() {
 }
 
 
-export default Navbar;
+export default Navbar; 

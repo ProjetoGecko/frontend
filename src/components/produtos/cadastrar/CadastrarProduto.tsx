@@ -120,52 +120,92 @@ function CadastrarProduto() {
         }
     }
 
+    let categoria_selecionada = true
+    let nome_valido = true
+    let descricao_valido = true
+    let preco_valido = true
+
+    if (produto.categoria?.id == 0) {
+        categoria_selecionada = false
+    }
+    if (produto.nome.length > 255) {
+        nome_valido = false
+    }
+    if (produto.descricao.length > 255) {
+        descricao_valido = false
+    }
+    if (produto.preco < 0 || isNaN(produto.preco)) {
+        preco_valido = false
+    }
+
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
 
         if (id !== undefined) {
-            try {
-                await atualizar(`/produtos`, produto, setProduto, {
-                    headers: {
-                        'Authorization': token
-                    }
-                })
-                toast.success('Produto atualizado com sucesso!', {
-                    position: 'top-right',
-                    autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: false,
-                    theme: 'colored',
-                    progress: undefined,
-                });
-            } catch (e) {
-                alert(e)
+            if (categoria_selecionada && nome_valido && descricao_valido && preco_valido) {
+                try {
+                    await atualizar(`/produtos`, produto, setProduto, {
+                        headers: {
+                            'Authorization': token
+                        }
+                    })
+                    toast.success('Produto atualizado com sucesso!', {
+                        position: 'top-right',
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        theme: 'colored',
+                        progress: undefined,
+                    });
+                } catch (e) {
+                    toast.error(e, {
+                        position: 'top-right',
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        theme: 'colored',
+                        progress: undefined,
+                    });
+                }
+                navigate('/listar_produtos')
             }
         } else {
-            try {
-                await cadastro(`/produtos`, produto, setProduto, {
-                    headers: {
-                        'Authorization': token
-                    }
-                })
-                toast.success('Produto Cadastrado com sucesso!', {
-                    position: 'top-right',
-                    autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: false,
-                    theme: 'colored',
-                    progress: undefined,
-                });
-            } catch (e) {
-                alert(e)
+            if (categoria_selecionada && nome_valido && descricao_valido && preco_valido) {
+                try {
+                    await cadastro(`/produtos`, produto, setProduto, {
+                        headers: {
+                            'Authorization': token
+                        }
+                    })
+                    toast.success('Produto Cadastrado com sucesso!', {
+                        position: 'top-right',
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        theme: 'colored',
+                        progress: undefined,
+                    });
+                } catch (e) {
+                    toast.error(e, {
+                        position: 'top-right',
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        theme: 'colored',
+                        progress: undefined,
+                    });
+                }
+                navigate('/listar_produtos')
             }
         }
-
-        navigate('/listar_produtos')
     }
 
     function truncateString(str: string, num: number) {
@@ -184,13 +224,46 @@ function CadastrarProduto() {
                         <TextField
                             value={produto.nome}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)}
-                            id="nome" label="Nome do produto" variant="outlined" name="nome" margin="normal" fullWidth />
+                            id="nome"
+                            label="Nome do produto"
+                            variant="outlined"
+                            name="nome"
+                            margin="normal"
+                            fullWidth
+                            required />
+                        {nome_valido ? '' : <FormHelperText error>* Nome muito longo!</FormHelperText>}
                         <TextField
-                            value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="Descrição" variant="outlined" name="descricao" margin="normal" fullWidth />
+                            value={produto.descricao}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)}
+                            id="descricao"
+                            label="Descrição"
+                            variant="outlined"
+                            name="descricao"
+                            margin="normal"
+                            fullWidth
+                            required />
+                        {descricao_valido ? '' : <FormHelperText error>* Descrição muito longa!</FormHelperText>}
                         <TextField
-                            value={produto.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="Preço" variant="outlined" name="preco" margin="normal" fullWidth />
+                            value={produto.preco}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)}
+                            id="preco"
+                            label="Preço"
+                            variant="outlined"
+                            name="preco"
+                            margin="normal"
+                            fullWidth
+                            required />
+                        {preco_valido ? '' : <FormHelperText error>* Digite um preço válido!</FormHelperText>}
                         <TextField
-                            value={produto.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="Link para a foto" variant="outlined" name="foto" margin="normal" fullWidth />
+                            value={produto.foto}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)}
+                            id="foto"
+                            label="Link para a foto"
+                            variant="outlined"
+                            name="foto"
+                            margin="normal"
+                            fullWidth
+                            required />
                         <Box display='flex' justifyContent='space-evenly' paddingTop='5%'>
                             <FormControl>
                                 <FormLabel id="demo-row-radio-buttons-group-label">Estado</FormLabel>
@@ -231,20 +304,27 @@ function CadastrarProduto() {
                             <FormControl >
                                 <InputLabel id="demo-simple-select-helper-label">Categoria</InputLabel>
                                 <Select
-                                    value={produto.categoria?.id !== undefined ? produto.categoria?.id : 1}
+                                    id='select-categoria'
+                                    value={produto.categoria?.id !== undefined ? produto.categoria?.id : ''}
                                     sx={{ width: '15vw' }}
                                     onChange={(e) => busca(`/categorias/${e.target.value}`, setCategoria, {
                                         headers: {
                                             'Authorization': token
                                         }
                                     })}
-                                    label='Categoria'>
+                                    label='Categoria'
+                                    required
+                                >
+                                    <MenuItem value='0'>Categoria</MenuItem>
                                     {
                                         categorias.map(categoria => (
                                             <MenuItem value={categoria.id}>{categoria.nome}</MenuItem>
                                         ))
                                     }
                                 </Select>
+                                {
+                                    categoria_selecionada ? '' : <FormHelperText error>* Selecione uma categoria!</FormHelperText>
+                                }
                             </FormControl>
                             <Link to="/cadastrar_categoria">
                                 <Button variant="text">Cadastrar Nova Categoria</Button>
@@ -270,7 +350,7 @@ function CadastrarProduto() {
                     <Card sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: 300, height: 650 }}>
                         <CardHeader
                             title={
-                                produto.nome !== '' ? truncateString(produto.nome, 20) : "Nome"
+                                produto.nome !== '' ? truncateString(produto.nome, 15) : "Nome"
                             }
                             subheader={user.nome + " - " + (produto.categoria?.nome !== '' ? produto.categoria?.nome : "Categoria")}
                         />
