@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import {Button } from "@material-ui/core"
-import {Box} from '@mui/material';
+import {Box, Typography} from '@mui/material';
 import CloseIcon from '@material-ui/icons/Close';
 import './ModalCarr.css';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
     paper: {
       position: 'absolute',
       width: 400,
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: '#283E30',
       border: '2px solid #000',
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
@@ -51,8 +51,10 @@ function ModalCarr () {
         <CloseIcon onClick={handleClose}/>
       
       </Box>
+      <Box className='titcarr'>
       Meus produtos:
-      <button id="checkoutButton">Finalizar Compra</button>
+      </Box>
+      <Button className='botaocompra' id="checkoutButton">Finalizar Compra</Button>
       
     </div>
   );
