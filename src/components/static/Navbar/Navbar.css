@@ -1,12 +1,35 @@
 .navbar{
-    background-color: var(--cor4)!important;
+    background-color: var(--cor5)!important;
 }
 
 .menunav{
     color: white;
-    
+    margin-top: 9px!important;
+}
+
+.menunav:hover{
+    color:#456747;
 }
 
 .logonav{
     color: white;
+}
+
+.login{
+    color: white;
+    margin-top: 9px!important;
+}
+
+.login:hover{
+    color:#456747;
+}
+
+.carrinho{
+    color: white;
+    font-size: xx-large!important;
+    transform: scaleX(-1);
+}
+
+.carrinho:hover{
+    color:#456747;
 }
