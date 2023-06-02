@@ -33,22 +33,20 @@ function Carrossel() {
             >
 
                 <SwiperSlide>
-                    <img src="src\images\canudo.png" alt="Imagem" />
+                    <img src="src\images\Capa_para_lanchonete_2.png" />
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <img src="src\images\ecobag.png" alt="Imagem" />
+                    <img src="src\images\feira_5.png" />
                 </SwiperSlide>
                 
                 <SwiperSlide>
-                    <img  src="src\images\escova.png" alt="Imagem" />
+                    <img  src="src\images\Garaffa_Agua_4.png" alt="Imagem" />
                 </SwiperSlide>
 
+               
                 <SwiperSlide>
-                    <img src="src\images\garrafa.png" alt="Imagem" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="src\images\blusa.png" alt="Imagem" />
+                    <img src="src\images\skincare.png" />
                 </SwiperSlide>
 
             </Swiper>
