@@ -16,10 +16,10 @@ function Contato() {
                                 <img src="https://avatars.githubusercontent.com/u/111209237?v=4" alt="Foto Bruno" />
                                 <Typography color='secondary' variant='h5' className='contato-nome'>Bruno Kauã</Typography>
                                 <Box display='flex' style={{ gap: '20%' }}>
-                                    <a href='https://www.linkedin.com/in/bruno-kaua-655a6922a/'>
+                                    <a href='https://www.linkedin.com/in/bruno-kaua-655a6922a/' target='_blank'>
                                         <LinkedInIcon className='contato-icon' />
                                     </a>
-                                    <a href='https://github.com/brunokauaal'>
+                                    <a href='https://github.com/brunokauaal' target='_blank'>
                                         <GitHubIcon className='contato-icon' />
                                     </a>
                                 </Box>
@@ -30,10 +30,10 @@ function Contato() {
                                 <img src="https://avatars.githubusercontent.com/u/108534306?v=4" alt="Foto Jeanine" />
                                 <Typography color='secondary' variant='h5' className='contato-nome'>Jeanine Santiago</Typography>
                                 <Box display='flex' style={{ gap: '20%' }}>
-                                    <a href='https://www.linkedin.com/in/jeanine-santiago/'>
+                                    <a href='https://www.linkedin.com/in/jeanine-santiago/' target='_blank'>
                                         <LinkedInIcon className='contato-icon' />
                                     </a>
-                                    <a href='https://github.com/Jeanine19'>
+                                    <a href='https://github.com/Jeanine19' target='_blank'>
                                         <GitHubIcon className='contato-icon' />
                                     </a>
                                 </Box>
@@ -44,10 +44,10 @@ function Contato() {
                                 <img src="https://avatars.githubusercontent.com/u/38157485?v=4" alt="Foto Júlia" />
                                 <Typography color='secondary' variant='h5' className='contato-nome'>Julia Valerio</Typography>
                                 <Box display='flex' style={{ gap: '20%' }}>
-                                    <a href='https://www.linkedin.com/in/julia-valerio/'>
+                                    <a href='https://www.linkedin.com/in/julia-valerio/' target='_blank'>
                                         <LinkedInIcon className='contato-icon' />
                                     </a>
-                                    <a href='https://github.com/JuliaValerio'>
+                                    <a href='https://github.com/JuliaValerio' target='_blank'>
                                         <GitHubIcon className='contato-icon' />
                                     </a>
                                 </Box>
@@ -58,10 +58,10 @@ function Contato() {
                                 <img src="https://avatars.githubusercontent.com/u/60018504?v=4" alt="Foto Kaique" />
                                 <Typography color='secondary' variant='h5' className='contato-nome'>Kaique Ferreira</Typography>
                                 <Box display='flex' style={{ gap: '20%' }}>
-                                    <a href='https://www.linkedin.com/in/kaiqueferreiras/'>
+                                    <a href='https://www.linkedin.com/in/kaiqueferreiras/' target='_blank'>
                                         <LinkedInIcon className='contato-icon' />
                                     </a>
-                                    <a href='https://github.com/kaiqueferr'>
+                                    <a href='https://github.com/kaiqueferr' target='_blank'>
                                         <GitHubIcon className='contato-icon' />
                                     </a>
                                 </Box>
@@ -74,10 +74,10 @@ function Contato() {
                                 <img src="https://avatars.githubusercontent.com/u/127215137?v=4" alt="Foto Ketelyn" />
                                 <Typography color='secondary' variant='h5' className='contato-nome'>Ketelyn Medina</Typography>
                                 <Box display='flex' style={{ gap: '20%' }}>
-                                    <a href='https://www.linkedin.com/in/ketelynmedina/'>
+                                    <a href='https://www.linkedin.com/in/ketelynmedina/' target='_blank'>
                                         <LinkedInIcon className='contato-icon' />
                                     </a>
-                                    <a href='https://github.com/KetelynMM'>
+                                    <a href='https://github.com/KetelynMM' target='_blank'>
                                         <GitHubIcon className='contato-icon' />
                                     </a>
                                 </Box>
@@ -88,10 +88,10 @@ function Contato() {
                                 <img src="https://avatars.githubusercontent.com/u/126706460?v=4" alt="Foto Laís" />
                                 <Typography color='secondary' variant='h5' className='contato-nome'>Laís Sales</Typography>
                                 <Box display='flex' style={{ gap: '20%' }}>
-                                    <a href='https://www.linkedin.com/in/lsalesxavier/'>
+                                    <a href='https://www.linkedin.com/in/lsalesxavier/' target='_blank'>
                                         <LinkedInIcon className='contato-icon' />
                                     </a>
-                                    <a href='https://github.com/laiszz'>
+                                    <a href='https://github.com/laiszz' target='_blank'>
                                         <GitHubIcon className='contato-icon' />
                                     </a>
                                 </Box>
@@ -102,11 +102,11 @@ function Contato() {
                                 <img src="https://avatars.githubusercontent.com/u/115517598?v=4" alt="Foto Letícia" />
                                 <Typography color='secondary' variant='h5' className='contato-nome'>Letícia Oliveira</Typography>
                                 <Box display='flex' style={{ gap: '20%' }}>
-                                    <a href='https://www.linkedin.com/in/leticiaj/'>
-                                        <LinkedInIcon className='contato-icon' style={{ fontSize: '5vh' }} />
+                                    <a href='https://www.linkedin.com/in/leticiaj/' target='_blank'>
+                                        <LinkedInIcon className='contato-icon' />
                                     </a>
-                                    <a href='https://github.com/leticiaoj'>
-                                        <GitHubIcon className='contato-icon' style={{ fontSize: '5vh' }} />
+                                    <a href='https://github.com/leticiaoj' target='_blank'>
+                                        <GitHubIcon className='contato-icon' />
                                     </a>
                                 </Box>
                             </Box>
