@@ -9,7 +9,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 function getModalStyle() {
-  const top = 50 ;
+  const top = 50;
   const left = 50;
 
   return {
@@ -24,8 +24,9 @@ const useStyles = makeStyles((theme: Theme) =>
     paper: {
       position: 'absolute',
       width: 400,
-      backgroundColor: '#283E30',
-      border: '2px solid #000',
+      backgroundColor: '#d8eab5',
+      border: '2px solid #d8eab5',
+      borderRadius: '10px',
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
     },
@@ -51,10 +52,10 @@ function ModalCarr () {
         <CloseIcon onClick={handleClose}/>
       
       </Box>
-      <Box className='titcarr'>
-      Meus produtos:
+      <Box>
+      <Typography className='titcarr'>Meus produtos:</Typography>
       </Box>
-      <Button className='botaocompra' id="checkoutButton">Finalizar Compra</Button>
+      <Button className='botaocompra' id="checkoutButton"> <Typography className='finbot'>Finalizar Compra</Typography></Button>
       
     </div>
   );
