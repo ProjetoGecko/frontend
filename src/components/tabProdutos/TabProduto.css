@@ -1,0 +1,9 @@
+.card {
+    transition: transform 0.3s ease-in-out;
+    
+  }
+  
+  /*Quando passar o mouse ele vai subir 10 pixels negativo */
+  .card:hover {
+    transform: translateY(-10px);
+  }
