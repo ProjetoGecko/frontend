@@ -47,14 +47,14 @@ export default function TabProdutos({ produtoVar, idUserVar }: { produtoVar: Pro
                             <Typography variant="body2" color="text.secondary">{+produtoVar.reciclavel == 1 ? "Reciclável" : "Não reciclável"}</Typography>
                         </Box>
                         <Box visibility={+idUserVar !== produtoVar.usuario?.id ? 'hidden' : 'visible'} display='flex' justifyContent='space-between' alignItems='center' width='100%' style={{ marginTop: '1em' }}>
-                            <Link to={`/deletarprodutoVar/${produtoVar.id}`} className="text-decorator-none">
+                            <Link to={`/deletarproduto/${produtoVar.id}`} className="text-decorator-none">
                                 <Box className="input4" mx={1}>
                                     <Button variant="contained" size='small' style={{ backgroundColor: '#973838', color: 'white' }}>
                                         Deletar
                                     </Button>
                                 </Box>
                             </Link>
-                            <Link to={`/cadastrar_produtoVar/${produtoVar.id}`} className="text-decorator-none" >
+                            <Link to={`/cadastrar_produto/${produtoVar.id}`} className="text-decorator-none" >
                                 <Box mx={1}>
                                     <Button variant="contained" className="marginLeft" size='small' style={{ backgroundColor: '#bb872c', color: 'white' }} >
                                         Atualizar
