@@ -10,7 +10,6 @@ import Login from './pages/Login/Login'
 import Cadastrar from './pages/Cadastrar/Cadastrar'
 import CadastrarProduto from './components/produtos/cadastrar/CadastrarProduto'
 import CadastrarCategoria from './components/categorias/cadastrar/CadastrarCategoria'
-import ListarProdutos from './components/produtos/listar/ListarProdutos'
 import ListarCategorias from './components/categorias/listar/ListarCategorias'
 import { geckoTheme } from './theme/GeckoTheme'
 import './App.css'
@@ -21,6 +20,7 @@ import DeletarCategoria from './components/categorias/deletar/DeletarCategoria'
 import ContatoForm from './components/contato/ContatoForm'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Produtos from './pages/Produtos/Produtos'
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
               <Route path='/Cadastrar' element={<Cadastrar />} />
               <Route path='/Cadastrar_produto' element={<CadastrarProduto />} />
               <Route path='/Cadastrar_Categoria' element={<CadastrarCategoria />} />
-              <Route path='/Listar_produtos' element={<ListarProdutos />} />
+              <Route path='/Listar_produtos' element={<Produtos />} />
               <Route path='/Listar_Categorias' element={<ListarCategorias />} />
               <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
               <Route path='/Cadastrar_produto/:id' element={<CadastrarProduto />} />
