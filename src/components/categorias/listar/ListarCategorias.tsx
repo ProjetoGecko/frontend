@@ -40,7 +40,7 @@ function ListarCategorias() {
 
     return (
         <>
-            <Grid container display='flex' justifyContent='start' alignItems='center' marginTop={8}>
+            <Grid container display='flex' justifyContent='start' alignItems='center' marginTop={8} height='80vh'>
                 {
                     categorias.map(categorias => (
                         <Grid item xs={12} sm={6} md={4} lg={3} display='flex' justifyContent='center' alignItems='center' marginBottom={8}>
