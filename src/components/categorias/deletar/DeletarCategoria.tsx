@@ -72,7 +72,7 @@ function DeletarCategoria() {
   }
   return (
     <>
-      <Box m={2}>
+      <Box m={2} height='80vh'>
         <Card variant="outlined" >
           <CardContent>
             <Box justifyContent="center">
