@@ -5,13 +5,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Produto from '../../../models/Produto';
 import { busca, deleteId } from '../../../services/Service';
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/token/Reducer';
+import { UserState } from '../../../store/token/Reducer';
 import { toast } from 'react-toastify';
 
 function DeletarProduto() {
   let navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const token = useSelector<TokenState, TokenState["tokens"]>(
+  const token = useSelector<UserState, UserState["tokens"]>(
     (state) => state.tokens
   );
   const [produto, setProduto] = useState<Produto>()

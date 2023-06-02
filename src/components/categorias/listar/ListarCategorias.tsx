@@ -43,7 +43,7 @@ function ListarCategorias() {
             <Grid container display='flex' justifyContent='start' alignItems='center' marginTop={8}>
                 {
                     categorias.map(categorias => (
-                        <Grid item xs={12} sm={6} md={4} lg={3} xl={2.4} display='flex' justifyContent='center' alignItems='center' marginBottom={8}>
+                        <Grid item xs={12} sm={6} md={4} lg={3} display='flex' justifyContent='center' alignItems='center' marginBottom={8}>
                             <Card sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: 250, height: 200 }}>
                                 <CardHeader
                                     title={truncateString(categorias.nome, 20)}
