@@ -87,7 +87,7 @@ export default function SignUp() {
       try {
         await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
 
-        toast.success('Usuário cadastrado com sucesso', {
+        toast.success('Usuário cadastrado com sucesso!', {
           position: 'top-right',
           autoClose: 2000,
           hideProgressBar: false,
@@ -110,7 +110,7 @@ export default function SignUp() {
         });
       }
     } else {
-      toast.error('Informações inválidas!', {
+      toast.error('Informações inválidas.', {
         position: 'top-right',
         autoClose: 2000,
         hideProgressBar: false,
@@ -183,7 +183,7 @@ export default function SignUp() {
                   fullWidth
                   required
                 />
-                {nome_valido ? '' : <FormHelperText error>* Nome muito longo!</FormHelperText>}
+                {nome_valido ? '' : <FormHelperText error>* Nome muito longo.</FormHelperText>}
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -193,7 +193,7 @@ export default function SignUp() {
                   autoComplete="family-name"
                   fullWidth
                 />
-                {foto_valido ? '' : <FormHelperText error>* Link da foto muito longo!</FormHelperText>}
+                {foto_valido ? '' : <FormHelperText error>* Link da foto muito longo.</FormHelperText>}
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -206,7 +206,7 @@ export default function SignUp() {
                   fullWidth
                   required
                 />
-                {email_valido ? '' : <FormHelperText error>* E-mail inválido!</FormHelperText>}
+                {email_valido ? '' : <FormHelperText error>* E-mail inválido.</FormHelperText>}
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -220,7 +220,7 @@ export default function SignUp() {
                   fullWidth
                   required
                 />
-                {senha_valido ? '' : <FormHelperText error>* Senha muito curta!</FormHelperText>}
+                {senha_valido ? '' : <FormHelperText error>* Senha muito curta.</FormHelperText>}
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -234,7 +234,7 @@ export default function SignUp() {
                   fullWidth
                   required
                 />
-                {confirmarSenha_valido ? '' : <FormHelperText error>* As senhas não são iguais!</FormHelperText>}
+                {confirmarSenha_valido ? '' : <FormHelperText error>* As senhas não são iguais.</FormHelperText>}
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
@@ -255,7 +255,7 @@ export default function SignUp() {
               <Grid item>
                 <Link to='/login'>
                   <Typography color='primary'>
-                    Já possui uma conta? Faça o login
+                    Já possui uma conta? Faça o login.
                   </Typography>
                 </Link>
               </Grid>

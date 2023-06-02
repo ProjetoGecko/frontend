@@ -19,7 +19,7 @@ function DeletarCategoria() {
 
   useEffect(() => {
     if (token == "") {
-      toast.error('Você precisa estar logado', {
+      toast.error('Você precisa estar logado.', {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -55,7 +55,7 @@ function DeletarCategoria() {
         'Authorization': token
       }
     });
-    toast.success('produto deletado com sucesso', {
+    toast.success('Produto deletado com sucesso.', {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
