@@ -8,12 +8,12 @@ function ContatoForm() {
         <Grid container maxWidth='100vw' minHeight='85vh' display='flex' justifyContent='center' alignItems='center'>
             <Grid item xs={6} >
                 <form method='POST' action="https://getform.io/f/18d01646-0902-4333-8a36-8c1d05c63681">
-                    <Typography gutterBottom variant="h3" color="primary" align="center" >Vamos conversar ? 😊</Typography>
+                    <Typography gutterBottom variant="h3" color="primary" align="center" >Vamos conversar? 😊</Typography>
                     <TextField id="nome" label="Nome" variant="outlined" name="nome" margin="normal" fullWidth />
-                    <TextField id="email" label="email" variant="outlined" name="email" margin="normal" fullWidth />
+                    <TextField id="email" label="E-mail" variant="outlined" name="email" margin="normal" fullWidth />
                     <TextField 
                     id="mensagem" 
-                    label="mensagem" 
+                    label="Mensagem" 
                     variant="outlined" 
                     name="mensagem" 
                     margin="normal" 

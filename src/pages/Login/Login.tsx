@@ -67,7 +67,7 @@ export default function Login() {
         progress: undefined,
     });
     } catch (error) {
-      toast.error('Erro ao efetuar login! Verifique os dados do usuário!', {
+      toast.error('Erro ao efetuar login. Verifique os dados do usuário.', {
         position: 'top-right',
         autoClose: 2000,
         hideProgressBar: false,

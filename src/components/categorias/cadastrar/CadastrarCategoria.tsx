@@ -81,7 +81,7 @@ function CadastroCategoria() {
                             'Authorization': token
                         }
                     })
-                    toast.success('Categoria atualizada com sucesso', {
+                    toast.success('Categoria atualizada com sucesso!', {
                         position: 'top-right',
                         autoClose: 2000,
                         hideProgressBar: false,
@@ -113,7 +113,7 @@ function CadastroCategoria() {
                             'Authorization': token
                         }
                     })
-                    toast.success('Categoria cadastrada com sucesso.', {
+                    toast.success('Categoria cadastrada com sucesso!', {
                         position: 'top-right',
                         autoClose: 2000,
                         hideProgressBar: false,
@@ -155,7 +155,7 @@ function CadastroCategoria() {
                         margin="normal"
                         fullWidth
                         required />
-                    {nome_valido ? '' : <FormHelperText error>* Nome muito curto ou muito longo!</FormHelperText>}
+                    {nome_valido ? '' : <FormHelperText error>* Nome muito curto ou muito longo.</FormHelperText>}
                     <TextField
                         value={categoria.descricao}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)}
@@ -166,7 +166,7 @@ function CadastroCategoria() {
                         margin="normal"
                         fullWidth
                         required />
-                    {descricao_valido ? '' : <FormHelperText error>* Descrição muito curta ou muito longa!</FormHelperText>}
+                    {descricao_valido ? '' : <FormHelperText error>* Descrição muito curta ou muito longa.</FormHelperText>}
                     <Box display='flex' gap='5%'>
                         <Button onClick={() => navigate(-1)} sx={{ marginTop: '16px' }} variant="contained" color="secondary" fullWidth>
                             Cancelar

@@ -19,7 +19,7 @@ function Navbar() {
 
     function goLogout() {
         dispatch(addToken(''));
-        if(token)toast.success('Usuário deslogado com sucesso!', {
+        if (token) toast.success('Usuário deslogado com sucesso.', {
             position: 'top-right',
             autoClose: 2000,
             hideProgressBar: false,
@@ -35,55 +35,54 @@ function Navbar() {
     return (
         <AppBar className='navbar' position='static'>
             <Toolbar>
-                <Box mx={4}>
-                    <Typography className='logonav'><img src={Logo} alt="Logo" width="45px" height="45px"/></Typography>
-                </Box>
-                <Box display='flex' justifyContent='start'>
-                    <Box>
-                        <Link to='/'>
-                            <Typography className='menunav'>Início</Typography>
+                <Box display='flex' justifyContent='space-between' alignItems='center' width='100%'>
+                    <Box display='flex' justifyContent='start'>
+                        <Box className='logonav' marginRight={3}><img src={Logo} alt="Logo" width="45px" height="45px" /></Box>
+                        <Box>
+                            <Link to='/'>
+                                <Typography className='menunav'>Início</Typography>
+                            </Link>
+                        </Box>
+                        <Box mx={1}>
+                            <Typography className='menunav'>   </Typography>
+                        </Box>
+                        <Box>
+                            <Link to='/sobre'>
+                                <Typography className='menunav'>Sobre</Typography>
+                            </Link>
+                        </Box>
+                        <Box mx={1}>
+                            <Typography className='menunav'>   </Typography>
+                        </Box>
+                        <Box>
+                            <Link to='/listar_produtos'>
+                                <Typography className='menunav'>Produtos</Typography>
+                            </Link>
+                        </Box>
+                        <Box mx={1}>
+                            <Typography className='menunav'>   </Typography>
+                        </Box>
+                        <Box>
+                            <Link to='/contato'>
+                                <Typography className='menunav'>Contato</Typography>
+                            </Link>
+                        </Box>
+                        <Box mx={1}>
+                            <Typography className='menunav'>   </Typography>
+                        </Box>
+                        <Box>
+                            <Link to='/Listar_Categorias'>
+                                <Typography className='menunav'>Categorias</Typography>
+                            </Link>
+                        </Box>
+
+                    </Box>
+                    <Box display='flex' justifyContent='space-between' alignItems='center' width='130px'>
+                        <Link className='boxcarrinho' to='#'>
+                            <ModalCarr />
                         </Link>
-                    </Box>
-                    <Box mx={1}>
-                        <Typography className='menunav'>   </Typography>
-                    </Box>
-                    <Box>
-                        <Link to='/sobre'>
-                            <Typography className='menunav'>Sobre</Typography>
-                        </Link>
-                    </Box>
-                    <Box mx={1}>
-                        <Typography className='menunav'>   </Typography>
-                    </Box>
-                    <Box>
-                        <Link to='/listar_produtos'>
-                            <Typography className='menunav'>Produtos</Typography>
-                        </Link>
-                    </Box>
-                    <Box mx={1}>
-                        <Typography className='menunav'>   </Typography>
-                    </Box>
-                    <Box>
-                        <Link to='/contato'>
-                            <Typography className='menunav'>Contato</Typography>
-                        </Link>
-                    </Box>
-                    <Box mx={1}>
-                        <Typography className='menunav'>   </Typography>
-                    </Box>
-                    <Box>
-                      <Link to ='/Listar_Categorias'>  
-                        <Typography className='menunav'>Categorias</Typography>
-                     </Link>  
-                    </Box>
-                    <Box className='boxcarrinho' marginLeft={96}>
-                        <Link to='#'>
-                            <ModalCarr/>
-                        </Link>
-                    </Box>
-                    <Box className='boxlog' marginLeft={5} onClick={goLogout}>
-                        <Link to={token? '#' : '/login'}>
-                            <Typography className='login'>{token? 'Deslogar' : 'Logar'}</Typography>
+                        <Link className='boxlog' onClick={goLogout} to={token ? '#' : '/login'}>
+                            <Typography className='login'>{token ? 'Deslogar' : 'Logar'}</Typography>
                         </Link>
                     </Box>
                 </Box>

@@ -18,7 +18,7 @@ function Footer() {
                 <Grid item xs={2} className="footer_contacts">
                     <img className="Slogan" src={Logo} alt="Logo" width="70px" height="70px" />
                     <Grid className="footer_contacts">
-                        <Typography className="Slogan-texto">Na Gecko, cada compra é um passo eckológico com o qual você deixa a sua pegada verde no mundo. </Typography>
+                        <Typography className="Slogan">No Gecko, cada compra é um passo eckológico com o qual você deixa a sua pegada verde no mundo.</Typography>
                     </Grid>
                 </Grid>
 

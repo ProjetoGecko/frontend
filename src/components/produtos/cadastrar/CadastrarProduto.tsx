@@ -231,7 +231,7 @@ function CadastrarProduto() {
                             margin="normal"
                             fullWidth
                             required />
-                        {nome_valido ? '' : <FormHelperText error>* Nome muito longo!</FormHelperText>}
+                        {nome_valido ? '' : <FormHelperText error>* Nome muito longo.</FormHelperText>}
                         <TextField
                             value={produto.descricao}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)}
@@ -242,7 +242,7 @@ function CadastrarProduto() {
                             margin="normal"
                             fullWidth
                             required />
-                        {descricao_valido ? '' : <FormHelperText error>* Descrição muito longa!</FormHelperText>}
+                        {descricao_valido ? '' : <FormHelperText error>* Descrição muito longa.</FormHelperText>}
                         <TextField
                             value={produto.preco}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)}
@@ -253,7 +253,7 @@ function CadastrarProduto() {
                             margin="normal"
                             fullWidth
                             required />
-                        {preco_valido ? '' : <FormHelperText error>* Digite um preço válido!</FormHelperText>}
+                        {preco_valido ? '' : <FormHelperText error>* Digite um preço válido.</FormHelperText>}
                         <TextField
                             value={produto.foto}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)}
@@ -323,7 +323,7 @@ function CadastrarProduto() {
                                     }
                                 </Select>
                                 {
-                                    categoria_selecionada ? '' : <FormHelperText error>* Selecione uma categoria!</FormHelperText>
+                                    categoria_selecionada ? '' : <FormHelperText error>* Selecione uma categoria.</FormHelperText>
                                 }
                             </FormControl>
                             <Link to="/cadastrar_categoria">

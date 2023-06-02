@@ -13,7 +13,7 @@ function Home() {
         <Grid alignItems="center" item xs={6} paddingLeft={9}>
           <Box>
             <Typography className="TituloHome" variant="h3" gutterBottom align="center" color="primary">Seja bem vinde!</Typography>
-            <Typography variant="body1" gutterBottom align="justify" color="secondary">Somos uma e-commerce sustentável na qual usuários podem comprar e vender produtos novos, usados e recicláveis. Este projeto foi idealizado a partir do 12º Objetivo de Desenvolvimento Sustentável da ONU, que aborda o consumo e a produção responsáveis. Escolhemos o lagarto Gecko como representante deste tema devido ao fato do réptil conseguir sobreviver em locais inóspitos, apesar de estar ameaçado de extinção. Com isso, esperamos realizar um trabalho de conscientização e incentivar práticas comerciais que contribuem para um crescimento ecológico, a fim de preservar o nosso Planeta Terra.</Typography>
+            <Typography variant="body1" gutterBottom align="justify" color="secondary">Bem-vindo ao Gecko, o Marketplace de Compras Conscientes, inspirado na ODS 12 - Consumo e Produção Responsáveis. Aqui, você encontrará uma variedade de produtos sustentáveis, provenientes de marcas com práticas éticas. Além disso, no Gecko, você também pode vender produtos usados e sustentáveis, promovendo a economia circular e contribuindo para a redução do desperdício. Faça suas compras de forma consciente e junte-se a nós para transformar o mundo com escolhas responsáveis!</Typography>
           </Box>
           <Box display="flex" justifyContent="center" paddingTop={2}>
             <Link to='/listar_produtos'>
