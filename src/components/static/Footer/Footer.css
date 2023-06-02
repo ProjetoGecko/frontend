@@ -100,6 +100,7 @@
 .Slogan {
     color: var(--cor1);
     font-size: smaller !important;
+    display: inline;
 }
 
 .lista_footer {
