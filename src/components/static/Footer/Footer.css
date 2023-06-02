@@ -25,7 +25,8 @@
     align-items: center;
     box-sizing: border-box;
     color: #F6F4EB;
-
+    width: auto;
+    height: auto;
 }
 
 .footer-redes {
@@ -98,6 +99,7 @@
 
 .Slogan {
     color: var(--cor1);
+    font-size: smaller !important;
 }
 
 .lista_footer {
