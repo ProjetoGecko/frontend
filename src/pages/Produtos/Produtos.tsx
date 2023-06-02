@@ -251,7 +251,7 @@ function BarraPesquisa() {
                         />
                     </FormControl>
                 </Box>
-                <Box height={75} display='flex' justifyContent='center' alignItems='center' gap='50px'>
+                <Box id='categorias-busca' height={75} display='flex' justifyContent='center' alignItems='center' gap='50px'>
                     {
                         categorias.map(categoria => (
                             <Button
@@ -446,13 +446,10 @@ function Produtos() {
             setFilterNumber(filterNumber.concat(' '))
         };
     }
-    for (let i = 0; i < document.getElementsByClassName('categorizar').length; i++) {
-        let element: HTMLElement = document.getElementsByClassName('categorizar')[i] as HTMLElement
-        if (element != undefined) {
-            element.onclick = function () {
-                setFilterNumber(filterNumber.concat(' '))
-            };
-        }
+    if (document.getElementById('categorias-busca') != undefined) {
+        document.getElementById('categorias-busca')!.onclick = function () {
+            setFilterNumber(filterNumber.concat(' '))
+        };
     }
 
     const precoRange = [precoMin, precoMax]
