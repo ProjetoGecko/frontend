@@ -3,6 +3,7 @@ import { Box, Button, Card, CardContent, CardHeader, CardMedia, Grid, Typography
 import { Link } from 'react-router-dom';
 import Produto from '../../models/Produto';
 import FavoriteIcon from '@mui/icons-material/Favorite'
+import './TabProduto.css'
 
 export default function TabProdutos({ produtoVar, idUserVar }: { produtoVar: Produto, idUserVar: string }) {
     function truncateString(str: string, num: number) {
@@ -11,7 +12,7 @@ export default function TabProdutos({ produtoVar, idUserVar }: { produtoVar: Pro
         }
         return str.slice(0, num) + '...'
     }
-
+//
     return (
         <>
             <Grid item xs={12} sm={6} md={5} lg={4} display='flex' justifyContent='center' alignItems='center' marginBottom={8}>
