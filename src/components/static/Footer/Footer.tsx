@@ -21,32 +21,20 @@ function Footer() {
                         <Typography className="Slogan">No Gecko, cada compra é um passo eckológico com o qual você deixa a sua pegada verde no mundo.</Typography>
                     </Grid>
                 </Grid>
-                <Grid item xs={4} className="footer-redes">
-                    <ul className="lista_footer">
-                        <li className="textoicones" >
-                            <EmailIcon className="icones" />
-                            <Typography>E-mail</Typography>
-                        </li>
-                        <li className="textoicones">
-                            <LocalPhoneIcon className="icones" />
-                            <Typography>Telefone</Typography>
-                        </li>
-                        <li className="textoicones">
-                            <QuestionAnswerIcon className="icones" />
-                            <Typography>Chat</Typography>
-                        </li>
-                    </ul>
 
+                <Grid item xs={4}>
+                    <Box className="footer_social_midia">
+                        <InstagramIcon className="redes" />
+                        <GitHubIcon className="redes" />
+                        <LinkedInIcon className="redes" />
+                        <QuestionAnswerIcon className="redes" />
+                        <LocalPhoneIcon className="redes" />
+                        <EmailIcon className="redes" />
+                    </Box>
                 </Grid>
+
+
                 <Grid item xs={4} className="footer-inscrevase" display='flex' flexDirection='column' justifyContent='center' alignItems='center' >
-                    <Grid>
-                        <Box display="flex" alignItems="stretch" justifyContent="star" className="footer_social_midia">
-                            <InstagramIcon className="redes" />
-                            <GitHubIcon className="redes" />
-                            <LinkedInIcon className="redes" />
-                        </Box>
-                    </Grid>
-                    <Typography>Fique por dentro de tudo!</Typography>
                     <Box className="caixa_imputs_footer">
                         <TextField color='primary' placeholder="Insira seu E-mail" InputProps={{ endAdornment: <MailIcon /> }} />
                     </Box>
@@ -55,7 +43,7 @@ function Footer() {
             </Grid>
             <Grid className="direitos">
                 <Link to="https://brazil.generation.org/" target="_blank">
-                    <Typography color='textSecondary' variant="subtitle2" gutterBottom align="center">https://brazil.generation.org/</Typography>
+                    <Typography color='#F6F4EB' variant="subtitle2" gutterBottom align="center">https://brazil.generation.org/</Typography>
                 </Link>
             </Grid>
         </>

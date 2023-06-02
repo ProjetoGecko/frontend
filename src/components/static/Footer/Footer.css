@@ -18,6 +18,12 @@
     position: relative;
     margin: 0 auto;
     text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.text-redes {
+    color: var(--cor1);
 }
 
 .footer_contacts {
@@ -47,6 +53,9 @@
 
 .footer_social_midia {
     gap: 20px;
+    display:flex; 
+    align-items: stretch;  
+    justify-content: start;
 }
 
 /*  Quando passar o mouse, tem uma animação.   */
@@ -98,9 +107,12 @@
 }
 
 .Slogan {
+    display: inline;
+}
+
+.Slogan-texto{
     color: var(--cor1);
     font-size: smaller !important;
-    display: inline;
 }
 
 .lista_footer {
