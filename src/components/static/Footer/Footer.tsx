@@ -24,26 +24,31 @@ function Footer() {
 
                 <Grid item xs={4} className="footer_social_midia">
                     <Box className="footer_social_midia">
-                        <InstagramIcon className="redes" />
-                        <GitHubIcon className="redes" />
-                        <LinkedInIcon className="redes" />
-                        <QuestionAnswerIcon className="redes" />
-                        <LocalPhoneIcon className="redes" />
-                        <EmailIcon className="redes" />
+                        <Typography color='#F6F4EB'>Fique por dentro de tudo!</Typography>
+                        <Box className='socialmedias'>
+                            <InstagramIcon className="redes" />
+                            <GitHubIcon className="redes" />
+                            <LinkedInIcon className="redes" />
+                        </Box>
+                        <Box className='socialmedias'>
+                            <QuestionAnswerIcon className="contatos" />
+                            <LocalPhoneIcon className="contatos" />
+                            <EmailIcon className="contatos" />
+                        </Box>
                     </Box>
                 </Grid>
 
 
                 <Grid item xs={4} className="footer-inscrevase" display='flex' flexDirection='column' justifyContent='center' alignItems='center' >
-                    <Box className="caixa_imputs_footer">
-                        <TextField color='primary' placeholder="Insira seu E-mail" InputProps={{ endAdornment: <MailIcon /> }} />
+                    <Box className="caixa_imputs_footer" marginBottom={1}>
+                        <TextField color='primary' placeholder="Insira seu e-mail" InputProps={{ endAdornment: <MailIcon /> }} />
                     </Box>
-                    <Typography>VOCÊ PODE AJUDAR A SALVAR O MUNDO.</Typography>
+                    <Typography>Você pode ajudar a salvar o mundo!</Typography>
                 </Grid>
             </Grid>
             <Grid className="direitos">
                 <Link to="https://brazil.generation.org/" target="_blank">
-                    <Typography color='#F6F4EB' variant="subtitle2" gutterBottom align="center">https://brazil.generation.org/</Typography>
+                    <Typography color='#F6F4EB' variant="subtitle2" gutterBottom align="center">Apoio: https://brazil.generation.org/</Typography>
                 </Link>
             </Grid>
         </>

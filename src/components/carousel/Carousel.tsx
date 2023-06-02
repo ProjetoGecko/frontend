@@ -18,7 +18,7 @@ function Carrossel() {
             
             <Swiper
                 slidesPerView={1}
-                spaceBetween={-55}
+                spaceBetween={0}
                 loop={true}
                 pagination={{
                     clickable: true,

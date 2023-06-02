@@ -1,7 +1,7 @@
 .swiper {
     margin-top: 75px;
-    width: 75vw;
-    height: 50vh;
+    width: 950px;
+    height: 355px;
     margin-bottom: 75px !important;
     border-radius: 1rem;
     
@@ -10,14 +10,14 @@
   .swiper-slide img {
     display: flex;
     justify-content: center;
-    width: auto;
+    width: 100%;
     height: 100%;
     object-fit: cover;
      object-position: 50% 20%; 
   }
   
   .swiper {
-    margin-left: auto;
+
     margin-right: auto;
   }
   .mySwiper {
