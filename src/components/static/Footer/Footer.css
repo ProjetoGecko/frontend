@@ -54,8 +54,8 @@
 .footer_social_midia {
     gap: 20px;
     display:flex; 
-    align-items: stretch;  
-    justify-content: start;
+    align-items: center !important;  
+    justify-content: center !important;
 }
 
 /*  Quando passar o mouse, tem uma animação.   */
