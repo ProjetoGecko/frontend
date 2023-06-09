@@ -73,8 +73,8 @@ function Navbar() {
                             <Typography className='menunav'>   </Typography>
                         </Box>
                         <Box>
-                            <Link to='/Listar_Categorias'>
-                                <Typography className='menunav'>Categorias</Typography>
+                            <Link to='/meus_produtos'>
+                                <Typography className='menunav'>Meus Produtos</Typography>
                             </Link>
                         </Box>
 

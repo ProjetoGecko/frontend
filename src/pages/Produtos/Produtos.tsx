@@ -305,7 +305,8 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
             return (
                 <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
-                        produtos.filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
+                        produtos.filter(produto => produto.usuario?.id != +idUser)
+                            .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
                             .filter(produto => produto.nome.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || produto.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
                             .filter(produto => categoria != '' ? produto.categoria?.nome == categoria : produto.nome.includes(''))
                             .map(produto => (
@@ -319,7 +320,8 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
             return (
                 <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
-                        produtos.filter(produto => produto.categoria?.nome == 'Produtos Gecko')
+                        produtos.filter(produto => produto.usuario?.id != +idUser)
+                            .filter(produto => produto.categoria?.nome == 'Produtos Gecko')
                             .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
                             .filter(produto => produto.nome.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || produto.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
                             .filter(produto => categoria != '' ? produto.categoria?.nome == categoria : produto.nome.includes(''))
@@ -334,7 +336,8 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
             return (
                 <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
-                        produtos.filter(produto => produto.categoria?.nome == 'Produtos Gecko' && produto.estado == 0)
+                        produtos.filter(produto => produto.usuario?.id != +idUser)
+                            .filter(produto => produto.categoria?.nome == 'Produtos Gecko' && produto.estado == 0)
                             .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
                             .filter(produto => produto.nome.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || produto.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
                             .filter(produto => categoria != '' ? produto.categoria?.nome == categoria : produto.nome.includes(''))
@@ -349,7 +352,8 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
             return (
                 <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
-                        produtos.filter(produto => produto.categoria?.nome == 'Produtos Gecko' && produto.reciclavel == 1)
+                        produtos.filter(produto => produto.usuario?.id != +idUser)
+                            .filter(produto => produto.categoria?.nome == 'Produtos Gecko' && produto.reciclavel == 1)
                             .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
                             .filter(produto => produto.nome.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || produto.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
                             .filter(produto => categoria != '' ? produto.categoria?.nome == categoria : produto.nome.includes(''))
@@ -364,7 +368,8 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
             return (
                 <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
-                        produtos.filter(produto => produto.categoria?.nome == 'Produtos Gecko' && produto.estado == 0 && produto.reciclavel == 1)
+                        produtos.filter(produto => produto.usuario?.id != +idUser)
+                            .filter(produto => produto.categoria?.nome == 'Produtos Gecko' && produto.estado == 0 && produto.reciclavel == 1)
                             .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
                             .filter(produto => produto.nome.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || produto.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
                             .filter(produto => categoria != '' ? produto.categoria?.nome == categoria : produto.nome.includes(''))
@@ -379,7 +384,8 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
             return (
                 <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
-                        produtos.filter(produto => produto.estado == 0)
+                        produtos.filter(produto => produto.usuario?.id != +idUser)
+                            .filter(produto => produto.estado == 0)
                             .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
                             .filter(produto => produto.nome.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || produto.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
                             .filter(produto => categoria != '' ? produto.categoria?.nome == categoria : produto.nome.includes(''))
@@ -394,7 +400,8 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
             return (
                 <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
-                        produtos.filter(produto => produto.estado == 0 && produto.reciclavel == 1)
+                        produtos.filter(produto => produto.usuario?.id != +idUser)
+                            .filter(produto => produto.estado == 0 && produto.reciclavel == 1)
                             .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
                             .filter(produto => produto.nome.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || produto.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
                             .filter(produto => categoria != '' ? produto.categoria?.nome == categoria : produto.nome.includes(''))
@@ -409,7 +416,8 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
             return (
                 <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
-                        produtos.filter(produto => produto.reciclavel == 1)
+                        produtos.filter(produto => produto.usuario?.id != +idUser)
+                            .filter(produto => produto.reciclavel == 1)
                             .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
                             .filter(produto => produto.nome.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || produto.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
                             .filter(produto => categoria != '' ? produto.categoria?.nome == categoria : produto)

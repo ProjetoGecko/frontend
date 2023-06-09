@@ -21,6 +21,7 @@ import ContatoForm from './components/contato/ContatoForm'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Produtos from './pages/Produtos/Produtos'
+import MeusProdutos from './pages/MeusProdutos/MeusProdutos'
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
               <Route path='/Cadastrar_categoria/:id' element={<CadastrarCategoria />} />
               <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
               <Route path="/contato" element={<ContatoForm />} />
+              <Route path="/meus_produtos" element={<MeusProdutos />} />
             </Routes>
             <Footer />
           </BrowserRouter>
