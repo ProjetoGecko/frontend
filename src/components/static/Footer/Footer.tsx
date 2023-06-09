@@ -14,7 +14,7 @@ import './Footer.css'
 function Footer() {
     return (
         <>
-            <Grid container xs={12} className="footer_conteudo">
+            <Grid container xs={12} className="footer_conteudo" position='static'>
                 <Grid item xs={4} className="footer_contacts">
                     <img className="Slogan" src={Logo} alt="Logo" width="70px" height="70px" />
                     <Grid className="footer_contacts">
@@ -46,7 +46,7 @@ function Footer() {
                     <Typography>Você pode ajudar a salvar o mundo!</Typography>
                 </Grid>
             </Grid>
-            <Grid className="direitos">
+            <Grid className="direitos" position='static'>
                 <Link to="https://brazil.generation.org/" target="_blank">
                     <Typography color='#F6F4EB' variant="subtitle2" gutterBottom align="center">Apoio: https://brazil.generation.org/</Typography>
                 </Link>

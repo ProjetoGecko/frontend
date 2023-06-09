@@ -1,11 +1,11 @@
 .navbar{
     width: 100vw;
+    height: 70px;
     background-color: var(--cor5)!important;
 }
 
 .menunav{
-    color: white;
-    margin-top: 9px!important;
+    color: #F6F4EB;
 }
 
 .menunav:hover{
@@ -13,11 +13,11 @@
 }
 
 .logonav{
-    color: white;
+    color: #F6F4EB;
 }
 
 .login{
-    color: white;
+    color: #F6F4EB;
 }
 
 .login:hover{
@@ -25,7 +25,7 @@
 }
 
 .carrinho{
-    color: white;
+    color: #F6F4EB;
     font-size: xx-large!important;
     transform: scaleX(-1);
 }

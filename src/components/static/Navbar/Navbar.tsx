@@ -34,10 +34,12 @@ function Navbar() {
 
     return (
         <AppBar className='navbar' position='static'>
-            <Toolbar>
-                <Box display='flex' justifyContent='space-between' alignItems='center' width='100%'>
-                    <Box display='flex' justifyContent='start'>
-                        <Box className='logonav' marginRight={3}><img src={Logo} alt="Logo" width="45px" height="45px" /></Box>
+            <Toolbar style={{height: '100%'}}>
+                <Box display='flex' justifyContent='space-between' alignItems='center' height='100%' width='100%'>
+                    <Box display='flex' justifyContent='start' alignItems='center'>
+                        <Box marginRight={3}>
+                            <img src={Logo} alt="Logo" width="45px" height="45px" />
+                        </Box>
                         <Box>
                             <Link to='/'>
                                 <Typography className='menunav'>Início</Typography>

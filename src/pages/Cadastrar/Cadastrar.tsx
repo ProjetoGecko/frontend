@@ -124,7 +124,7 @@ export default function SignUp() {
   }
 
   return (
-    <Grid container component="main" sx={{ height: "100vh" }}>
+    <Grid container component='main' sx={{ minHeight: "100vh" }} position='static'>
       <Grid
         item
         xs={false}
@@ -154,7 +154,7 @@ export default function SignUp() {
       >
         <Box
           sx={{
-            marginTop: 8,
+            marginY: 8,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
