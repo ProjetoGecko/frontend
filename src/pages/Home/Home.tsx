@@ -9,7 +9,7 @@ import Carousel from '../../components/carousel/Carousel';
 function Home() {
   return (
     <>
-      <Grid container direction="row" justifyContent="center" alignItems="center" className="caixahome" minHeight="100vh" >
+      <Grid container mt={5} direction="row" justifyContent="center" alignItems="center" className="caixahome" minHeight="100vh" >
         <Grid alignItems="center" item xs={6} paddingLeft={9}>
           <Box>
             <Typography className="TituloHome" variant="h3" gutterBottom align="center" color="primary">Seja bem vinde!</Typography>
@@ -24,7 +24,7 @@ function Home() {
         <Grid item xs={6}>
           <img src="https://media.discordapp.net/attachments/1092433406610128916/1110208826294149231/5_posts_para_Twitter_anunciando_o_lancamento_de_um_novo_app_de_despertador_para_celulares_Acorda_com_estilo_Nosso_novo_app_de_despertador_para_celulares_acaba_de_ser_lancado._Baixe_agora_e_comece_seu_dia_com_o_pe_.png?width=666&height=472" alt="Imagem do lagarto Gecko com um carrinho de compras e um símbolo de reciclável." width="100%" />
         </Grid>
-        <Carousel></Carousel>
+        <Carousel />
       </Grid>
     </>
   );

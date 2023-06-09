@@ -5,7 +5,7 @@ import { RiMailSendLine } from 'react-icons/ri'
 function ContatoForm() {
 
     return (
-        <Grid container maxWidth='100vw' minHeight='85vh' display='flex' justifyContent='center' alignItems='center'>
+        <Grid container my={5} maxWidth='100vw' minHeight='85vh' display='flex' justifyContent='center' alignItems='center'>
             <Grid item xs={6} >
                 <form method='POST' action="https://getform.io/f/18d01646-0902-4333-8a36-8c1d05c63681">
                     <Typography gutterBottom variant="h3" color="primary" align="center" >Vamos conversar? 😊</Typography>

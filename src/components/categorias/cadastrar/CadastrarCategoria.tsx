@@ -141,7 +141,7 @@ function CadastroCategoria() {
     }
 
     return (
-        <Grid container minHeight='60vh' display='flex' justifyContent='center' alignItems='center'>
+        <Grid container my={5} minHeight='60vh' display='flex' justifyContent='center' alignItems='center'>
             <Grid item xs={4}>
                 <form onSubmit={onSubmit}>
                     <Typography gutterBottom variant="h3" color="primary" component="h1" align="center" >{id !== undefined ? 'Atualizar categoria' : 'Cadastrar categoria'}</Typography>

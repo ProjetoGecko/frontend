@@ -20,6 +20,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .text-redes {
@@ -107,6 +108,7 @@
     padding: 0.5rem;
     font-weight: 100;
     background-color: #213428;
+    overflow-x: hidden;
 }
 
 .Slogan {

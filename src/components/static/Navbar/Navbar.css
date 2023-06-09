@@ -2,6 +2,7 @@
     width: 100vw;
     height: 70px;
     background-color: var(--cor5)!important;
+    overflow-x: hidden;
 }
 
 .menunav{
