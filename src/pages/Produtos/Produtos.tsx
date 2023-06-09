@@ -303,7 +303,7 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
     switch (+filter) {
         case 0: {
             return (
-                <Grid container item xs={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
+                <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
                         produtos.filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
                             .filter(produto => produto.nome.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || produto.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
@@ -317,7 +317,7 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
         }
         case 1: {
             return (
-                <Grid container item xs={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
+                <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
                         produtos.filter(produto => produto.categoria?.nome == 'Produtos Gecko')
                             .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
@@ -332,7 +332,7 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
         }
         case 2: {
             return (
-                <Grid container item xs={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
+                <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
                         produtos.filter(produto => produto.categoria?.nome == 'Produtos Gecko' && produto.estado == 0)
                             .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
@@ -347,7 +347,7 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
         }
         case 3: {
             return (
-                <Grid container item xs={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
+                <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
                         produtos.filter(produto => produto.categoria?.nome == 'Produtos Gecko' && produto.reciclavel == 1)
                             .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
@@ -362,7 +362,7 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
         }
         case 4: {
             return (
-                <Grid container item xs={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
+                <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
                         produtos.filter(produto => produto.categoria?.nome == 'Produtos Gecko' && produto.estado == 0 && produto.reciclavel == 1)
                             .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
@@ -377,7 +377,7 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
         }
         case 5: {
             return (
-                <Grid container item xs={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
+                <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
                         produtos.filter(produto => produto.estado == 0)
                             .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
@@ -392,7 +392,7 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
         }
         case 6: {
             return (
-                <Grid container item xs={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
+                <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
                         produtos.filter(produto => produto.estado == 0 && produto.reciclavel == 1)
                             .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
@@ -407,7 +407,7 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
         }
         case 7: {
             return (
-                <Grid container item xs={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
+                <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
                     {
                         produtos.filter(produto => produto.reciclavel == 1)
                             .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])
@@ -458,7 +458,7 @@ function Produtos() {
         <>
             <BarraPesquisa />
             <Grid container>
-                <Grid item xs={2} py={8}>
+                <Grid item xs={6} sm={5} md={4} lg={3} xl={2} py={8}>
                     <BarraFiltro />
                 </Grid>
                 <ListarProdutos filter={filterNumber} preco={precoRange} search={searchString} categoria={categoriaString} />

@@ -15,7 +15,7 @@ export default function TabProdutos({ produtoVar, idUserVar }: { produtoVar: Pro
 //
     return (
         <>
-            <Grid item xs={12} sm={6} md={5} lg={4} display='flex' justifyContent='center' alignItems='center' marginBottom={8}>
+            <Grid item xs={12} md={6} xl={4} display='flex' justifyContent='center' alignItems='center' marginBottom={8}>
                 <Card elevation={4} className="card" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: 300, height: 650 }}>
                     <CardHeader
                         title={truncateString(produtoVar.nome, 15)}
