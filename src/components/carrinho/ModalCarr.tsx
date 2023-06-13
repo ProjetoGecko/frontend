@@ -1,11 +1,12 @@
 import React from 'react'
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-import {Button } from "@material-ui/core"
-import {Box, Typography} from '@mui/material';
+import { Button } from "@material-ui/core"
+import { Box, Typography } from '@mui/material';
 import CloseIcon from '@material-ui/icons/Close';
 import './ModalCarr.css';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Link } from 'react-router-dom';
 
 
 function getModalStyle() {
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-function ModalCarr () {
+function ModalCarr() {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
@@ -49,22 +50,20 @@ function ModalCarr () {
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <Box display="flex" justifyContent="flex-end" className="cursor">
-        <CloseIcon onClick={handleClose}/>
-      
+        <CloseIcon onClick={handleClose} />
+
       </Box>
       <Box>
-      <Typography className='titcarr'>Meus produtos:</Typography>
+        <Typography className='titcarr'>Meus produtos:</Typography>
       </Box>
       <Button className='botaocompra' id="checkoutButton"> <Typography className='finbot'>Finalizar Compra</Typography></Button>
-      
+
     </div>
   );
 
   return (
     <div>
-      <Button
-        className="btnModal"
-        onClick={handleOpen}> <ShoppingCartIcon className='carrinho' /> </Button>
+      <Typography color='textPrimary' onClick={handleOpen}>Meu Carrinho</Typography>
       <Modal
         open={open}
         onClose={handleClose}
