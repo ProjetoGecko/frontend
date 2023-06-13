@@ -15,14 +15,14 @@ function Footer() {
     return (
         <>
             <Grid container xs={12} className="footer_conteudo" position='static'>
-                <Grid item xs={4} className="footer_contacts">
+                <Grid item xs={12} md={4} className="footer_contacts">
                     <img className="Slogan" src={Logo} alt="Logo" width="70px" height="70px" />
                     <Grid className="footer_contacts">
                         <Typography className="Slogan-texto">No Gecko, cada compra é um passo eckológico com o qual você deixa a sua pegada verde no mundo.</Typography>
                     </Grid>
                 </Grid>
 
-                <Grid item xs={4} className="footer_social_midia">
+                <Grid item xs={12} md={4} className="footer_social_midia">
                     <Box className="footer_social_midia">
                         <Typography color='#F6F4EB'>Fique por dentro de tudo!</Typography>
                         <Box className='socialmedias'>
@@ -39,7 +39,7 @@ function Footer() {
                 </Grid>
 
 
-                <Grid item xs={4} className="footer-inscrevase" display='flex' flexDirection='column' justifyContent='center' alignItems='center' >
+                <Grid item xs={12}  md={4} className="footer-inscrevase" display='flex' flexDirection='column' justifyContent='center' alignItems='center' >
                     <Box className="caixa_imputs_footer" marginBottom={1}>
                         <TextField color='primary' placeholder="Insira seu e-mail" InputProps={{ endAdornment: <MailIcon /> }} />
                     </Box>
