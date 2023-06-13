@@ -37,7 +37,7 @@ function MeusProdutos() {
 
     return (
         <>
-            <Grid container item xs={6} sm={7} md={8} lg={9} xl={10} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginY={5}>
+            <Grid container item xs={12} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginY={5}>
                 {
                     produtos.filter(produto => produto.usuario?.id == +idUser).map(produto => (
                             <TabProdutos produtoVar={produto} idUserVar={idUser} />
