@@ -3,6 +3,7 @@ import { Grid, Box, Typography, Button, Paper } from "@mui/material";
 import { Link } from "react-router-dom";
 import './Home.css';
 import Carousel from '../../components/carousel/Carousel';
+import FloatingButton from "../../components/FloatingButton/FloatingButton";
 
 
 
@@ -26,6 +27,7 @@ function Home() {
         </Grid>
         <Carousel />
       </Grid>
+      <FloatingButton/>
     </>
   );
 }
