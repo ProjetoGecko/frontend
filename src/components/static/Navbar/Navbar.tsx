@@ -1,15 +1,15 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
-import { Box } from '@mui/material';
+import { Box, Button, Divider, Menu, MenuItem, AppBar, Toolbar, Typography } from '@mui/material';
 import './Navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { UserState } from '../../../store/token/Reducer';
 import { addToken } from '../../../store/token/Actions';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Logo from '../../../images/GeckoLogo.png';
 import ModalCarr from '../../carrinho/ModalCarr';
+import MenuIcon from '@mui/icons-material/Menu';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 function Navbar() {
     let navigate = useNavigate();
@@ -32,61 +32,169 @@ function Navbar() {
         navigate('/login');
     }
 
+    const [anchorEl2, setAnchorEl2] = React.useState<null | HTMLElement>(null);
+    const [anchorEl1, setAnchorEl1] = React.useState<null | HTMLElement>(null);
+    const open2 = Boolean(anchorEl2);
+    const open1 = Boolean(anchorEl1);
+    const handleClick2 = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl2(event.currentTarget);
+    };
+    const handleClick1 = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl1(event.currentTarget);
+    };
+    const handleClose2 = () => {
+        setAnchorEl2(null);
+    };
+    const handleClose1 = () => {
+        setAnchorEl1(null);
+    };
+
+
     return (
         <AppBar className='navbar' position='static'>
-            <Toolbar style={{height: '100%'}}>
+            <Toolbar style={{ height: '100%' }}>
                 <Box display='flex' justifyContent='space-between' alignItems='center' height='100%' width='100%'>
-                    <Box display='flex' justifyContent='start' alignItems='center'>
+
+                    <Box display={{ xs: 'block', md: 'none' }}>
+                        <Button
+                            color='primary'
+                            id="basic-button"
+                            aria-controls={open2 ? 'basic-menu' : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={open2 ? 'true' : undefined}
+                            onClick={handleClick2}
+                        >
+                            <MenuIcon color='secondary' />
+                        </Button>
+                        <Menu
+                            id="basic-menu"
+                            anchorEl={anchorEl2}
+                            open={open2}
+                            onClose={handleClose2}
+                            MenuListProps={{
+                                'aria-labelledby': 'basic-button',
+                            }}
+                        >
+                            <MenuItem onClick={handleClose2}>
+                                <Link to='/'>
+                                    <Typography color='textPrimary' className='menunav'>Início</Typography>
+                                </Link>
+                            </MenuItem>
+                            <MenuItem onClick={handleClose2}>
+                                <Link to='/sobre'>
+                                    <Typography color='textPrimary' className='menunav'>Sobre</Typography>
+                                </Link>
+                            </MenuItem>
+                            <MenuItem onClick={handleClose2}>
+                                <Link to='/listar_produtos'>
+                                    <Typography color='textPrimary' className='menunav'>Produtos</Typography>
+                                </Link>
+                            </MenuItem>
+                            <MenuItem onClick={handleClose2}>
+                                <Link to='/contato'>
+                                    <Typography color='textPrimary' className='menunav'>Contato</Typography>
+                                </Link>
+                            </MenuItem>
+                        </Menu>
+                    </Box>
+
+                    <Box display={{ xs: 'block', md: 'none' }}>
+                        <img src={Logo} alt="Logo" width="45px" height="45px" />
+                    </Box>
+
+                    <Box display={{ xs: 'none', md: 'flex' }} justifyContent='start' alignItems='center'>
                         <Box marginRight={3}>
                             <img src={Logo} alt="Logo" width="45px" height="45px" />
                         </Box>
-                        <Box>
+                        <Box mx={1}>
                             <Link to='/'>
                                 <Typography className='menunav'>Início</Typography>
                             </Link>
                         </Box>
                         <Box mx={1}>
-                            <Typography className='menunav'>   </Typography>
-                        </Box>
-                        <Box>
                             <Link to='/sobre'>
                                 <Typography className='menunav'>Sobre</Typography>
                             </Link>
                         </Box>
                         <Box mx={1}>
-                            <Typography className='menunav'>   </Typography>
-                        </Box>
-                        <Box>
                             <Link to='/listar_produtos'>
                                 <Typography className='menunav'>Produtos</Typography>
                             </Link>
                         </Box>
                         <Box mx={1}>
-                            <Typography className='menunav'>   </Typography>
-                        </Box>
-                        <Box>
                             <Link to='/contato'>
                                 <Typography className='menunav'>Contato</Typography>
                             </Link>
                         </Box>
                         <Box mx={1}>
-                            <Typography className='menunav'>   </Typography>
-                        </Box>
-                        <Box>
                             <Link to='/meus_produtos'>
                                 <Typography className='menunav'>Meus Produtos</Typography>
                             </Link>
                         </Box>
+                    </Box>
 
+                    <Box display='block'>
+                        <Typography color='textPrimary'>
+                            
+                        </Typography>
+                        <Button
+                            color='primary'
+                            id="basic-button1"
+                            aria-controls={open1 ? 'basic-menu1' : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={open1 ? 'true' : undefined}
+                            onClick={handleClick1}
+                        >
+                            <AccountCircleIcon fontSize={'large'} color='secondary' />
+                        </Button>
+                        <Menu
+                            hidden={token.length != 0 ? false : true}
+                            id="basic-menu1"
+                            anchorEl={anchorEl1}
+                            open={open1}
+                            onClose={handleClose1}
+                            MenuListProps={{
+                                'aria-labelledby': 'basic-button1',
+                            }}
+                        >
+                            <MenuItem>
+                                <Link to='#'>
+                                    <ModalCarr />
+                                </Link>
+                            </MenuItem>
+                            <MenuItem onClick={handleClose1}>
+                                <Link to='/meu_perfil'>
+                                    <Typography color='textPrimary'>Meu Perfil</Typography>
+                                </Link>
+                            </MenuItem>
+                            <MenuItem onClick={handleClose1}>
+                                <Link to='/meus_produtos'>
+                                    <Typography color='textPrimary'>Meus Produtos</Typography>
+                                </Link>
+                            </MenuItem>
+                            <Divider />
+                            <MenuItem onClick={handleClose1}>
+                                <Typography onClick={goLogout}>Sair</Typography>
+                            </MenuItem>
+                        </Menu>
+                        <Menu
+                            hidden={token.length != 0 ? true : false}
+                            id="basic-menu1"
+                            anchorEl={anchorEl1}
+                            open={open1}
+                            onClose={handleClose1}
+                            MenuListProps={{
+                                'aria-labelledby': 'basic-button1',
+                            }}
+                        >
+                            <MenuItem onClick={handleClose1}>
+                                <Link to='/login'>
+                                    <Typography color='textPrimary' className='menunav'>Login</Typography>
+                                </Link>
+                            </MenuItem>
+                        </Menu>
                     </Box>
-                    <Box display='flex' justifyContent='space-between' alignItems='center' width='130px'>
-                        <Link className='boxcarrinho' to='#'>
-                            <ModalCarr />
-                        </Link>
-                        <Link className='boxlog' onClick={goLogout} to={token ? '#' : '/login'}>
-                            <Typography className='login'>{token ? 'Deslogar' : 'Logar'}</Typography>
-                        </Link>
-                    </Box>
+
                 </Box>
             </Toolbar>
         </AppBar>

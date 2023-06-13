@@ -23,6 +23,24 @@
     overflow-x: hidden;
 }
 
+@media only screen and (max-width: 800px) {
+    .footer_conteudo {
+        height: auto;
+    }
+    .footer-inscrevase
+    {
+        padding-top: 3em;
+    }
+    .footer_social_midia
+    {
+        padding-top: 2em;
+    }
+    .footer_contacts
+    {
+        padding-top: 1em;
+    }
+  }
+
 .text-redes {
     color: var(--cor1);
 }
