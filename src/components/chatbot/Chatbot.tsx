@@ -1,16 +1,61 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import botImage from '../../images/bot.png'
 import './Chatbot.css'
+import { useSelector } from 'react-redux';
+import User from '../../models/User';
+import { busca } from '../../services/Service';
+import { UserState } from '../../store/token/Reducer';
 
 
 
 
 function MycChatbot() {
+    const token = useSelector<UserState, UserState['tokens']>(
+        (state) => state.tokens
+    )
+
+    const idUser = useSelector<UserState, UserState['id']>(
+        (state) => state.id
+    )
+
+    const [user, setUser] = useState<User>({
+        id: 0,
+        nome: '',
+        usuario: '',
+        foto: '',
+        senha: '',
+        token: ''
+    })
+
+    async function getUser() {
+        try {
+            await busca(`/usuarios/${idUser}`, setUser, {
+                headers: {
+                    'Authorization': token
+                }
+            })
+
+            onCarregado()
+        } catch {
+
+        }
+    }
+
+    useEffect(() => {
+        getUser()
+    }, [idUser])
+
+    const [carregado, setCarregado] = useState(false)
+    const onCarregado = () => {
+        if (!carregado) {
+            setCarregado(true)
+        }
+    }
 
     const theme = {
-        
+
         background: '#F6F4EB',
         fontFamily: 'Poppins',
         headerBgColor: '#55A630',
@@ -22,7 +67,7 @@ function MycChatbot() {
         userFontColor: 'white',
         alignItems: "center",
         botAvatar: botImage,
-    
+        userAvatar: token.length != 0 ? user.foto : undefined
 
     };
 
@@ -94,13 +139,14 @@ function MycChatbot() {
     return (
 
         <ThemeProvider theme={theme}>
-              <div className="chatbot-container">
-            <ChatBot
-                steps={steps}
-                botAvatar={theme.botAvatar} />
-                </div>
+            <div className="chatbot-container" key={carregado.toString()}>
+                <ChatBot
+                    steps={steps}
+                    botAvatar={theme.botAvatar}
+                    userAvatar={theme.userAvatar} />
+            </div>
         </ThemeProvider>
-        
+
     );
 
 }
