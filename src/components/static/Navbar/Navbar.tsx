@@ -43,7 +43,7 @@ function Navbar() {
                 }
             })
         } catch (e) {
-            
+
         }
     }
 
@@ -109,26 +109,26 @@ function Navbar() {
                                 'aria-labelledby': 'basic-button',
                             }}
                         >
-                            <MenuItem onClick={handleClose2}>
-                                <Link to='/'>
+                            <Link to='/'>
+                                <MenuItem onClick={handleClose2}>
                                     <Typography color='textPrimary' className='menunav'>Início</Typography>
-                                </Link>
-                            </MenuItem>
-                            <MenuItem onClick={handleClose2}>
-                                <Link to='/sobre'>
+                                </MenuItem>
+                            </Link>
+                            <Link to='/sobre'>
+                                <MenuItem onClick={handleClose2}>
                                     <Typography color='textPrimary' className='menunav'>Sobre</Typography>
-                                </Link>
-                            </MenuItem>
-                            <MenuItem onClick={handleClose2}>
-                                <Link to='/listar_produtos'>
+                                </MenuItem>
+                            </Link>
+                            <Link to='/listar_produtos'>
+                                <MenuItem onClick={handleClose2}>
                                     <Typography color='textPrimary' className='menunav'>Produtos</Typography>
-                                </Link>
-                            </MenuItem>
-                            <MenuItem onClick={handleClose2}>
-                                <Link to='/contato'>
+                                </MenuItem>
+                            </Link>
+                            <Link to='/contato'>
+                                <MenuItem onClick={handleClose2}>
                                     <Typography color='textPrimary' className='menunav'>Contato</Typography>
-                                </Link>
-                            </MenuItem>
+                                </MenuItem>
+                            </Link>
                         </Menu>
                     </Box>
 
@@ -140,31 +140,31 @@ function Navbar() {
                         <Box marginRight={3}>
                             <img src={Logo} alt="Logo" width="45px" height="45px" />
                         </Box>
-                        <Box mx={1}>
-                            <Link to='/'>
+                        <Link to='/'>
+                            <Box mx={1}>
                                 <Typography className='menunav'>Início</Typography>
-                            </Link>
-                        </Box>
-                        <Box mx={1}>
-                            <Link to='/sobre'>
+                            </Box>
+                        </Link>
+                        <Link to='/sobre'>
+                            <Box mx={1}>
                                 <Typography className='menunav'>Sobre</Typography>
-                            </Link>
-                        </Box>
-                        <Box mx={1}>
-                            <Link to='/listar_produtos'>
+                            </Box>
+                        </Link>
+                        <Link to='/listar_produtos'>
+                            <Box mx={1}>
                                 <Typography className='menunav'>Produtos</Typography>
-                            </Link>
-                        </Box>
-                        <Box mx={1}>
-                            <Link to='/contato'>
+                            </Box>
+                        </Link>
+                        <Link to='/contato'>
+                            <Box mx={1}>
                                 <Typography className='menunav'>Contato</Typography>
-                            </Link>
-                        </Box>
-                        <Box mx={1}>
-                            <Link to='/meus_produtos'>
+                            </Box>
+                        </Link>
+                        <Link to='/meus_produtos'>
+                            <Box mx={1}>
                                 <Typography className='menunav'>Meus Produtos</Typography>
-                            </Link>
-                        </Box>
+                            </Box>
+                        </Link>
                     </Box>
 
                     <Box display='flex' justifyContent='center' alignItems='center'>
@@ -198,24 +198,27 @@ function Navbar() {
                                 'aria-labelledby': 'basic-button1',
                             }}
                         >
-                            <MenuItem>
-                                <Link to='#'>
-                                    <ModalCarr />
-                                </Link>
-                            </MenuItem>
-                            <MenuItem onClick={handleClose1}>
-                                <Link to='/meu_perfil'>
+                            <Link to='#'>
+                                <MenuItem onClick={handleClose1}>
+                                    <Typography color='textPrimary'>Meu Carrinho</Typography>
+                                </MenuItem>
+                            </Link>
+                            <Link to='/meu_perfil'>
+                                <MenuItem onClick={handleClose1}>
                                     <Typography color='textPrimary'>Meu Perfil</Typography>
-                                </Link>
-                            </MenuItem>
-                            <MenuItem onClick={handleClose1}>
-                                <Link to='/meus_produtos'>
+                                </MenuItem>
+                            </Link>
+                            <Link to='/meus_produtos'>
+                                <MenuItem onClick={handleClose1}>
                                     <Typography color='textPrimary'>Meus Produtos</Typography>
-                                </Link>
-                            </MenuItem>
+                                </MenuItem>
+                            </Link>
                             <Divider />
-                            <MenuItem onClick={handleClose1}>
-                                <Typography onClick={goLogout}>Sair</Typography>
+                            <MenuItem onClick={() => {
+                                handleClose1()
+                                goLogout()
+                            }}>
+                                <Typography>Sair</Typography>
                             </MenuItem>
                         </Menu>
                         <Menu
@@ -228,11 +231,11 @@ function Navbar() {
                                 'aria-labelledby': 'basic-button1',
                             }}
                         >
-                            <MenuItem onClick={handleClose1}>
-                                <Link to='/login'>
+                            <Link to='/login'>
+                                <MenuItem onClick={handleClose1}>
                                     <Typography color='textPrimary' className='menunav'>Login</Typography>
-                                </Link>
-                            </MenuItem>
+                                </MenuItem>
+                            </Link>
                         </Menu>
                     </Box>
 
