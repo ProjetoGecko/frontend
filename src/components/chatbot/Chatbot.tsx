@@ -3,6 +3,7 @@ import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import botImage from '../../images/bot.png'
 import './Chatbot.css'
+import tchaugecko from '../../images/tchaugecko.png'
 import { useSelector } from 'react-redux';
 import User from '../../models/User';
 import { busca } from '../../services/Service';
@@ -55,6 +56,7 @@ function MycChatbot() {
     }
 
     const theme = {
+
 
         background: '#F6F4EB',
         fontFamily: 'Poppins',
@@ -131,7 +133,15 @@ function MycChatbot() {
         },
         {
             id: 'end-message',
-            message: 'Obrigado! Para mais informações, entre em contato através do email: projetogecko@gmail.com ❤',
+            component: (
+                <div>
+                    <p>
+                    Agradecemos! Se você deseja conversar conosco, por favor, acesse a página de contatos. Estaremos lá para atendê-lo! ❤
+                    </p>
+                    <img src={tchaugecko} alt="Imagem" />
+                </div>
+            ),
+            asMessage: true,
             end: true,
         },
 
