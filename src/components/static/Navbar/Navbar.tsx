@@ -89,7 +89,7 @@ function Navbar() {
             <Toolbar style={{ height: '100%' }}>
                 <Box display='flex' justifyContent='space-between' alignItems='center' height='100%' width='100%'>
 
-                    <Box display={{ xs: 'block', md: 'none' }}>
+                    <Box display={{ xs: 'flex', md: 'none' }}>
                         <Button
                             color='primary'
                             id="basic-button"
@@ -132,7 +132,7 @@ function Navbar() {
                         </Menu>
                     </Box>
 
-                    <Box display={{ xs: 'block', md: 'none' }}>
+                    <Box display={{ xs: 'flex', md: 'none' }}>
                         <img src={Logo} alt="Logo" width="45px" height="45px" />
                     </Box>
 
@@ -176,15 +176,15 @@ function Navbar() {
                             aria-expanded={open1 ? 'true' : undefined}
                             onClick={handleClick1}
                         >
-                            <Box display={{ xs: 'none', md: 'block' }}>
+                            <Box display={{ xs: 'none', md: 'flex' }}>
                                 <Typography className='menunav-nome' style={{ marginRight: 16 }}>
                                     {token.length != 0 ? user.nome : ''}
                                 </Typography>
                             </Box>
-                            <Box display={token.length != 0 ? 'none' : 'block'}>
+                            <Box display={token.length != 0 ? 'none' : 'flex'}>
                                 <AccountCircleIcon fontSize={'large'} style={{ color: '#F6F4EB' }} />
                             </Box>
-                            <Box display={token.length != 0 ? 'block' : 'none'}>
+                            <Box display={token.length != 0 ? 'flex' : 'none'}>
                                 <img src={user.foto} width={40} height={40} style={{ borderRadius: '50%' }} />
                             </Box>
                         </Button>
