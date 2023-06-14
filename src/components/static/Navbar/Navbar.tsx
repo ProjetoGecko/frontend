@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Button, Divider, Menu, MenuItem, AppBar, Toolbar, Typography } from '@mui/material';
 import './Navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
@@ -10,12 +10,46 @@ import Logo from '../../../images/GeckoLogo.png';
 import ModalCarr from '../../carrinho/ModalCarr';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { busca } from '../../../services/Service';
+import User from '../../../models/User';
 
 function Navbar() {
     let navigate = useNavigate();
 
     const dispatch = useDispatch();
-    const token = useSelector<UserState, UserState['tokens']>((state) => state.tokens);
+
+    const token = useSelector<UserState, UserState['tokens']>(
+        (state) => state.tokens
+    )
+
+    const idUser = useSelector<UserState, UserState['id']>(
+        (state) => state.id
+    )
+
+    const [user, setUser] = useState<User>({
+        id: 0,
+        nome: '',
+        usuario: '',
+        foto: '',
+        senha: '',
+        token: ''
+    })
+
+    async function getUser() {
+        try {
+            await busca(`/usuarios/${idUser}`, setUser, {
+                headers: {
+                    'Authorization': token
+                }
+            })
+        } catch (e) {
+            
+        }
+    }
+
+    useEffect(() => {
+        getUser()
+    }, [idUser])
 
     function goLogout() {
         dispatch(addToken(''));
@@ -55,7 +89,7 @@ function Navbar() {
             <Toolbar style={{ height: '100%' }}>
                 <Box display='flex' justifyContent='space-between' alignItems='center' height='100%' width='100%'>
 
-                    <Box display={{ xs: 'block', md: 'none' }}>
+                    <Box display={{ xs: 'flex', md: 'none' }}>
                         <Button
                             color='primary'
                             id="basic-button"
@@ -64,7 +98,7 @@ function Navbar() {
                             aria-expanded={open2 ? 'true' : undefined}
                             onClick={handleClick2}
                         >
-                            <MenuIcon color='secondary' />
+                            <MenuIcon style={{ color: '#F6F4EB' }} />
                         </Button>
                         <Menu
                             id="basic-menu"
@@ -98,7 +132,7 @@ function Navbar() {
                         </Menu>
                     </Box>
 
-                    <Box display={{ xs: 'block', md: 'none' }}>
+                    <Box display={{ xs: 'flex', md: 'none' }}>
                         <img src={Logo} alt="Logo" width="45px" height="45px" />
                     </Box>
 
@@ -133,10 +167,7 @@ function Navbar() {
                         </Box>
                     </Box>
 
-                    <Box display='block'>
-                        <Typography color='textPrimary'>
-                            
-                        </Typography>
+                    <Box display='flex' justifyContent='center' alignItems='center'>
                         <Button
                             color='primary'
                             id="basic-button1"
@@ -145,7 +176,17 @@ function Navbar() {
                             aria-expanded={open1 ? 'true' : undefined}
                             onClick={handleClick1}
                         >
-                            <AccountCircleIcon fontSize={'large'} color='secondary' />
+                            <Box display={{ xs: 'none', md: 'flex' }}>
+                                <Typography className='menunav-nome' style={{ marginRight: 16 }}>
+                                    {token.length != 0 ? user.nome : ''}
+                                </Typography>
+                            </Box>
+                            <Box display={token.length != 0 ? 'none' : 'flex'}>
+                                <AccountCircleIcon fontSize={'large'} style={{ color: '#F6F4EB' }} />
+                            </Box>
+                            <Box display={token.length != 0 ? 'flex' : 'none'}>
+                                <img src={user.foto} width={40} height={40} style={{ borderRadius: '50%' }} />
+                            </Box>
                         </Button>
                         <Menu
                             hidden={token.length != 0 ? false : true}
