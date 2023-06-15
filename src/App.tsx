@@ -24,6 +24,7 @@ import Produtos from './pages/Produtos/Produtos'
 import MeusProdutos from './pages/MeusProdutos/MeusProdutos'
 import MycChatbot from './components/chatbot/Chatbot';
 import FloatingButton from './components/FloatingButton/FloatingButton';
+import Carrinho from './pages/Carrinho/Carrinho'
 import MeuPerfil from './pages/MeuPerfil/MeuPerfil'
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
               <Route path="/meus_produtos" element={<MeusProdutos />} />
               <Route path='/meu_perfil' element={<MeuPerfil />} />
               <Route path='/chat' element={<MycChatbot/>} />
+              <Route path='/Carrinho' element={<Carrinho/>} />
             </Routes>
             <Footer />
           </BrowserRouter>

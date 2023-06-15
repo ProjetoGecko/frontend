@@ -7,11 +7,11 @@ import { toast } from 'react-toastify';
 import { UserState } from '../../../store/token/Reducer';
 import { addToken } from '../../../store/token/Actions';
 import Logo from '../../../images/GeckoLogo.png';
-import ModalCarr from '../../carrinho/ModalCarr';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { busca } from '../../../services/Service';
 import User from '../../../models/User';
+import Carrinho from '../../../pages/Carrinho/Carrinho';
 
 function Navbar() {
     let navigate = useNavigate();
@@ -198,7 +198,7 @@ function Navbar() {
                                 'aria-labelledby': 'basic-button1',
                             }}
                         >
-                            <Link to='#'>
+                            <Link to='/Carrinho'>
                                 <MenuItem onClick={handleClose1}>
                                     <Typography color='textPrimary'>Meu Carrinho</Typography>
                                 </MenuItem>
