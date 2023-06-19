@@ -44,14 +44,19 @@ function BarraPesquisa() {
         getCategorias()
     }, [categorias.length])
 
+    useEffect(() => {
+        setSearchString('')
+        setCategoriaString('')
+    }, [])
+
     return (
         <>
             <Box height={175} component={Paper} elevation={4} square display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
                 <Box height={100} display='flex' justifyContent='center' alignItems='center'>
                     <FormControl variant="outlined">
-                        <InputLabel htmlFor="outlined-adornment-password">Pesquise aqui</InputLabel>
+                        <InputLabel htmlFor="procurar_input">Pesquise aqui</InputLabel>
                         <OutlinedInput
-                            id="outlined-adornment-password"
+                            id="procurar_input"
                             endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton id='procurar'>
@@ -73,8 +78,12 @@ function BarraPesquisa() {
                                 sx={{ height: '40px' }}
                                 className='categorizar'
                                 variant='contained'
-                                onClick={(e) => {
-                                    setCategoriaString(categoria.nome)
+                                onClick={() => {
+                                    if (categoriaString == categoria.nome) {
+                                        setCategoriaString('')
+                                    } else {
+                                        setCategoriaString(categoria.nome)
+                                    }
                                 }}
                             >
                                 <Typography variant="body2" overflow='visible'>{categoria.nome}</Typography>
