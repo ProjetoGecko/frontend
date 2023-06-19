@@ -57,7 +57,7 @@ export default function SignUp() {
   let confirmarSenha_valido
   let foto_valido
 
-  if (user.nome.length > 0 && user.nome.length < 255) {
+  if (user.nome.length > 0 && user.nome.length <= 255) {
     nome_valido = true
   } else {
     nome_valido = false
@@ -77,7 +77,7 @@ export default function SignUp() {
   } else {
     confirmarSenha_valido = false
   }
-  if (user.foto.length > 0 && user.foto.length < 500 && expressionFoto.test(user.foto)) {
+  if (user.foto.length > 0 && user.foto.length <= 500 && expressionFoto.test(user.foto)) {
     foto_valido = true
   } else {
     foto_valido = false

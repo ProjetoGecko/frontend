@@ -60,15 +60,29 @@ function CadastroCategoria() {
         })
     }
 
-    let nome_valido = false
-    let descricao_valido = false
+    let nome_valido
+    let descricao_valido
 
-    if (categoria.nome == '' || (categoria.nome.length > 5 && categoria.nome.length < 255)) {
+    if (categoria.nome.length >= 5 && categoria.nome.length <= 255) {
         nome_valido = true
+    } else {
+        nome_valido = false
     }
-    if (categoria.descricao == '' || (categoria.descricao.length > 5 && categoria.descricao.length < 255)) {
+    if (categoria.descricao.length >= 5 && categoria.descricao.length <= 255) {
         descricao_valido = true
+    } else {
+        descricao_valido = false
     }
+
+    const [desabilitado, setDesabilitado] = useState(false)
+
+    useEffect(() => {
+        if (nome_valido && descricao_valido) {
+            setDesabilitado(false)
+        } else {
+            setDesabilitado(true)
+        }
+    }, [updatedCategoria])
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -155,7 +169,15 @@ function CadastroCategoria() {
                         margin="normal"
                         fullWidth
                         required />
-                    {nome_valido ? '' : <FormHelperText error>* Nome muito curto ou muito longo.</FormHelperText>}
+                    {nome_valido ?
+                        '' :
+                        (categoria.nome.length == 0 ?
+                            <FormHelperText error>* Digite um nome.</FormHelperText> :
+                            (categoria.nome.length < 5 ? 
+                                <FormHelperText error>* Nome muito curto.</FormHelperText> :
+                                (categoria.nome.length > 255 ?
+                                    <FormHelperText error>* Nome muito longo.</FormHelperText> :
+                                    '')))}
                     <TextField
                         value={categoria.descricao}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)}
@@ -166,12 +188,20 @@ function CadastroCategoria() {
                         margin="normal"
                         fullWidth
                         required />
-                    {descricao_valido ? '' : <FormHelperText error>* Descrição muito curta ou muito longa.</FormHelperText>}
+                    {descricao_valido ?
+                        '' :
+                        (categoria.descricao.length == 0 ?
+                            <FormHelperText error>* Digite uma descrição.</FormHelperText> :
+                            (categoria.descricao.length < 5 ? 
+                                <FormHelperText error>* Descrição muito curta.</FormHelperText> :
+                                (categoria.descricao.length > 255 ?
+                                    <FormHelperText error>* Descrição muito longa.</FormHelperText> :
+                                    '')))}
                     <Box display='flex' gap='5%'>
                         <Button onClick={() => navigate(-1)} sx={{ marginTop: '16px' }} variant="contained" color="secondary" fullWidth>
                             Cancelar
                         </Button>
-                        <Button sx={{ marginTop: '16px' }} type="submit" variant="contained" color="primary" fullWidth>
+                        <Button disabled={desabilitado} sx={{ marginTop: '16px' }} type="submit" variant="contained" color="primary" fullWidth>
                             {id !== undefined ? 'Atualizar' : 'Cadastrar'}
                         </Button>
                     </Box>
