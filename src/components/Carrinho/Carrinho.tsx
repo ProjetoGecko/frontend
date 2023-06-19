@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Produto from '../../models/Produto';
 import { CarrinhoContext } from '../../store/CarrinhoContext/CarrinhoContext';
 import './Carrinho.css'
-import { Box, Button, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@material-ui/core';
+import { Box, Button, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@mui/material';
 
 interface CarrinhoProps {
   produtosNoCarrinho: Produto[];

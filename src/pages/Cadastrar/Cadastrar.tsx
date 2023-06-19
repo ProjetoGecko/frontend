@@ -2,18 +2,10 @@ import React, { useState, useEffect, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import User from '../../models/User';
 import { cadastroUsuario } from '../../services/Service';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
+import { Avatar, Button, TextField, FormControlLabel, Checkbox, Grid, Box, Typography, FormHelperText, Paper } from '@mui/material'
 import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import { Link } from 'react-router-dom';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import { FormHelperText, Paper } from '@mui/material';
 import { toast } from 'react-toastify';
 
 export default function SignUp() {
@@ -57,28 +49,49 @@ export default function SignUp() {
     })
   }
 
-  const expression: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
-  let nome_valido = false
-  let email_valido = false
-  let senha_valido = false
-  let confirmarSenha_valido = false
-  let foto_valido = false
+  const expressionEmail: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+  const expressionFoto: RegExp = /^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/
+  let nome_valido
+  let email_valido
+  let senha_valido
+  let confirmarSenha_valido
+  let foto_valido
 
-  if (user.nome == '' || (user.nome.length > 0 && user.nome.length < 255)) {
+  if (user.nome.length > 0 && user.nome.length < 255) {
     nome_valido = true
+  } else {
+    nome_valido = false
   }
-  if (user.usuario == '' || expression.test(user.usuario)) {
+  if (expressionEmail.test(user.usuario)) {
     email_valido = true
+  } else {
+    email_valido = false
   }
-  if (user.senha == '' || user.senha.length >= 8) {
+  if (user.senha.length >= 8) {
     senha_valido = true
+  } else {
+    senha_valido = false
   }
-  if (confirmarSenha == '' || confirmarSenha == user.senha) {
+  if (confirmarSenha == user.senha && confirmarSenha != '') {
     confirmarSenha_valido = true
+  } else {
+    confirmarSenha_valido = false
   }
-  if (user.foto == '' || (user.foto.length > 0 && user.foto.length < 500)) {
+  if (user.foto.length > 0 && user.foto.length < 500 && expressionFoto.test(user.foto)) {
     foto_valido = true
+  } else {
+    foto_valido = false
   }
+
+  const [desabilitado, setDesabilitado] = useState(false)
+
+  useEffect(() => {
+    if (nome_valido && email_valido && senha_valido && confirmarSenha_valido && foto_valido) {
+      setDesabilitado(false)
+    } else {
+      setDesabilitado(true)
+    }
+  }, [updatedModel])
 
   async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -183,17 +196,27 @@ export default function SignUp() {
                   fullWidth
                   required
                 />
-                {nome_valido ? '' : <FormHelperText error>* Nome muito longo.</FormHelperText>}
+                {nome_valido ?
+                  '' :
+                  (user.nome.length == 0 ?
+                    <FormHelperText error>* Digite um nome.</FormHelperText> :
+                    <FormHelperText error>* Nome muito longo.</FormHelperText>)}
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  value={user.foto}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                   id="foto"
                   label="Foto"
                   name="foto"
                   autoComplete="family-name"
                   fullWidth
                 />
-                {foto_valido ? '' : <FormHelperText error>* Link da foto muito longo.</FormHelperText>}
+                {foto_valido ?
+                  '' :
+                  (user.foto.length == 0 ?
+                    <FormHelperText error>* Insira o link de uma foto.</FormHelperText> :
+                    <FormHelperText error>* Link inválido.</FormHelperText>)}
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -206,7 +229,11 @@ export default function SignUp() {
                   fullWidth
                   required
                 />
-                {email_valido ? '' : <FormHelperText error>* E-mail inválido.</FormHelperText>}
+                {email_valido ?
+                  '' :
+                  (user.usuario.length == 0 ?
+                    <FormHelperText error>* Digite um e-mail.</FormHelperText> :
+                    <FormHelperText error>* E-mail inválido.</FormHelperText>)}
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -220,7 +247,11 @@ export default function SignUp() {
                   fullWidth
                   required
                 />
-                {senha_valido ? '' : <FormHelperText error>* Senha muito curta.</FormHelperText>}
+                {senha_valido ?
+                  '' :
+                  (user.senha.length == 0 ?
+                    <FormHelperText error>* Digite uma senha.</FormHelperText> :
+                    <FormHelperText error>* Senha muito curta.</FormHelperText>)}
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -234,7 +265,11 @@ export default function SignUp() {
                   fullWidth
                   required
                 />
-                {confirmarSenha_valido ? '' : <FormHelperText error>* As senhas não são iguais.</FormHelperText>}
+                {confirmarSenha_valido ?
+                  '' :
+                  (confirmarSenha.length == 0 ?
+                    <FormHelperText error>* Confirme sua senha.</FormHelperText> :
+                    <FormHelperText error>* As senhas não são iguais.</FormHelperText>)}
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
@@ -244,6 +279,7 @@ export default function SignUp() {
               </Grid>
             </Grid>
             <Button
+              disabled={desabilitado}
               type="submit"
               fullWidth
               variant="contained"

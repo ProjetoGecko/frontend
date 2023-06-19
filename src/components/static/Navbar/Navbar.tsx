@@ -160,11 +160,6 @@ function Navbar() {
                                 <Typography className='menunav'>Contato</Typography>
                             </Box>
                         </Link>
-                        <Link to='/meus_produtos'>
-                            <Box mx={1}>
-                                <Typography className='menunav'>Meus Produtos</Typography>
-                            </Box>
-                        </Link>
                     </Box>
 
                     <Box display='flex' justifyContent='center' alignItems='center'>

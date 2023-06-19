@@ -55,7 +55,7 @@ function BarraPesquisa() {
                             endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton id='procurar'>
-                                        <SearchIcon color='primary' />
+                                        <SearchIcon sx={{ color: '#55A630' }} />
                                     </IconButton>
                                 </InputAdornment>
                             }

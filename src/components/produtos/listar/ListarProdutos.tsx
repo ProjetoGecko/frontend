@@ -38,7 +38,7 @@ function ListarProdutos({ filter, preco, search, categoria }: { filter: string, 
     switch (+filter) {
         case 0: {
             return (
-                <Grid container item xs={12} md={8} lg={9} display='flex' justifyContent='start' alignItems='center' minHeight='100vh' marginTop={8}>
+                <Grid container item xs={12} md={8} lg={9} display='flex' justifyContent='start' alignItems='start' minHeight='100vh' marginTop={8}>
                     {
                         produtos.filter(produto => produto.usuario?.id != +idUser)
                             .filter(produto => produto.preco > +preco[0] && produto.preco < +preco[1])

@@ -120,23 +120,48 @@ function CadastrarProduto() {
         }
     }
 
-    let categoria_selecionada = true
-    let nome_valido = true
-    let descricao_valido = true
-    let preco_valido = true
+    let categoria_selecionada
+    let nome_valido
+    let descricao_valido
+    let preco_valido
+    let foto_valido
+    const expression: RegExp = /^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/
 
     if (produto.categoria?.id == 0) {
         categoria_selecionada = false
+    } else {
+        categoria_selecionada = true
     }
-    if (produto.nome.length > 255) {
+    if (produto.nome.length > 255 || produto.nome.length == 0) {
         nome_valido = false
+    } else {
+        nome_valido = true
     }
-    if (produto.descricao.length > 255) {
+    if (produto.descricao.length > 255 || produto.descricao.length == 0) {
         descricao_valido = false
+    } else {
+        descricao_valido = true
     }
     if (produto.preco < 0 || isNaN(produto.preco)) {
         preco_valido = false
+    } else {
+        preco_valido = true
     }
+    if (expression.test(produto.foto)) {
+        foto_valido = true
+    } else {
+        foto_valido = false
+    }
+
+    const [desabilitado, setDesabilitado] = useState(false)
+
+    useEffect(() => {
+        if (nome_valido && descricao_valido && preco_valido && foto_valido && categoria_selecionada) {
+            setDesabilitado(false)
+        } else {
+            setDesabilitado(true)
+        }
+    }, [updatedProduto])
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -231,7 +256,11 @@ function CadastrarProduto() {
                             margin="normal"
                             fullWidth
                             required />
-                        {nome_valido ? '' : <FormHelperText error>* Nome muito longo.</FormHelperText>}
+                        {nome_valido ?
+                            '' :
+                            (produto.nome.length == 0 ?
+                                <FormHelperText error>* Digite um nome.</FormHelperText> :
+                                <FormHelperText error>* Nome muito longo.</FormHelperText>)}
                         <TextField
                             value={produto.descricao}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)}
@@ -242,9 +271,13 @@ function CadastrarProduto() {
                             margin="normal"
                             fullWidth
                             required />
-                        {descricao_valido ? '' : <FormHelperText error>* Descrição muito longa.</FormHelperText>}
+                        {descricao_valido ?
+                            '' :
+                            (produto.descricao.length == 0 ?
+                                <FormHelperText error>* Digite uma descrição.</FormHelperText> :
+                                <FormHelperText error>* Descrição muito longa.</FormHelperText>)}
                         <TextField
-                            value={produto.preco}
+
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)}
                             id="preco"
                             label="Preço"
@@ -264,6 +297,11 @@ function CadastrarProduto() {
                             margin="normal"
                             fullWidth
                             required />
+                        {foto_valido ?
+                            '' :
+                            (produto.foto.length == 0 ?
+                                <FormHelperText error>* Insira o link de uma foto.</FormHelperText> :
+                                <FormHelperText error>* Link inválido.</FormHelperText>)}
                         <Box display='flex' justifyContent='space-evenly' paddingTop='5%'>
                             <FormControl>
                                 <FormLabel id="demo-row-radio-buttons-group-label">Estado</FormLabel>
@@ -334,7 +372,7 @@ function CadastrarProduto() {
                             <Button onClick={() => navigate(-1)} color='secondary' variant="contained" fullWidth>
                                 Cancelar
                             </Button>
-                            <Button type="submit" variant="contained" fullWidth>
+                            <Button disabled={desabilitado} type="submit" variant="contained" fullWidth>
                                 {id !== undefined ? 'Atualizar' : 'Cadastrar'}
                             </Button>
                         </Box>

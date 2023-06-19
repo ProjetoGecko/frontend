@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Typography, Button, Card, CardActions, CardContent } from "@material-ui/core";
-import { Box } from '@mui/material';
+import { Typography, Button, Card, CardActions, CardContent, Box } from "@mui/material";
 import { useNavigate, useParams } from 'react-router-dom';
 import { busca, deleteId } from '../../../services/Service';
 import { useSelector } from 'react-redux';
