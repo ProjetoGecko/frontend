@@ -53,7 +53,6 @@ function App() {
               <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
               <Route path="/contato" element={<ContatoForm />} />
               <Route path="/meus_produtos" element={<MeusProdutos />} />
-              <Route path='/meu_perfil' element={<MeuPerfil />} />
               <Route path='/chat' element={<MycChatbot/>} />
               <Route path='/Carrinho' element={<Carrinho/>} />
             </Routes>

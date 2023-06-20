@@ -1,0 +1,10 @@
+.bodycar{
+    min-height: 80vh;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.tituloCarrinho{
+    display: flex;
+    justify-content: center;
+}

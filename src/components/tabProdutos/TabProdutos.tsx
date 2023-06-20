@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Box, Button, Card, CardContent, CardHeader, CardMedia, Grid, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Produto from '../../models/Produto';
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import './TabProduto.css'
+import { CarrinhoContext } from '../../store/CarrinhoContext/CarrinhoContext'
 
 export default function TabProdutos({ produtoVar, idUserVar }: { produtoVar: Produto, idUserVar: string }) {
     function truncateString(str: string, num: number) {
@@ -12,7 +13,9 @@ export default function TabProdutos({ produtoVar, idUserVar }: { produtoVar: Pro
         }
         return str.slice(0, num) + '...'
     }
-    //
+
+    const { adicionarAoCarrinho } = useContext(CarrinhoContext);
+    
     return (
         <>
             <Grid item xs={12} sm={12} md={12} lg={6} xl={4} display='flex' justifyContent='center' alignItems='center' marginBottom={8}>
@@ -64,7 +67,7 @@ export default function TabProdutos({ produtoVar, idUserVar }: { produtoVar: Pro
                         </Box>
                     </CardContent>
                     <Box display={+idUserVar == produtoVar.usuario?.id ? 'none' : 'block'}>
-                        <Button fullWidth variant="contained" className="botaocompra" style={{ backgroundColor: '#88BB29', color: 'white' }}>Comprar</Button>
+                        <Button onClick={() => adicionarAoCarrinho(produtoVar)} fullWidth variant="contained" className="botaocompra" style={{ backgroundColor: '#88BB29', color: 'white' }}>Comprar</Button>
                     </Box>
                 </Card>
             </Grid>

@@ -196,7 +196,7 @@ function Navbar() {
                                     <Typography color='textPrimary'>Meu Carrinho</Typography>
                                 </MenuItem>
                             </Link>
-                            <Link to='/meu_perfil'>
+                            <Link to='#'>
                                 <MenuItem onClick={handleClose1}>
                                     <Typography color='textPrimary'>Meu Perfil</Typography>
                                 </MenuItem>
