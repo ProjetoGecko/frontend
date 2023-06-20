@@ -78,7 +78,7 @@ function MycChatbot() {
 
         {
             id: "Greet",
-            message: "Olá, sou o Gecko, seu assistente! Bem-vindo!",
+            message: "Olá! Sou o Gecko, seu assistente virtual! Bem-vindo!",
             trigger: "Done",
         },
 
@@ -94,7 +94,7 @@ function MycChatbot() {
         },
         {
             id: "Name",
-            message: "Olá {previousValue}, selecione sua dúvida",
+            message: "Olá, {previousValue}! Selecione sua dúvida:",
             trigger: "issues",
         },
 
@@ -103,6 +103,7 @@ function MycChatbot() {
             options: [
                 { value: "oqGecko", label: "O que é o Gecko?", trigger: "oqGecko" },
                 { value: "pqGecko", label: "Por que comprar no Gecko?", trigger: "pqGecko" },
+                { value: "nomeGecko", label: "Qual o significado do nome 'Gecko'?", trigger: "nomeGecko" },
             ]
         },
         {
@@ -118,6 +119,14 @@ function MycChatbot() {
                 "Ao escolher o Gecko, você apoia um e-commerce sustentável e ético, que se preocupa com o meio ambiente e busca promover práticas responsáveis, como o uso de embalagens eco-friendly, a oferta de produtos sustentáveis, parcerias com organizações ambientais e a promoção da educação e conscientização sobre sustentabilidade",
             trigger: "newQuestion",
         },
+
+        {
+            id: "nomeGecko",
+            message:
+                "O nome do nosso e-commerce foi inspirado no lagarto Gecko, que equilibra o ecossistema árido onde habita, sendo um símbolo de resiliência em um local inóspito. Nossa proposta é contribuir para o equilíbrio da Terra, em um momento em que o meio ambiente passa por um caos devido à poluição no geral. Por isso, promovemos práticas de produção e consumo responsáveis, a fim de que todos possam deixar suas pegadas verdes no mundo.",
+            trigger: "newQuestion",
+        },
+
         {
             id: "newQuestion",
             message: "Gostaria de fazer outra pergunta?",
@@ -136,7 +145,7 @@ function MycChatbot() {
             component: (
                 <div>
                     <p>
-                    Agradecemos! Se você deseja conversar conosco, por favor, acesse a página de contatos. Estaremos lá para atendê-lo! ❤
+                    Agradecemos! Se você deseja conversar conosco, por favor, acesse a página de contatos. Estaremos lá para atendê-lo! 💚
                     </p>
                     <img src={tchaugecko} alt="Imagem" />
                 </div>
