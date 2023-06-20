@@ -149,7 +149,7 @@ export default function Login() {
             >
               Entrar
             </Button>
-            <Grid container>
+            <Grid container display='flex' flexDirection='column' alignItems='center' gap={3} mt={2}>
               <Grid item xs>
                 <Link to="#">
                   <Typography color='primary'>
@@ -157,10 +157,10 @@ export default function Login() {
                   </Typography>
                 </Link>
               </Grid>
-              <Grid item>
+              <Grid item xs>
                 <Link to="/cadastrar">
                   <Typography color='primary'>
-                    Não tem conta? Cadastre-se
+                    Não tem conta? Cadastre-se.
                   </Typography>
                 </Link>
               </Grid>
