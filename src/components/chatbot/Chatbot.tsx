@@ -78,7 +78,7 @@ function MycChatbot() {
 
         {
             id: "Greet",
-            message: "Olá, sou o Gecko, seu assistente! Bem-vindo!",
+            message: "Olá! Sou o Gecko, seu assistente virtual! Bem-vindo!",
             trigger: "Done",
         },
 
@@ -94,7 +94,7 @@ function MycChatbot() {
         },
         {
             id: "Name",
-            message: "Olá {previousValue}, selecione sua dúvida",
+            message: "Olá, {previousValue}! Selecione sua dúvida:",
             trigger: "issues",
         },
 
@@ -136,7 +136,7 @@ function MycChatbot() {
             component: (
                 <div>
                     <p>
-                    Agradecemos! Se você deseja conversar conosco, por favor, acesse a página de contatos. Estaremos lá para atendê-lo! ❤
+                    Agradecemos! Se você deseja conversar conosco, por favor, acesse a página de contatos. Estaremos lá para atendê-lo! 💚
                     </p>
                     <img src={tchaugecko} alt="Imagem" />
                 </div>
