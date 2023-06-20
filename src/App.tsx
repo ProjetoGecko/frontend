@@ -24,7 +24,10 @@ import Produtos from './pages/Produtos/Produtos'
 import MeusProdutos from './pages/MeusProdutos/MeusProdutos'
 import MycChatbot from './components/chatbot/Chatbot';
 import FloatingButton from './components/FloatingButton/FloatingButton';
-import Carrinho from './pages/Carrinho/Carrinho'
+import MeuPerfil from './pages/MeuPerfil/MeuPerfil'
+import PgCarrinho from './pages/Carrinho/PgCarrinho';
+import Carrinho from './components/Carrinho/Carrinho';
+import { CarrinhoProvider } from './store/CarrinhoContext/CarrinhoContext';
 
 function App() {
   return (
@@ -34,6 +37,7 @@ function App() {
         <ThemeProvider theme={geckoTheme}>
           <BrowserRouter>
             <Navbar />
+            <CarrinhoProvider>
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/sobre' element={<><Sobre /><Contato /></>} />
@@ -52,6 +56,7 @@ function App() {
               <Route path='/chat' element={<MycChatbot/>} />
               <Route path='/Carrinho' element={<Carrinho/>} />
             </Routes>
+            </CarrinhoProvider>
             <Footer />
           </BrowserRouter>
         </ThemeProvider>
