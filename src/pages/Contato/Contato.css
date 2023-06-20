@@ -22,10 +22,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 10vh;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    gap: 10vh;
+    padding-bottom: 150px;
+    padding-left: 20vw;
+    padding-right: 20vw;
+    gap: 80px;
 }
 
 .contato-container {
@@ -40,7 +40,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1vh;
+    gap: 15px;
 }
 
 .contato-icon {

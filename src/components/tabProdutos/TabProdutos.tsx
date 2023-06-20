@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
 import { Box, Button, Card, CardContent, CardHeader, CardMedia, Grid, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Produto from '../../models/Produto';
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import './TabProduto.css'
 import { CarrinhoContext } from '../../store/CarrinhoContext/CarrinhoContext'
+import { useSelector } from 'react-redux';
+import { UserState } from '../../store/token/Reducer';
 
 export default function TabProdutos({ produtoVar, idUserVar }: { produtoVar: Produto, idUserVar: string }) {
     function truncateString(str: string, num: number) {
@@ -14,7 +16,24 @@ export default function TabProdutos({ produtoVar, idUserVar }: { produtoVar: Pro
         return str.slice(0, num) + '...'
     }
 
+    const token = useSelector<UserState, UserState['tokens']>(
+        (state) => state.tokens
+    )
+
+    const navigate = useNavigate();
+
     const { adicionarAoCarrinho } = useContext(CarrinhoContext);
+
+    function addCarrinho(produto) {
+        if (token.length != 0) {
+            adicionarAoCarrinho(produto)
+        } else {
+            alert('Você precisa estar logado!')
+            navigate("/login")
+        }
+    }
+
+    console.log(token.length)
     
     return (
         <>
@@ -52,22 +71,22 @@ export default function TabProdutos({ produtoVar, idUserVar }: { produtoVar: Pro
                         <Box display={+idUserVar !== produtoVar.usuario?.id ? 'none' : 'flex'} justifyContent='space-between' alignItems='center' width='100%' style={{ marginTop: '1em' }}>
                             <Link to={`/deletarproduto/${produtoVar.id}`} className="text-decorator-none">
                                 <Box className="input4" mx={1}>
-                                    <Button variant="contained" size='small' style={{ backgroundColor: '#973838', color: 'white' }}>
+                                    <Button variant="contained" size='small' style={{ backgroundColor: '#973838', color: '#F6F4EB' }}>
                                         Deletar
                                     </Button>
                                 </Box>
                             </Link>
                             <Link to={`/cadastrar_produto/${produtoVar.id}`} className="text-decorator-none" >
                                 <Box mx={1}>
-                                    <Button variant="contained" className="marginLeft" size='small' style={{ backgroundColor: '#bb872c', color: 'white' }} >
+                                    <Button variant="contained" className="marginLeft" size='small' style={{ backgroundColor: '#bb872c', color: '#F6F4EB' }} >
                                         Atualizar
                                     </Button>
                                 </Box>
                             </Link>
                         </Box>
                     </CardContent>
-                    <Box display={+idUserVar == produtoVar.usuario?.id ? 'none' : 'block'}>
-                        <Button onClick={() => adicionarAoCarrinho(produtoVar)} fullWidth variant="contained" className="botaocompra" style={{ backgroundColor: '#88BB29', color: 'white' }}>Comprar</Button>
+                    <Box display={+idUserVar == produtoVar.usuario?.id ? 'none' : 'flex'} justifyContent='center'>
+                        <Button onClick={() => addCarrinho(produtoVar)} variant="contained" className="botaocompra" style={{ backgroundColor: '#88BB29', color: '#F6F4EB', width: '70%' }}>Comprar</Button>
                     </Box>
                 </Card>
             </Grid>

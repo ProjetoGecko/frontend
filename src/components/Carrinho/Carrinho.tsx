@@ -60,7 +60,7 @@ function PgCarrinho() {
                     <Typography variant='body1'>{produto.nome}</Typography>
                   </Box >
                 </TableCell>
-                <TableCell>{"R$ " + produto.preco.toFixed(2).toString().replace('.', ',')}</TableCell>
+                <TableCell>{"R$ " + produto.preco?.toFixed(2).toString().replace('.', ',')}</TableCell>
                 <TableCell>
                   <Box display='flex' justifyContent='flex-end'>
                     <Button variant='contained' color='secondary' onClick={() => handleRemoverDoCarrinho(produto)}>
