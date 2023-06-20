@@ -39,7 +39,7 @@ export const CarrinhoProvider: React.FC = ({ children }) => {
 
             setProdutosNoCarrinho([...produtosNoCarrinho, novoProduto]);
         }
-        toast.success('Item adicionado ao carrinho!', {
+        toast.success('Produto adicionado ao carrinho!', {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: false,
@@ -54,7 +54,7 @@ export const CarrinhoProvider: React.FC = ({ children }) => {
     const removerDoCarrinho = (produto: Produto) => {
         const produtosAtualizados = produtosNoCarrinho.filter((p) => p.id !== produto.id);
         setProdutosNoCarrinho(produtosAtualizados)
-        toast.success('Item removido do carrinho.', {
+        toast.success('Produto removido do carrinho.', {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: false,
