@@ -1,5 +1,5 @@
-import React from 'react'
-import { Box, Grid } from '@mui/material'
+import React, { useEffect } from 'react'
+import { Grid } from '@mui/material'
 import useLocalStorage from 'react-use-localstorage'
 import BarraPesquisa from '../../components/barraPesquisa/BarraPesquisa'
 import BarraFiltro from '../../components/barraFiltro/BarraFiltro'
@@ -12,21 +12,17 @@ function Produtos() {
     const [searchString, setSearchString] = useLocalStorage('searchString')
     const [categoriaString, setCategoriaString] = useLocalStorage('categoriaString')
 
-    if (document.getElementById('aplicar') != undefined) {
+    useEffect(() => {
         document.getElementById('aplicar')!.onclick = function () {
-            setFilterNumber(filterNumber.concat(' '))
-        };
-    }
-    if (document.getElementById('procurar') != undefined) {
+            setFilterNumber(filterNumber.concat('oie'))
+        }
         document.getElementById('procurar')!.onclick = function () {
-            setFilterNumber(filterNumber.concat(' '))
-        };
-    }
-    if (document.getElementById('categorias-busca') != undefined) {
+            setFilterNumber(filterNumber.concat('oie'))
+        }
         document.getElementById('categorias-busca')!.onclick = function () {
-            setFilterNumber(filterNumber.concat(' '))
-        };
-    }
+            setFilterNumber(filterNumber.concat('oie'))
+        }
+    }, [filterNumber, precoMin, precoMax, searchString, categoriaString])
 
     const precoRange = [precoMin, precoMax]
 

@@ -1,22 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Button, Divider, Menu, MenuItem, AppBar, Toolbar, Typography } from '@mui/material';
-import './Navbar.css';
-import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import { UserState } from '../../../store/token/Reducer';
-import { addToken } from '../../../store/token/Actions';
-import Logo from '../../../images/GeckoLogo.png';
-import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { busca } from '../../../services/Service';
-import User from '../../../models/User';
-import Carrinho from '../../../pages/Carrinho/Carrinho';
+import React, { useEffect, useState } from 'react'
+import { Box, Button, Divider, Menu, MenuItem, AppBar, Toolbar, Typography } from '@mui/material'
+import './Navbar.css'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+import { UserState } from '../../../store/token/Reducer'
+import { addToken } from '../../../store/token/Actions'
+import Logo from '../../../images/GeckoLogo.png'
+import MenuIcon from '@mui/icons-material/Menu'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle'
+import { busca } from '../../../services/Service'
+import User from '../../../models/User'
 
 function Navbar() {
-    let navigate = useNavigate();
+    let navigate = useNavigate()
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     const token = useSelector<UserState, UserState['tokens']>(
         (state) => state.tokens
@@ -52,7 +51,7 @@ function Navbar() {
     }, [idUser])
 
     function goLogout() {
-        dispatch(addToken(''));
+        dispatch(addToken(''))
         if (token) toast.success('Usuário deslogado com sucesso.', {
             position: 'top-right',
             autoClose: 2000,
@@ -62,28 +61,27 @@ function Navbar() {
             draggable: false,
             theme: 'colored',
             progress: undefined,
-        });;
-        navigate('/login');
+        })
+        navigate('/login')
     }
 
-    const [anchorEl2, setAnchorEl2] = React.useState<null | HTMLElement>(null);
-    const [anchorEl1, setAnchorEl1] = React.useState<null | HTMLElement>(null);
-    const open2 = Boolean(anchorEl2);
-    const open1 = Boolean(anchorEl1);
+    const [anchorEl2, setAnchorEl2] = React.useState<null | HTMLElement>(null)
+    const [anchorEl1, setAnchorEl1] = React.useState<null | HTMLElement>(null)
+    const open2 = Boolean(anchorEl2)
+    const open1 = Boolean(anchorEl1)
     const handleClick2 = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl2(event.currentTarget);
-    };
+        setAnchorEl2(event.currentTarget)
+    }
     const handleClick1 = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl1(event.currentTarget);
-    };
+        setAnchorEl1(event.currentTarget)
+    }
     const handleClose2 = () => {
-        setAnchorEl2(null);
-    };
+        setAnchorEl2(null)
+    }
     const handleClose1 = () => {
-        setAnchorEl1(null);
-    };
-
-
+        setAnchorEl1(null)
+    }
+    
     return (
         <AppBar className='navbar' position='static'>
             <Toolbar style={{ height: '100%' }}>
@@ -237,8 +235,8 @@ function Navbar() {
                 </Box>
             </Toolbar>
         </AppBar>
-    );
+    )
 }
 
 
-export default Navbar; 
+export default Navbar 
