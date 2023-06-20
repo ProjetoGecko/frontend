@@ -8,7 +8,7 @@ interface CarrinhoProps {
   produtosNoCarrinho: Produto[];
 }
 
-function Carrinho() {
+function PgCarrinho() {
   const { produtosNoCarrinho, removerDoCarrinho } = useContext(CarrinhoContext);
   const [compraFinalizada, setCompraFinalizada] = useState(false);
 
@@ -83,4 +83,4 @@ function Carrinho() {
   );
 }
 
-export default Carrinho;
+export default PgCarrinho;
