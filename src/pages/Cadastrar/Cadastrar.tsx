@@ -225,6 +225,7 @@ export default function SignUp() {
                   label="Email"
                   name="usuario"
                   autoComplete="email"
+                  type='email'
                   fullWidth
                   required
                 />

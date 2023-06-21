@@ -127,6 +127,7 @@ export default function Login() {
               id="usuario"
               label="Email"
               name="usuario"
+              type='email'
               onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
             />
             <TextField
