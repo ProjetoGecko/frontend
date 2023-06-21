@@ -1,0 +1,59 @@
+:root {
+    /* Paleta de Cores */
+    --cor1: #F6F4EB;
+    --cor2: #F4F8D4;
+    --cor3: #F3F368;
+    --cor4: #88BB29;
+    --cor5: #55A630;
+    --cor6: #356f3a;
+    --cor7: #456747;
+    --cor8: #283E30;
+
+    --background: var(--cor1);
+    --icone: var(--cor6);
+    --fonte-escura: var(--cor8);
+    --fonte-clara: var(--cor1);
+    --fonte-titulo: var(--cor6);
+}
+
+#contato {
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 100px;
+    padding-left: 15vw;
+    padding-right: 15vw;
+    gap: 80px;
+}
+
+.contato-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contato-cards {
+    width: 100%;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.contato-icon {
+    font-size: 40px !important;
+    color: #356f3a;
+}
+
+.contato-cards > img {
+    width: 65%;
+    border-radius: 50%;
+}
+
+.contato-nome {
+    text-align: center;
+}

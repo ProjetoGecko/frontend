@@ -1,10 +1,17 @@
-.bodycar{
+.bodycar {
     min-height: 80vh;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
-.tituloCarrinho{
+.tituloCarrinho {
     display: flex;
     justify-content: center;
+    text-align: center;
+}
+
+@media (max-width: 300px) {
+    .nome_produto_carrinho {
+        display: none;
+    }
 }

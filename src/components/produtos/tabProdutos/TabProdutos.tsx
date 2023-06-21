@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import { Box, Button, Card, CardContent, CardHeader, CardMedia, Grid, Typography } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import Produto from '../../models/Produto';
+import Produto from '../../../models/Produto';
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import './TabProduto.css'
-import { CarrinhoContext } from '../../store/CarrinhoContext/CarrinhoContext'
+import { CarrinhoContext } from '../../../store/CarrinhoContext/CarrinhoContext'
 import { useSelector } from 'react-redux';
-import { UserState } from '../../store/token/Reducer';
+import { UserState } from '../../../store/token/Reducer';
 
 export default function TabProdutos({ produtoVar, idUserVar }: { produtoVar: Produto, idUserVar: string }) {
     function truncateString(str: string, num: number) {
@@ -32,8 +32,6 @@ export default function TabProdutos({ produtoVar, idUserVar }: { produtoVar: Pro
             navigate("/login")
         }
     }
-
-    console.log(token.length)
     
     return (
         <>
@@ -71,14 +69,14 @@ export default function TabProdutos({ produtoVar, idUserVar }: { produtoVar: Pro
                         <Box display={+idUserVar !== produtoVar.usuario?.id ? 'none' : 'flex'} justifyContent='space-between' alignItems='center' width='100%' style={{ marginTop: '1em' }}>
                             <Link to={`/deletarproduto/${produtoVar.id}`} className="text-decorator-none">
                                 <Box className="input4" mx={1}>
-                                    <Button variant="contained" size='small' style={{ backgroundColor: '#973838', color: '#F6F4EB' }}>
+                                    <Button variant="contained" style={{ backgroundColor: '#973838', color: '#F6F4EB', width: '100px' }}>
                                         Deletar
                                     </Button>
                                 </Box>
                             </Link>
                             <Link to={`/cadastrar_produto/${produtoVar.id}`} className="text-decorator-none" >
                                 <Box mx={1}>
-                                    <Button variant="contained" className="marginLeft" size='small' style={{ backgroundColor: '#bb872c', color: '#F6F4EB' }} >
+                                    <Button variant="contained" className="marginLeft" style={{ backgroundColor: '#bb872c', color: '#F6F4EB', width: '100px' }} >
                                         Atualizar
                                     </Button>
                                 </Box>

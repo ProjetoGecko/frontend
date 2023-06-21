@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     /* Paleta de Cores */
     --cor1: #F6F4EB;
     --cor2: #F4F8D4;
@@ -14,4 +14,14 @@
     --fonte-escura: var(--cor8);
     --fonte-clara: var(--cor1);
     --fonte-titulo: var(--cor6);
+}
+
+#sobre {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    padding-left: 12vw;
+    padding-right: 12vw;
 }

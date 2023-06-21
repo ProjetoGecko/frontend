@@ -1,39 +1,55 @@
-.swiper {
-    margin-top: 75px;
-    width: 950px;
-    height: 355px;
-    margin-bottom: 75px !important;
-    border-radius: 1rem;
-    
-  }
-  
-  .swiper-slide img {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-     object-position: 50% 20%; 
-  }
-  
+@media (max-width: 1000px) {
   .swiper {
-
-    margin-right: auto;
+    width: 700px;
   }
-  .mySwiper {
-  
- 
-    background-color: transparent;
-    
-    }
-    .mySwiper .swiper-pagination-bullet {
-      background-color: #55A630; /* substitua #ff0000 pela cor desejada */
-      margin-bottom: -0.85rem !important;
-    }
-    .mySwiper .swiper-button-next,
-.mySwiper .swiper-button-prev {
-  color: #55A630; 
 }
+
+@media (min-width: 1000px) {
+  .swiper {
+    width: 950px;
+  }
+}
+
+.swiper {
+  margin-top: 75px;
+  height: 355px;
+  margin-bottom: 75px !important;
+  border-radius: 1rem;
+
+}
+
+.swiper-slide img {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.swiper {
+
+  margin-right: auto;
+}
+
+.mySwiper {
+
+
+  background-color: transparent;
+
+}
+
+.mySwiper .swiper-pagination-bullet {
+  background-color: #55A630;
+  /* substitua #ff0000 pela cor desejada */
+  margin-bottom: -0.85rem !important;
+}
+
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  color: #55A630;
+}
+
 .mySwiper .swiper-slide img {
   display: block;
   margin: 0 auto;

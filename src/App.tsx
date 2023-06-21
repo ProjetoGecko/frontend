@@ -17,7 +17,6 @@ import { Provider } from 'react-redux'
 import store from './store/Store'
 import DeletarProduto from './components/produtos/deletar/DeletarProduto'
 import DeletarCategoria from './components/categorias/deletar/DeletarCategoria'
-import ContatoForm from './components/contato/ContatoForm'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Produtos from './pages/Produtos/Produtos'
@@ -40,7 +39,7 @@ function App() {
             <CarrinhoProvider>
             <Routes>
               <Route path='/' element={<Home />} />
-              <Route path='/sobre' element={<><Sobre /><Contato /></>} />
+              <Route path='/sobre' element={<Sobre />} />
               <Route path='/Login' element={<Login />} />
               <Route path='/Cadastrar' element={<Cadastrar />} />
               <Route path='/Cadastrar_produto' element={<CadastrarProduto />} />
@@ -51,7 +50,7 @@ function App() {
               <Route path='/Cadastrar_produto/:id' element={<CadastrarProduto />} />
               <Route path='/Cadastrar_categoria/:id' element={<CadastrarCategoria />} />
               <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
-              <Route path="/contato" element={<ContatoForm />} />
+              <Route path="/contato" element={<Contato />} />
               <Route path="/meus_produtos" element={<MeusProdutos />} />
               <Route path='/chat' element={<MycChatbot/>} />
               <Route path='/Carrinho' element={<Carrinho/>} />

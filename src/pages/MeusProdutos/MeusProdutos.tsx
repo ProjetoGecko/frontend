@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import Produto from '../../models/Produto'
 import { busca } from '../../services/Service'
 import { UserState } from '../../store/token/Reducer'
-import TabProdutos from '../../components/tabProdutos/TabProdutos'
+import TabProdutos from '../../components/produtos/tabProdutos/TabProdutos'
 import { Grid, Typography, Box, Button } from '@mui/material'
 import { Link } from 'react-router-dom'
 
@@ -54,7 +54,7 @@ function MeusProdutos() {
                     display={produtos.filter(produto => produto.usuario?.id == +idUser).length != 0 ? 'none' : 'flex'}
                     flexDirection='column' justifyContent='center' alignItems='center' gap={5}
                 >
-                    <Typography variant='body1' color='textPrimary'>Você não possui produtos ainda. Faça um anúncio!</Typography>
+                    <Typography textAlign='center' variant='body1' color='textPrimary'>Você não possui produtos ainda. Faça um anúncio!</Typography>
                     <Link to="/cadastrar_produto">
                         <Button variant="contained">Cadastrar Produto</Button>
                     </Link>

@@ -1,120 +1,34 @@
-import React from 'react'
-import { Box, Grid, Typography } from '@mui/material'
-import LinkedInIcon from '@material-ui/icons/LinkedIn'
-import GitHubIcon from '@material-ui/icons/GitHub'
-import './Contato.css'
+import React, { useState, useEffect, ChangeEvent } from 'react'
+import { Container, Typography, TextField, Button, Grid, Box } from "@mui/material"
+import { RiMailSendLine } from 'react-icons/ri'
 
 function Contato() {
+
     return (
-        <>
-            <Grid id='contato' container>
-                <Typography color='primary' variant='h2' className='contato-titulo'>Equipe</Typography>
-                <Grid item container xs={12} style={{ gap: '80px' }}>
-                    <Grid item container className='contato-container' flexDirection={{ xs: 'column', md: 'row' }}>
-                        <Grid item xs={3}>
-                            <Box className='contato-cards'>
-                                <img src="https://avatars.githubusercontent.com/u/111209237?v=4" alt="Foto Bruno" />
-                                <Typography color='secondary' variant='h5' className='contato-nome'>Bruno Kauã</Typography>
-                                <Box display='flex' style={{ gap: '15%' }}>
-                                    <a href='https://www.linkedin.com/in/bruno-kaua-655a6922a/' target='_blank'>
-                                        <LinkedInIcon className='contato-icon' />
-                                    </a>
-                                    <a href='https://github.com/brunokauaal' target='_blank'>
-                                        <GitHubIcon className='contato-icon' />
-                                    </a>
-                                </Box>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Box className='contato-cards'>
-                                <img src="https://avatars.githubusercontent.com/u/108534306?v=4" alt="Foto Jeanine" />
-                                <Typography color='secondary' variant='h5' className='contato-nome'>Jeanine Santiago</Typography>
-                                <Box display='flex' style={{ gap: '15%' }}>
-                                    <a href='https://www.linkedin.com/in/jeanine-santiago/' target='_blank'>
-                                        <LinkedInIcon className='contato-icon' />
-                                    </a>
-                                    <a href='https://github.com/Jeanine19' target='_blank'>
-                                        <GitHubIcon className='contato-icon' />
-                                    </a>
-                                </Box>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Box className='contato-cards'>
-                                <img src="https://avatars.githubusercontent.com/u/38157485?v=4" alt="Foto Júlia" />
-                                <Typography color='secondary' variant='h5' className='contato-nome'>Julia Valerio</Typography>
-                                <Box display='flex' style={{ gap: '15%' }}>
-                                    <a href='https://www.linkedin.com/in/julia-valerio/' target='_blank'>
-                                        <LinkedInIcon className='contato-icon' />
-                                    </a>
-                                    <a href='https://github.com/JuliaValerio' target='_blank'>
-                                        <GitHubIcon className='contato-icon' />
-                                    </a>
-                                </Box>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Box className='contato-cards'>
-                                <img src="https://avatars.githubusercontent.com/u/60018504?v=4" alt="Foto Kaique" />
-                                <Typography color='secondary' variant='h5' className='contato-nome'>Kaique Ferreira</Typography>
-                                <Box display='flex' style={{ gap: '15%' }}>
-                                    <a href='https://www.linkedin.com/in/kaiqueferreiras/' target='_blank'>
-                                        <LinkedInIcon className='contato-icon' />
-                                    </a>
-                                    <a href='https://github.com/kaiqueferr' target='_blank'>
-                                        <GitHubIcon className='contato-icon' />
-                                    </a>
-                                </Box>
-                            </Box>
-                        </Grid>
-                    </Grid>
-                    <Grid item container className='contato-container'>
-                        <Grid item xs={3}>
-                            <Box className='contato-cards'>
-                                <img src="https://avatars.githubusercontent.com/u/127215137?v=4" alt="Foto Ketelyn" />
-                                <Typography color='secondary' variant='h5' className='contato-nome'>Ketelyn Medina</Typography>
-                                <Box display='flex' style={{ gap: '15%' }}>
-                                    <a href='https://www.linkedin.com/in/ketelynmedina/' target='_blank'>
-                                        <LinkedInIcon className='contato-icon' />
-                                    </a>
-                                    <a href='https://github.com/KetelynMM' target='_blank'>
-                                        <GitHubIcon className='contato-icon' />
-                                    </a>
-                                </Box>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Box className='contato-cards'>
-                                <img src="https://avatars.githubusercontent.com/u/126706460?v=4" alt="Foto Laís" />
-                                <Typography color='secondary' variant='h5' className='contato-nome'>Laís Sales</Typography>
-                                <Box display='flex' style={{ gap: '15%' }}>
-                                    <a href='https://www.linkedin.com/in/lsalesxavier/' target='_blank'>
-                                        <LinkedInIcon className='contato-icon' />
-                                    </a>
-                                    <a href='https://github.com/laiszz' target='_blank'>
-                                        <GitHubIcon className='contato-icon' />
-                                    </a>
-                                </Box>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Box className='contato-cards'>
-                                <img src="https://avatars.githubusercontent.com/u/115517598?v=4" alt="Foto Letícia" />
-                                <Typography color='secondary' variant='h5' className='contato-nome'>Letícia Oliveira</Typography>
-                                <Box display='flex' style={{ gap: '15%' }}>
-                                    <a href='https://www.linkedin.com/in/leticiaj/' target='_blank'>
-                                        <LinkedInIcon className='contato-icon' />
-                                    </a>
-                                    <a href='https://github.com/leticiaoj' target='_blank'>
-                                        <GitHubIcon className='contato-icon' />
-                                    </a>
-                                </Box>
-                            </Box>
-                        </Grid>
-                    </Grid>
-                </Grid>
+        <Grid container my={5} maxWidth='100vw' minHeight='85vh' display='flex' justifyContent='center' alignItems='center'>
+            <Grid item xs={10} sm={8} md={6}>
+                <form method='POST' action="https://getform.io/f/18d01646-0902-4333-8a36-8c1d05c63681">
+                    <Typography gutterBottom variant="h4" color="primary" textAlign="center" >Vamos conversar? 😊</Typography>
+                    <TextField id="nome" label="Nome" variant="outlined" name="nome" margin="normal" fullWidth />
+                    <TextField id="email" label="E-mail" variant="outlined" name="email" margin="normal" fullWidth />
+                    <TextField 
+                    id="mensagem" 
+                    label="Mensagem" 
+                    variant="outlined" 
+                    name="mensagem" 
+                    margin="normal" 
+                    fullWidth 
+                    multiline
+                    rows={4} />
+                    <Box display='flex' gap='5%'>
+                        <Button sx={{ marginTop: '16px' }} type="submit" variant="contained" color="primary" fullWidth>
+                            Enviar <RiMailSendLine style={{ marginLeft: '1em' }} size={20} />
+                        </Button>
+                    </Box>
+                </form>
             </Grid>
-        </>
+        </Grid>
+
     )
 }
 

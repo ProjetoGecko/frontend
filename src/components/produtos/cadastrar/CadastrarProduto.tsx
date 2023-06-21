@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Form, Link, useNavigate, useParams } from 'react-router-dom'
 import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormControlLabel, FormLabel, FormHelperText, Radio, RadioGroup, Box, Grid, Card, CardHeader, CardContent, CardMedia } from "@mui/material";
 import Produto from '../../../models/Produto'
 import Categoria from '../../../models/Categoria'
@@ -142,7 +142,7 @@ function CadastrarProduto() {
     } else {
         descricao_valido = true
     }
-    if (produto.preco < 0 || isNaN(produto.preco)) {
+    if (produto.preco <= 0 || isNaN(produto.preco)) {
         preco_valido = false
     } else {
         preco_valido = true
@@ -243,8 +243,8 @@ function CadastrarProduto() {
     return (
         <>
             <Grid container display='flex' justifyContent='space-evenly' alignItems='center' marginY={10}>
-                <Grid item xs={4}>
-                    <form onSubmit={onSubmit}>
+                <Grid item xs={12} md={6} display='flex' justifyContent='center'>
+                    <form onSubmit={onSubmit} style={{ width: '75%' }}>
                         <Typography variant="h4" color="primary" component="h1" align="center" mb={2}>{id !== undefined ? 'Atualizar anúncio' : 'Novo anúncio'}</Typography>
                         <TextField
                             value={produto.nome}
@@ -277,7 +277,7 @@ function CadastrarProduto() {
                                 <FormHelperText error>* Digite uma descrição.</FormHelperText> :
                                 <FormHelperText error>* Descrição muito longa.</FormHelperText>)}
                         <TextField
-
+                            value={produto.preco == 0 ? '' : produto.preco}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)}
                             id="preco"
                             label="Preço"
@@ -344,7 +344,7 @@ function CadastrarProduto() {
                                 <Select
                                     id='select-categoria'
                                     value={produto.categoria?.id !== undefined ? produto.categoria?.id : ''}
-                                    sx={{ width: '15vw' }}
+                                    fullWidth
                                     onChange={(e) => busca(`/categorias/${e.target.value}`, setCategoria, {
                                         headers: {
                                             'Authorization': token
@@ -378,8 +378,7 @@ function CadastrarProduto() {
                         </Box>
                     </form>
                 </Grid>
-                <Grid item xs={5} display='flex' justifyContent='center' sx={{
-                    width: '100%',
+                <Grid item md={6} display={{ xs: 'none', md: 'flex' }} justifyContent='center' sx={{
                     backgroundImage: 'url(https://img.lovepik.com/58pic/32/52/01/158PIC258PICCck69k6b7992d_PIC2018.png)',
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: '100%',

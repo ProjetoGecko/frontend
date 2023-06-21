@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 import Produto from "../../../models/Produto"
 import { busca } from "../../../services/Service"
 import { UserState } from "../../../store/token/Reducer"
-import TabProdutos from "../../tabProdutos/TabProdutos"
+import TabProdutos from "../tabProdutos/TabProdutos"
 
 function ListarProdutos({ filter, preco, search, categoria }: { filter: string, preco: string[], search: string, categoria: string }) {
     const [produtos, setProdutos] = useState<Produto[]>([])

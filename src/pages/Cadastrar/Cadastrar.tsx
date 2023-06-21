@@ -137,12 +137,11 @@ export default function SignUp() {
   }
 
   return (
-    <Grid container component='main' sx={{ minHeight: "100vh" }} position='static'>
+    <Grid container component='main' sx={{ minHeight: "80vh" }} position='static'>
       <Grid
         item
         xs={false}
-        sm={4}
-        md={7}
+        md={6}
         sx={{
           backgroundImage: "url(https://i.ibb.co/dmTDd6d/gecko-login.jpg)",
           backgroundRepeat: "no-repeat",
@@ -153,26 +152,26 @@ export default function SignUp() {
       <Grid
         item
         xs={12}
-        sm={8}
-        md={5}
+        md={6}
         component={Paper}
         elevation={6}
         square
+        py={10}
         sx={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          alignItems: 'center'
+          alignItems: 'center',
+          textAlign: 'center'
         }}
       >
         <Box
           sx={{
-            marginY: 8,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            width: '25vw'
+            width: '75%'
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: '#25812D' }}>
@@ -215,7 +214,7 @@ export default function SignUp() {
                 {foto_valido ?
                   '' :
                   (user.foto.length == 0 ?
-                    <FormHelperText error>* Insira o link de uma foto.</FormHelperText> :
+                    <FormHelperText error>* Insira um link.</FormHelperText> :
                     <FormHelperText error>* Link inválido.</FormHelperText>)}
               </Grid>
               <Grid item xs={12}>
