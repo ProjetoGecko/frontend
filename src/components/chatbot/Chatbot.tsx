@@ -104,7 +104,7 @@ function MycChatbot() {
                 { value: "oqGecko", label: "O que é o Gecko?", trigger: "oqGecko" },
                 { value: "pqGecko", label: "Por que comprar no Gecko?", trigger: "pqGecko" },
                 { value: "nomeGecko", label: "Qual o significado do nome 'Gecko'?", trigger: "nomeGecko" },
-                { value: "prodGecko", label: "Por que comprar os produtos da marca Gecko?", trigger: "prodGecko" },
+                { value: "prodGecko", label: "Qual o diferencial dos produtos da marca Gecko?", trigger: "prodGecko" },
             ]
         },
         {
@@ -131,7 +131,7 @@ function MycChatbot() {
         {
             id: "prodGecko",
             message:
-                "Comprando os itens da marca Gecko, você contribui para a preservação do Planeta Terra, visto que nossos itens são sustentáveis. Além disso, temos como missão direcionar os lucros da Gecko a projetos ambientais. Logo, você consegue ajudar o mundo de formas diferentes com nossos produtos!",
+                "Comprando os itens da marca Gecko, você contribui para a preservação do Planeta Terra, visto que nossos itens são sustentáveis. Além disso, temos como missão direcionar os lucros da Gecko a projetos ambientais. Logo, o diferencial da Gecko é que a marca permite que você ajude o mundo de maneiras diferentes com nossos produtos!",
             trigger: "newQuestion",
         },
 
