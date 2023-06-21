@@ -104,6 +104,7 @@ function MycChatbot() {
                 { value: "oqGecko", label: "O que é o Gecko?", trigger: "oqGecko" },
                 { value: "pqGecko", label: "Por que comprar no Gecko?", trigger: "pqGecko" },
                 { value: "nomeGecko", label: "Qual o significado do nome 'Gecko'?", trigger: "nomeGecko" },
+                { value: "prodGecko", label: "Por que comprar os produtos da marca Gecko?", trigger: "prodGecko" },
             ]
         },
         {
@@ -124,6 +125,13 @@ function MycChatbot() {
             id: "nomeGecko",
             message:
                 "O nome do nosso e-commerce foi inspirado no lagarto Gecko, que equilibra o ecossistema árido onde habita, sendo um símbolo de resiliência em um local inóspito. Nossa proposta é contribuir para o equilíbrio da Terra, em um momento em que o meio ambiente passa por um caos devido à poluição no geral. Por isso, promovemos práticas de produção e consumo responsáveis, a fim de que todos possam deixar suas pegadas verdes no mundo.",
+            trigger: "newQuestion",
+        },
+
+        {
+            id: "prodGecko",
+            message:
+                "Comprando os itens da marca Gecko, você contribui para a preservação do Planeta Terra, visto que nossos itens são sustentáveis. Além disso, temos como missão direcionar os lucros da Gecko a projetos ambientais. Logo, você consegue ajudar o mundo de formas diferentes com nossos produtos!",
             trigger: "newQuestion",
         },
 
