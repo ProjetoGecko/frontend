@@ -1,41 +1,41 @@
-.navbar{
+.navbar {
     width: 100vw;
     height: 70px;
-    background-color: var(--cor5)!important;
+    background-color: var(--cor5) !important;
     overflow-x: hidden;
 }
 
-.menunav{
+.menunav {
     color: #F6F4EB;
 }
 
-.menunav:hover{
-    color:#456747;
+.menunav:hover {
+    color: #456747;
 }
 
 .menunav-nome {
     color: #F6F4EB;
+    text-transform: none !important;
 }
 
-.logonav{
+.logonav {
     color: #F6F4EB;
 }
 
-.login{
+.login {
     color: #F6F4EB;
 }
 
-.login:hover{
-    color:#456747;
+.login:hover {
+    color: #456747;
 }
 
-.carrinho{
+.carrinho {
     color: #F6F4EB;
-    font-size: xx-large!important;
+    font-size: xx-large !important;
     transform: scaleX(-1);
 }
 
-.carrinho:hover{
-    color:#456747;
+.carrinho:hover {
+    color: #456747;
 }
-

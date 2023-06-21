@@ -22,9 +22,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Produtos from './pages/Produtos/Produtos'
 import MeusProdutos from './pages/MeusProdutos/MeusProdutos'
 import MycChatbot from './components/chatbot/Chatbot';
-import FloatingButton from './components/FloatingButton/FloatingButton';
 import MeuPerfil from './pages/MeuPerfil/MeuPerfil'
-import PgCarrinho from './pages/Carrinho/PgCarrinho';
 import Carrinho from './components/Carrinho/Carrinho';
 import { CarrinhoProvider } from './store/CarrinhoContext/CarrinhoContext';
 
@@ -37,24 +35,25 @@ function App() {
           <BrowserRouter>
             <Navbar />
             <CarrinhoProvider>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/sobre' element={<Sobre />} />
-              <Route path='/Login' element={<Login />} />
-              <Route path='/Cadastrar' element={<Cadastrar />} />
-              <Route path='/Cadastrar_produto' element={<CadastrarProduto />} />
-              <Route path='/Cadastrar_Categoria' element={<CadastrarCategoria />} />
-              <Route path='/Listar_produtos' element={<Produtos />} />
-              <Route path='/Listar_Categorias' element={<ListarCategorias />} />
-              <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
-              <Route path='/Cadastrar_produto/:id' element={<CadastrarProduto />} />
-              <Route path='/Cadastrar_categoria/:id' element={<CadastrarCategoria />} />
-              <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
-              <Route path="/contato" element={<Contato />} />
-              <Route path="/meus_produtos" element={<MeusProdutos />} />
-              <Route path='/chat' element={<MycChatbot/>} />
-              <Route path='/Carrinho' element={<Carrinho/>} />
-            </Routes>
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/sobre' element={<Sobre />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/cadastrar' element={<Cadastrar />} />
+                <Route path='/cadastrar_produto' element={<CadastrarProduto />} />
+                <Route path='/cadastrar_categoria' element={<CadastrarCategoria />} />
+                <Route path='/listar_produtos' element={<Produtos />} />
+                <Route path='/cistar_categorias' element={<ListarCategorias />} />
+                <Route path="/deletar_produto/:id" element={<DeletarProduto />} />
+                <Route path='/cadastrar_produto/:id' element={<CadastrarProduto />} />
+                <Route path='/cadastrar_categoria/:id' element={<CadastrarCategoria />} />
+                <Route path="/deletar_categoria/:id" element={<DeletarCategoria />} />
+                <Route path="/contato" element={<Contato />} />
+                <Route path="/meus_produtos" element={<MeusProdutos />} />
+                <Route path='/chat' element={<MycChatbot />} />
+                <Route path='/carrinho' element={<Carrinho />} />
+                <Route path='/meu_perfil' element={<MeuPerfil />} />
+              </Routes>
             </CarrinhoProvider>
             <Footer />
           </BrowserRouter>

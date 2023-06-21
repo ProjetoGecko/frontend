@@ -53,7 +53,7 @@ function ListarCategorias() {
                                         {truncateString(categorias.descricao, 150)}
                                     </Typography>
                                     <Box display='flex' justifyContent='space-between' alignItems='center' width='100%' style={{ marginTop: '1em' }}>
-                                        <Link to={`/deletarCategoria/${categorias.id}`} className="text-decorator-none">
+                                        <Link to={`/deletar_categoria/${categorias.id}`} className="text-decorator-none">
                                             <Box className="input4" mx={1}>
                                                 <Button variant="contained" size='small' style={{ backgroundColor: '#973838', color: 'white' }}>
                                                     Deletar

@@ -257,10 +257,10 @@ export default function SignUp() {
                 <TextField
                   value={confirmarSenha}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
-                  name="senha"
-                  label="Confirmar Senha"
+                  name="confirmar_senha"
+                  label="Confirme sua senha"
                   type="password"
-                  id="senha"
+                  id="confirmar_senha"
                   autoComplete="new-password"
                   fullWidth
                   required

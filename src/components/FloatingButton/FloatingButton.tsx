@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import './FloatingButton.css'
 import { useNavigate } from "react-router-dom";
 
@@ -10,14 +10,11 @@ const FloatingButton: React.FC = () => {
 
   return (
     <div >
-
-
-        <div>
+      <div>
         <button onClick={handleClick} className="floating-button">
-      +
-    </button>
-        </div>
-
+          +
+        </button>
+      </div>
     </div>
   );
 };
