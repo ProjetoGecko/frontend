@@ -14,7 +14,7 @@ function Home() {
         <Grid alignItems="center" item xs={12} md={6} px={6}>
           <Box>
             <Typography className="TituloHome" variant="h3" mb={8} align="center" color="primary">Seja bem vinde!</Typography>
-            <Typography variant="body1" gutterBottom align="justify" color="secondary">Bem-vinde ao Gecko, o Marketplace de Compras Conscientes, inspirado na ODS 12 - Consumo e Produção Responsáveis. Aqui, você encontrará uma variedade de produtos sustentáveis, provenientes de marcas com práticas éticas. Além disso, no Gecko, você também pode vender produtos usados e sustentáveis, promovendo a economia circular e contribuindo para a redução do desperdício. Faça suas compras de forma consciente e junte-se a nós para transformar o mundo com escolhas responsáveis!</Typography>
+            <Typography variant="body1" gutterBottom align="justify" color="secondary">Bem-vinde ao Gecko, um marketplace de compras conscientes, inspirado na ODS 12 - Consumo e Produção Responsáveis, da ONU. Aqui, você encontrará uma variedade de produtos sustentáveis, provenientes de marcas com práticas éticas. Além disso, no Gecko, você também pode vender produtos usados e sustentáveis, promovendo a economia circular e contribuindo para a redução do desperdício. Faça suas compras de forma consciente e junte-se a nós para transformar o mundo com escolhas responsáveis!</Typography>
           </Box>
           <Box display="flex" justifyContent="center" paddingTop={4}>
             <Link to='/listar_produtos'>
